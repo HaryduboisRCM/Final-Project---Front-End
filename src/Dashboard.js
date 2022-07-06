@@ -17,6 +17,7 @@ import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 
+
 function Dashboard(props) {
   const [profiles, cProfiles] = useState([]);
   const [current, cCurrent] = useState(undefined);
