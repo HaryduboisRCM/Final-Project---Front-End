@@ -17,8 +17,9 @@ import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 
+
 function Dashboard(props) {
-  const [events, cEvents] = useState([]);
+  const [profiles, cProfiles] = useState([]);
   const [current, cCurrent] = useState(undefined);
   const [img, setImg] = useState();
 
@@ -30,15 +31,15 @@ function Dashboard(props) {
 
 
   const refreshList = () => {
-    props.client.getEvents().then((response) => cEvents(response.data));
+    props.client.getProfiles().then((response) => cProfiles(response.data));
   };
 
-  const removeEvent = (id) => {
-    props.client.removeEvent(id).then(() => refreshList());
+  const removeProfile = (id) => {
+    props.client.removeProfile(id).then(() => refreshList());
   };
 
-  const updateEvent = (event) => {
-    cCurrent(event);
+  const updateProfile = (profile) => {
+    cCurrent(profile);
   };
 
   useEffect(() => {
@@ -46,7 +47,7 @@ function Dashboard(props) {
   }, []);
 
   const buildrows = () => {
-    return events.map((current) => {
+    return profiles.map((current) => {
       return (
         <tr key={current._id}>
           <td>{current.userName}</td>        
@@ -62,8 +63,8 @@ function Dashboard(props) {
           <td>{current.portfolio}</td>
           <td>
           <div className = "add-submit">
-            <button  className = "login-submit2"  onClick={() => removeEvent(current._id)}> remove</button>
-            <button  className = "login-submit2"  onClick={() => updateEvent(current)}> update</button>
+            <button  className = "login-submit2"  onClick={() => removeProfile(current._id)}> remove</button>
+            <button  className = "login-submit2"  onClick={() => updateProfile(current)}> update</button>
           </div>
           </td>
         </tr>
@@ -73,7 +74,7 @@ function Dashboard(props) {
       
       );
     });
-    console.log(events);
+    console.log(profiles);
   };
 
   return (
@@ -159,7 +160,7 @@ function Dashboard(props) {
                       refreshList();
                       cCurrent(undefined);
                     }}
-                    currentEvent={current}
+                    currentProfile={current}
                   />
                 </div>
             </div>

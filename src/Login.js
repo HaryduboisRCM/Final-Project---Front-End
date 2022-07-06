@@ -27,7 +27,7 @@ function Login(props) {
     <div className="loginarea">
       <br /><br /><br /><br /><br /><br />
       <div className="loginpage-header">
-        Event Search
+        Graduate Profile
       </div>
         <br />
         <br />
