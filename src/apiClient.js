@@ -43,7 +43,6 @@ export class ApiClient {
   login(userName,password) {
     console.log(userName, password);
     return this.apiCall("post", `${url}auth`, {userName: userName, password: password});
-   
   }
 
   getEvents() {
@@ -51,15 +50,15 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addEvent(userName, courseTitle, fullName, email, contactNumber) {
-    return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber });
+  addEvent(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
+    return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio });
   }
 
   removeEvent(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateEvent(id, userName, courseTitle, fullName, email, contactNumber) {
-    return this.authenticatedCall("put", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber });
+  updateEvent(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
+    return this.authenticatedCall("put", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio });
   }
 }
