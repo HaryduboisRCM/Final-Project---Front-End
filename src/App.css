@@ -1,0 +1,174 @@
+
+:root {
+  --primary:#29395a;
+  --secondary:#405780;
+  --third:#9ab6ff;
+  --forth:#ffc885;
+  --fith:#f85800;
+
+  --sixth:#30405c;
+  --seventh:#4495aa;
+  --eighth:#96a4c9;
+  --ninth:#f3b546;
+  --tenth:#f27659;
+}
+
+
+body {
+  height:1010px;
+
+    background-color:  var(--primary);
+             
+                /* animation: gradient 10s ease infinite; */
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&family=Poppins:wght@200;300;400;500;600&display=swap');
+
+
+
+
+/* /*************Main Page CSS*******************************************************************************************************************/
+
+
+.mainContainer {
+  background-color: white;
+  margin: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 750px;
+  padding:20px;
+  font-family: poppins;
+ 
+}
+
+
+
+/* /*************Column 1 - Profile Image and Social Media*******************************************************************************************************************/
+
+.column1 {
+  display: inline-block;
+  background-color: purple;
+  justify-content: center;  
+}
+
+.image {
+  background-color: grey;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.socialMedia {
+  margin: 20px;
+}
+
+.socialSpacing {
+  padding: 20px;
+}
+
+
+
+
+
+
+
+/* /*************Column 2 Main - Profiler Information - Name, Title*******************************************************************************************************************/
+
+.column2 {
+  background-color: red;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+
+
+/* /*************Column 2 Section 1 - User input data information form*****************************************************************************************************************/
+
+.column2Section1 {
+  background-color: green;
+  display:inline-block;
+  margin: 20px;
+  padding: 20px;
+  align-items: center;
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  
+}
+
+
+
+
+
+/* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
+.column2Section2 {
+  background-color: blue;
+  display:inline-block;
+  margin: 20px;
+  padding: 20px;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.mainpage-header {
+    display: flex;
+    justify-content: center;
+    font-family: Staatliches, cursive;
+    font-size: 60px;
+    text-decoration: underline;
+}
+.update-event {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.event-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Staatliches, cursive;
+
+    padding-left: 150px;
+    height: auto;
+
+}
+.addForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: Staatliches, cursive;
+
+}
+
+
+table { 
+  border-collapse:collapse; 
+  
+}
+
+th {
+  justify-content: left;
+  margin: 0px;
+  padding-right: 100px;
+}
+
+
+td { 
+  border-top: 1px solid #000; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+ */
