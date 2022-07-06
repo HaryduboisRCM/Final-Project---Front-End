@@ -15,7 +15,7 @@ function Login(props) {
       props.loggedIn(response.data.token);
     })
     .catch ( (error) => {
-      alert("An eeror has occured, pleae try again later");
+      alert("An error has occurred, please try again later");
       console.log("Login error", error);
       cDisabled(false);
     })

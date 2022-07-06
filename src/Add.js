@@ -42,7 +42,7 @@ function Add(props) {
         props.refreshList();
       })
       .catch(() => {
-        alert("error occured -incorrect input format, please try again");
+        alert("error occurred -incorrect input format, please try again");
         cDisabled(false);
       });
   };

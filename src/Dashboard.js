@@ -11,6 +11,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 // import Link from 'react-bootstrap/Link'
 import Add from './Add';
+import Login from './Login';
 
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
