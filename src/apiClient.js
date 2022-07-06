@@ -45,20 +45,20 @@ export class ApiClient {
     return this.apiCall("post", `${url}auth`, {userName: userName, password: password});
   }
 
-  getEvents() {
+  getProfiles() {
     console.log(this.token);
     return this.authenticatedCall("get", url);
   }
 
-  addEvent(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
+  addProfile(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
     return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio });
   }
 
-  removeEvent(id) {
+  removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateEvent(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
+  updateProfile(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
     return this.authenticatedCall("put", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio });
   }
 }
