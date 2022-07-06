@@ -53,7 +53,13 @@ function Dashboard(props) {
           <td>{current.courseTitle}</td>
           <td>{current.fullName}</td>
           <td>{current.email}</td>
-          <td>{current.contactNumber}</td>
+          <td>{current.contactNumber}</td>        
+          <td>{current.city}</td>
+          <td>{current.bio}</td>
+          <td>{current.skills}</td>
+          <td>{current.linkedIn}</td>
+          <td>{current.gitHub}</td>
+          <td>{current.portfolio}</td>
           <td>
           <div className = "add-submit">
             <button  className = "login-submit2"  onClick={() => removeEvent(current._id)}> remove</button>
@@ -67,6 +73,7 @@ function Dashboard(props) {
       
       );
     });
+    console.log(events);
   };
 
   return (
