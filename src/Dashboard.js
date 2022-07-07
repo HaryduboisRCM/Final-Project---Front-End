@@ -15,6 +15,7 @@ import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
+import Login from './Login';
 
 function Dashboard(props) {
   const [events, cEvents] = useState([]);
