@@ -21,12 +21,23 @@ function Dashboard(props) {
   const [events, cEvents] = useState([]);
   const [current, cCurrent] = useState(undefined);
   const [img, setImg] = useState();
+  const [file, setFile] = useState();
 
   // Allow a user to insert an image of themsleves
   const onImageChange = (e) => {
     const [file] = e.target.files;
     setImg(URL.createObjectURL(file));
   };
+
+  const onFileChange = (e) => {
+    const [file] = e.target.files;
+    setFile(URL.createObjectURL(file));
+  };
+
+  // const onFileChange = event => { 
+  //   // Update the state 
+  //   this.setState({ selectedFile: event.target.files[0] }); 
+  // }; 
 
 
   const refreshList = () => {
@@ -120,7 +131,11 @@ function Dashboard(props) {
           </div>
           <div className = "socialSpacing">        
             <img src={CV} width="50" height="50" alt="TDA logo"/>
-            <input type="text" placeholder ="Upload your CV"/>                   
+            {/* <input type="text" placeholder ="Upload your CV"/> */}
+            <input type="file" onChange={onFileChange} /> 
+            <button> 
+              Upload
+            </button> 
           </div>
           <div className = "socialSpacing">            
             <img src={LinkedIn} width="50" height="50" alt="TDA logo"/>
