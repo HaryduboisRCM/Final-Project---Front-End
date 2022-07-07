@@ -11,6 +11,8 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 // import Link from 'react-bootstrap/Link'
 import Add from './Add';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import FileUpload from "./FileUpload";
 
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
@@ -137,6 +139,7 @@ function Dashboard(props) {
               Upload
             </button> 
           </div>
+
           <div className = "socialSpacing">            
             <img src={LinkedIn} width="50" height="50" alt="TDA logo"/>
             <input type="text" placeholder ="Add your Personal Portfolio Website"/>                   
