@@ -29,6 +29,7 @@ function App() {
           <Button  variant="secondary" onClick={logout} size="sm">
             Log Out
           </Button>
+          
         </Row>
         </>
       ) : (
