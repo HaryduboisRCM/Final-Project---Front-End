@@ -48,7 +48,7 @@
     font-family: Roboto, Arial;
 }
 .login-submit {
-    background: linear-gradient(-45deg, #264653,  #2a9d8f,  #e9c46a,  #f4a261, #e76f51);
+    background: linear-gradient(-45deg,  #2a9d8f,  #e9c46a,  #f4a261, #e76f51);
     border-width: 3px;
     border-radius: 50px;
     color: #ffffff;
@@ -62,7 +62,7 @@
 }
 
 .login-submit2 {
-  background: linear-gradient(-45deg, #264653,  #2a9d8f,  #e9c46a,  #f4a261, #e76f51);
+  background: linear-gradient(-45deg,  #2a9d8f,  #e9c46a,  #f4a261, #e76f51);
   border-width: 3px;
   border-radius: 50px;
   color: #ffffff;
