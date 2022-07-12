@@ -26,7 +26,6 @@ body {
 
 
 
-
 /* /*************Main Page CSS*******************************************************************************************************************/
 
 
@@ -99,16 +98,50 @@ body {
 
 
 
+/* /*************Output Card*******************************************************************************************************************/
 
+.card {
+  display: inline-block;
+  font-family: poppins;
+  font-size: 20px;
+}
 
-/* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
-.column2Section2 {
+.cols {
+ 
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+}
+
+.col1 {
+  width:525px;
+  background-color: lightblue;
+}
+
+.col2 {
+  width: 525px;
+  background-color: blue;
+}
+
+.row3 {
+  justify-content: center;
+  background-color: pink;
+  /* align-items: center; */
+}
+
+.fieldSpace {
+
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+/* .column2Section2 {
   background-color: blue;
   display:inline-block;
-  margin: 20px;
-  padding: 20px;
+  /* margin: 20px;*/
+  /* padding: 20px; 
   align-items: center;
-}
+} */ 
 
 
 

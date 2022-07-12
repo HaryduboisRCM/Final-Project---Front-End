@@ -20,7 +20,8 @@ function Add(props) {
         e.target.skills.value,
         e.target.linkedIn.value,
         e.target.gitHub.value,
-        e.target.portfolio.value);
+        e.target.portfolio.value,
+        e.target.employed.value);
     } else {
       result = props.client.addProfile(
         e.target.uName.value,
@@ -33,7 +34,8 @@ function Add(props) {
         e.target.skills.value,
         e.target.linkedIn.value,
         e.target.gitHub.value,
-        e.target.portfolio.value);
+        e.target.portfolio.value,
+        e.target.employed.value);
     }
     result
       .then(() => {
@@ -47,12 +49,16 @@ function Add(props) {
       });
   };
 
+   const [visible, setVisible] = useState(true);
+
   return (
     <>
+ 
       {props.currentProfile ? "Update" : ""}
       <br />
-
-      <form onSubmit={(e) => submitHandler(e)} id="addForm">
+      {visible &&
+      <form id="addForm"  onSubmit={(e) => {submitHandler(e); setVisible(true)}}>
+        <div>
         Username: <br />
         <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
         <br />
@@ -86,13 +92,19 @@ function Add(props) {
         portfolio:       
         <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
         <br />
+        portfolio:       
+        <input type="text" defaultValue={props.currentProfile?.employed}  name="employed" disabled={disabled}/>     
+        <br />
+        </div> 
+
         <div className = "add-submit">
-          <button className = "login-submit" type="submit" disabled={disabled}>
+
+          <button className = "login-submit" >
             {" "}
             Submit{" "}
           </button>
         </div>
-      </form>
+      </form> }
     </>
   );
 }
