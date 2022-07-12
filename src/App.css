@@ -92,9 +92,24 @@ body {
   margin: 20px;
   padding: 20px;
   align-items: center;
+  justify-content: space-around;
   /* flex-direction: row; */
   /* justify-content: center; */
   
+}
+
+.form-col-one{
+  width: 50%;
+  float:left;
+  justify-content: space-around;  
+} 
+
+.add-submit{
+  padding-top: 15px;
+}
+
+.sub-entry{
+  padding-left: 15px;
 }
 
 
@@ -109,6 +124,7 @@ body {
   padding: 20px;
   align-items: center;
 }
+
 
 
 

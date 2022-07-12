@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from "react-bootstrap/Card"
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
@@ -51,48 +52,103 @@ function Add(props) {
     <>
       {props.currentProfile ? "Update" : ""}
       <br />
-
+      <div class="Card">
+        <div class="Card-body">
+         <card>
+          <card-body>
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
-        Username: <br />
+        <div class="form-col-one">
+        Username:
+        <br />
         <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
         <br />
-        Course Title: <br />
+        <br />     
+
+        Course Title: 
+        <br />
         <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" disabled={disabled}/>       
         <br />
-        Full Name: <br />
+        <br />  
+
+        Full Name: 
+        <br />
         <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" disabled={disabled}/>
-        <br />  
-        Email:     
+        <br /> 
+        <br />   
+
+        Email: 
+        <br />    
         <input type="text" defaultValue={props.currentProfile?.email} name="email" disabled={disabled}/>     
-         <br />
+        <br />
+        <br />  
+
          Contact Number:
+        <br />
         <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" disabled={disabled}/>
+        <br /> 
         <br />  
-        City:       
+
+        City:
+        <br />       
         <input type="text" defaultValue={props.currentProfile?.city} name="city" disabled={disabled}/>     
-         <br />
-        Personal Bio:      
-        <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
-         <br />
-        Skills:      
-        <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}/>     
-         <br />  
-         linkedIn:       
-        <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" disabled={disabled} />     
-         <br />  
-         gitHub:     
-        <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub"  disabled={disabled} />     
+        <br />
         <br />  
-        portfolio:       
+        </div>
+      
+
+        <div class="form-col-one">
+          <div class="sub-entry">
+        Personal Bio: 
+        <br />     
+        <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
+        <br />
+        <br />  
+
+        Skills: 
+        <br />     
+        <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}/>     
+        <br />
+        <br />    
+
+         linkedIn: 
+        <br />      
+        <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" disabled={disabled} />     
+        <br />
+        <br />    
+
+         gitHub: 
+        <br />    
+        <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub"  disabled={disabled} />     
+        <br />
+        <br />    
+
+        portfolio: 
+        <br />      
         <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
         <br />
+        <br />  
+        </div>
+
         <div className = "add-submit">
           <button className = "login-submit" type="submit" disabled={disabled}>
-            {" "}
-            Submit{" "}
+            {" "}Submit{" "}
           </button>
         </div>
+       
+       
+        </div> 
+
+        {/* <div className = "add-submit">
+          <button className = "login-submit" type="submit" disabled={disabled}>
+            {" "}Submit{" "}
+          </button>
+        </div> */}
+        
       </form>
+      </card-body>
+      </card>
+      </div> 
+     </div> 
     </>
   );
 }

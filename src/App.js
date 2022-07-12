@@ -4,6 +4,7 @@ import { ApiClient } from "./apiClient";
 import Login from "./Login";
 import {Button, Row} from 'react-bootstrap';
 
+//Main App Functionality 
 function App() {
 
   const [token,changeToken] = useState(window.localStorage.getItem("token"));

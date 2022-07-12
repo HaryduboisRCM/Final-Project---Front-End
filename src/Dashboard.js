@@ -132,6 +132,9 @@ function Dashboard(props) {
             <img src={GitHub} width="50" height="50" alt="TDA logo"/>
             <input type="text" placeholder ="Add your GitHub Profile"/>                   
           </div>
+          <div className = "update-button">
+            <button  className = "update-button"  onClick={() => updateProfile(current)}> Update</button>
+          </div>
         </div>
       </div>
 
@@ -152,7 +155,7 @@ function Dashboard(props) {
           {/* /****Column 2/1 - User Input form***************************************************************************************************************/}  
           <Container className = "row col-md-8">
             <div className = "row column2Section1 col-md-4">
-            col2/1
+            About You
             {/* <Link to ={'/'} className="link">Profile</Link> */}
                 <div className = "addForm">
                   <Add
@@ -189,7 +192,6 @@ function Dashboard(props) {
             </div>
           </Container>
      </div>
-
   
 {/* /********************************************************************************************************************************/}      
     </Container>
