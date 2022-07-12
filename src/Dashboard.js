@@ -12,7 +12,6 @@ import Row from 'react-bootstrap/Row'
 // import Link from 'react-bootstrap/Link'
 import Add from './Add';
 import Login from './Login';
-import Card from 'react-bootstrap/Card'
 
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
@@ -24,23 +23,12 @@ function Dashboard(props) {
   const [profiles, cProfiles] = useState([]);
   const [current, cCurrent] = useState(undefined);
   const [img, setImg] = useState();
-  const [file, setFile] = useState();
 
   // Allow a user to insert an image of themsleves
   const onImageChange = (e) => {
     const [file] = e.target.files;
     setImg(URL.createObjectURL(file));
   };
-
-  const onFileChange = (e) => {
-    const [file] = e.target.files;
-    setFile(URL.createObjectURL(file));
-  };
-
-  // const onFileChange = event => { 
-  //   // Update the state 
-  //   this.setState({ selectedFile: event.target.files[0] }); 
-  // }; 
 
 
   const refreshList = () => {
@@ -59,59 +47,35 @@ function Dashboard(props) {
     refreshList();
   }, []);
 
-  const section1 = () => {
+  const buildrows = () => {
     return profiles.map((current) => {
       return (
-        <div key={current._id}>
-          <Card className = "col-md-2">
-            <div>
-              <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>
-              <div className = "fieldSpace"><strong>Email:</strong>   {current.email}</div>
-              <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>
-              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>
-            </div>
-            </Card>
-        </div>
+        <tr key={current._id}>
+          <td>{current.userName}</td>        
+          <td>{current.courseTitle}</td>
+          <td>{current.fullName}</td>
+          <td>{current.email}</td>
+          <td>{current.contactNumber}</td>        
+          <td>{current.city}</td>
+          <td>{current.bio}</td>
+          <td>{current.skills}</td>
+          <td>{current.linkedIn}</td>
+          <td>{current.gitHub}</td>
+          <td>{current.portfolio}</td>
+          <td>
+          <div className = "add-submit">
+            <button  className = "login-submit2"  onClick={() => removeProfile(current._id)}> remove</button>
+            <button  className = "login-submit2"  onClick={() => updateProfile(current)}> update</button>
+          </div>
+          </td>
+        </tr>
+
+
+
+      
       );
     });
-  };
-  const section2 = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-          <Card className = "col-md-2">
-            <div>
-              <div className = "fieldSpace"><strong>Full Bio:</strong>   {current.bio}</div>
-              <div className = "fieldSpace"><strong>List of Skills:</strong>   {current.skills}</div>
-              <div className = "fieldSpace"><strong>LinkedIn Account:</strong>   {current.linkedIn}</div>
-              <div className = "fieldSpace"><strong>gitHub Link:</strong>   {current.gitHub}</div>
-              <div className = "fieldSpace"><strong>Personal Portfolio Link:</strong>   {current.portfolio}</div>
-              <div className = "fieldSpace"><strong>Hired?:</strong>   {current.employed}</div>
-            </div>
-           </Card>
-        </div>
-      );
-    });
-  };
-  const [visibleOutput, setVisibleOutput] = useState(false);
-  const [visibleInput, setVisibleInput] = useState(true);
-  const section3 = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-          <Card className = "">
-              <div className = "add-submit">
-                <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
-                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>
-                {/* <button onClick={() => setVisible(true)}>Edit Profile</button>
-                <button onClick={() => setVisible(false)}>Hide</button> */}
-              </div>
-            </Card>
-        </div>
-      );
-    });
+    console.log(profiles);
   };
 
   return (
@@ -158,13 +122,8 @@ function Dashboard(props) {
           </div>
           <div className = "socialSpacing">        
             <img src={CV} width="50" height="50" alt="TDA logo"/>
-            {/* <input type="text" placeholder ="Upload your CV"/> */}
-            <input type="file" onChange={onFileChange} /> 
-            <button> 
-              Upload
-            </button> 
+            <input type="text" placeholder ="Upload your CV"/>                   
           </div>
-
           <div className = "socialSpacing">            
             <img src={LinkedIn} width="50" height="50" alt="TDA logo"/>
             <input type="text" placeholder ="Add your Personal Portfolio Website"/>                   
@@ -195,9 +154,8 @@ function Dashboard(props) {
 
           {/* /****Column 2/1 - User Input form***************************************************************************************************************/}  
           <Container className = "row col-md-8">
-          {visibleOutput && 
-            <div className = "row column2Section1 col-md-4" id = "inputForm">
-            About You
+            <div className = "row column2Section1 col-md-4">
+            col2/1
             {/* <Link to ={'/'} className="link">Profile</Link> */}
                 <div className = "addForm">
                   <Add
@@ -209,32 +167,29 @@ function Dashboard(props) {
                     currentProfile={current}
                   />
                 </div>
-            </div> }
+            </div>
 
 
             {/* /****Column 2/2 - Profile Display table***************************************************************************************************************/}    
-            <div className = "column2Section2 col-md-4" id = "outputForm">
-            {visibleInput &&  
-             <div className = "cols">
-              
-                <div className="col1 col-md-2">
-                  <div>{section1()}</div>
-                </div>
+            <div className = "column2Section2 col-md-4">
+            col2/2
+              {/* <Row>
+                <Col>
+                  Full Name
+                </Col>
+                <br></br>
+                <Col>
+                  Description
+                </Col>
+                <br></br>
+                <Col>
+                  City
+                </Col>
+                <br></br> */}
+              {/* </Row> */}
 
-                <div className="col2 col-md-2">
-                  <div>{section2()}</div>               
-                </div>     
-
-              </div>}
-
-
-
-              <div className="row3 col-md-4">
-                <div>{section3()}</div>
-              </div>
-
-              </div>     
-            
+              <tbody>{buildrows()}</tbody>
+            </div>
           </Container>
      </div>
   
