@@ -49,17 +49,20 @@ function Add(props) {
       });
   };
   
+
   // const [visible, setVisible] = useState(true);
+
 
   return (
     <>
       {props.currentProfile ? "Update" : ""}
       <br />
-   
+
       <div class="Card">
         <div class="Card-body">
          <card>
           <card-body>
+
 
           {/* {visible &&  */}
           
@@ -151,9 +154,9 @@ function Add(props) {
           </button>
         </div> */}
         
-      </form> 
+      </form>
       </card-body>
-      </card> 
+      </card>
       </div> 
      </div> 
     </>
