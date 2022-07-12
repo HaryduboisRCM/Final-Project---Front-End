@@ -22,6 +22,7 @@ function Add(props) {
         e.target.gitHub.value,
         e.target.portfolio.value,
         e.target.employed.value);
+
     } else {
       result = props.client.addProfile(
         e.target.uName.value,
