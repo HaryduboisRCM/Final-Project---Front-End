@@ -47,16 +47,19 @@ function Add(props) {
         cDisabled(false);
       });
   };
+  
+  const [visible, setVisible] = useState(true);
 
   return (
     <>
       {props.currentProfile ? "Update" : ""}
       <br />
+      {visible &&
       <div class="Card">
         <div class="Card-body">
          <card>
           <card-body>
-      <form onSubmit={(e) => submitHandler(e)} id="addForm">
+      <form onSubmit={(e) => {submitHandler(e); setVisible(true)}}>
         <div class="form-col-one">
         Username:
         <br />
@@ -144,11 +147,11 @@ function Add(props) {
           </button>
         </div> */}
         
-      </form>
+      </form> 
       </card-body>
-      </card>
+      </card> 
       </div> 
-     </div> 
+     </div> }
     </>
   );
 }
