@@ -95,18 +95,19 @@ function Dashboard(props) {
       );
     });
   };
+
   const [visibleOutput, setVisibleOutput] = useState(false);
   const [visibleInput, setVisibleInput] = useState(true);
+
+
   const section3 = () => {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
           <Card className = "">
               <div className = "add-submit">
-                <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
+                {/* <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button> */}
                 <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>
-                {/* <button onClick={() => setVisible(true)}>Edit Profile</button>
-                <button onClick={() => setVisible(false)}>Hide</button> */}
               </div>
             </Card>
         </div>
@@ -195,10 +196,11 @@ function Dashboard(props) {
 
           {/* /****Column 2/1 - User Input form***************************************************************************************************************/}  
           <Container className = "row col-md-8">
+
           {visibleOutput && 
+
             <div className = "row column2Section1 col-md-4" id = "inputForm">
-            About You
-            {/* <Link to ={'/'} className="link">Profile</Link> */}
+          
                 <div className = "addForm">
                   <Add
                     client={props.client}
@@ -226,7 +228,6 @@ function Dashboard(props) {
                 </div>     
 
               </div>}
-
 
 
               <div className="row3 col-md-4">

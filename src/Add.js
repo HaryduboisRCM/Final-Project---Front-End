@@ -54,92 +54,97 @@ function Add(props) {
     <>
       {props.currentProfile ? "Update" : ""}
       <br />
-      {visible &&
+   
       <div class="Card">
         <div class="Card-body">
          <card>
           <card-body>
-      <form onSubmit={(e) => {submitHandler(e); setVisible(true)}}>
+
+          {/* {visible &&  */}
+          
+      <form onSubmit={(e) => submitHandler(e)}>
+
         <div class="form-col-one">
-        Username:
-        <br />
-        <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
-        <br />
-        <br />     
+              Username:
+              <br />
+                 <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
+              <br />
+              <br />     
 
-        Course Title: 
-        <br />
-        <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" disabled={disabled}/>       
-        <br />
-        <br />  
+              Course Title: 
+              <br />
+                <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" disabled={disabled}/>       
+              <br />
+              <br />  
 
-        Full Name: 
-        <br />
-        <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" disabled={disabled}/>
-        <br /> 
-        <br />   
+              Full Name: 
+              <br />
+                <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" disabled={disabled}/>
+              <br /> 
+              <br />   
 
-        Email: 
-        <br />    
-        <input type="text" defaultValue={props.currentProfile?.email} name="email" disabled={disabled}/>     
-        <br />
-        <br />  
+              Email: 
+              <br />    
+                <input type="text" defaultValue={props.currentProfile?.email} name="email" disabled={disabled}/>     
+              <br />
+              <br />  
 
-         Contact Number:
-        <br />
-        <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" disabled={disabled}/>
-        <br /> 
-        <br />  
+              Contact Number:
+              <br />
+                <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" disabled={disabled}/>
+              <br /> 
+              <br />  
 
-        City:
-        <br />       
-        <input type="text" defaultValue={props.currentProfile?.city} name="city" disabled={disabled}/>     
-        <br />
-        <br />  
+              City:
+              <br />       
+                <input type="text" defaultValue={props.currentProfile?.city} name="city" disabled={disabled}/>     
+              <br />
+              <br />  
         </div>
       
 
         <div class="form-col-one">
           <div class="sub-entry">
-        Personal Bio: 
-        <br />     
-        <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
-        <br />
-        <br />  
+              Personal Bio: 
+              <br />     
+                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
+              <br />
+              <br />  
 
-        Skills: 
-        <br />     
-        <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}/>     
-        <br />
-        <br />    
+              Skills: 
+              <br />     
+               <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}/>     
+              <br />
+              <br />    
 
-         linkedIn: 
-        <br />      
-        <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" disabled={disabled} />     
-        <br />
-        <br />    
+              linkedIn: 
+              <br />      
+                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" disabled={disabled} />     
+              <br />
+              <br />    
 
-         gitHub: 
-        <br />    
-        <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub"  disabled={disabled} />     
-        <br />
-        <br />    
+              gitHub: 
+              <br />    
+                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub"  disabled={disabled} />     
+              <br />
+              <br />    
 
-        portfolio: 
-        <br />      
-        <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
-        <br />
-        <br />  
-        </div>
+              portfolio: 
+              <br />      
+                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
+              <br />
+              <br />  
+              </div>
 
-        <div className = "add-submit">
-          <button className = "login-submit" type="submit" disabled={disabled}>
-            {" "}Submit{" "}
-          </button>
-        </div>
-       
+                  
        
         </div> 
+
+        <div className = "add-submit">
+                <button className = "login-submit" type="submit" disabled={disabled}>
+                  {" "}Submit{" "}
+                </button>
+        </div>
 
         {/* <div className = "add-submit">
           <button className = "login-submit" type="submit" disabled={disabled}>
@@ -151,7 +156,7 @@ function Add(props) {
       </card-body>
       </card> 
       </div> 
-     </div> }
+     </div> 
     </>
   );
 }
