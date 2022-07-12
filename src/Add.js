@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card"
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
+  // const [uName, setuName] = useState();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -48,7 +49,7 @@ function Add(props) {
       });
   };
   
-  const [visible, setVisible] = useState(true);
+  // const [visible, setVisible] = useState(true);
 
   return (
     <>
@@ -62,7 +63,7 @@ function Add(props) {
 
           {/* {visible &&  */}
           
-      <form onSubmit={(e) => submitHandler(e)}>
+      <form onSubmit={(e) => submitHandler(e)} id="addForm">
 
         <div class="form-col-one">
               Username:
@@ -137,15 +138,13 @@ function Add(props) {
               </div>
 
                   
-       
-        </div> 
-
-        <div className = "add-submit">
+              <div className = "add-submit">
                 <button className = "login-submit" type="submit" disabled={disabled}>
                   {" "}Submit{" "}
                 </button>
-        </div>
+              </div>
 
+        </div> 
         {/* <div className = "add-submit">
           <button className = "login-submit" type="submit" disabled={disabled}>
             {" "}Submit{" "}
