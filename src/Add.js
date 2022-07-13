@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card"
+import MultiSelect from "react-multiple-select-dropdown-lite";
+import "react-multiple-select-dropdown-lite/dist/index.css";
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
@@ -48,10 +50,22 @@ function Add(props) {
         cDisabled(false);
       });
   };
-  
 
+  const [value, setvalue] = useState("");
+
+  const handleOnchange = (value) => setvalue(value);
+
+  console.log (handleOnchange)
+
+  const options = [
+    { label: "Option 1", value: "Option 1" },
+    { label: "Option 2", value: "Option 2" },
+    { label: "Option 3", value: "Option 3" },
+    { label: "Option 4", value: "Option 4" }
+  ];
+
+ 
   // const [visible, setVisible] = useState(true);
-
 
   return (
     <>
@@ -61,7 +75,7 @@ function Add(props) {
       <div class="Card">
         <div class="Card-body">
          <card>
-          <card-body>
+          <card-body>              
 
 
           {/* {visible &&  */}
@@ -116,8 +130,24 @@ function Add(props) {
               <br />  
 
               Skills: 
-              <br />     
-               <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}/>     
+              <br />    
+             
+              <div>
+                <label></label>
+                  <MultiSelect
+                    // className="multi-select"
+                    onChange={handleOnchange}
+                    options={options}                 
+                  />
+                  <br />
+
+                  <div>
+                    <b>Skills Selected: </b>
+                    {value}
+                  </div>
+                </div> 
+
+                <input type="text" defaultValue={value} name="skills" disabled={disabled}/>     
               <br />
               <br />    
 
@@ -164,3 +194,32 @@ function Add(props) {
 }
 
 export default Add;
+
+
+   {/* <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}></input> */}
+
+              {/* <label for="skills">Choose 5 Skills:</label>
+              <select name="skills" id="skills" multiple>
+              <option value="Teamwork">Teamwork</option>
+              <option value="GitHub">GitHub</option>
+              <option value="HTML">HTML</option> */}
+               {/* <option value="Javascript">Javascript</option>
+              <option value="CSS">CSS</option>
+              <option value="Bootstrap">Bootstrap</option>
+              <option value="PHP">PHP</option>
+              <option value="Flexbox">Flexbox</option>
+              <option value="OOP">OOP</option>
+              <option value="Paired Programming">Paired Programming</option>
+              <option value="TDD">TDD</option>
+              <option value="MongoDB">MongoDB</option>
+              <option value="SASS">SASS</option>
+              <option value="Agile">Agile</option>
+              <option value="API's">API's</option>
+              <option value="Express">Express</option>
+              <option value="Regular Expressions">Regular Expressions</option>
+              <option value="Node.JS">Node.JS</option>
+              <option value="Debugging">Debugging</option>
+              <option value="Project Management">Project Management</option>
+              </select>
+              <br /> */}
+
