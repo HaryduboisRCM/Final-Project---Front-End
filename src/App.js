@@ -1,5 +1,7 @@
 import React , {useState} from "react";
 import Dashboard from "./Dashboard";
+import EmployerDashboard from "./EmployerDashboard";
+import TDADashboard from "./TDADashboard";
 import { ApiClient } from "./apiClient";
 import Login from "./Login";
 import './Buttons.css';
@@ -31,6 +33,8 @@ function App() {
         </Button>
           
         <Dashboard client={client}  />
+        <EmployerDashboard client={client}  />
+        <TDADashboard client={client}  />
 
         <br></br>
         <Row>
