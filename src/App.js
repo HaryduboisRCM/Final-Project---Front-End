@@ -1,6 +1,7 @@
 import React , {useState} from "react";
 import Dashboard from "./Dashboard";
 import EmployerDashboard from "./EmployerDashboard";
+import TDAGradSearch from "./TDAGradSearch";
 import TDADashboard from "./TDADashboard";
 import { ApiClient } from "./apiClient";
 import Login from "./Login";
@@ -32,9 +33,10 @@ function App() {
           Log Out
         </Button>
           
-        <Dashboard client={client}  />
+        {/* <Dashboard client={client}  /> */}
         <EmployerDashboard client={client}  />
-        <TDADashboard client={client}  />
+        {/* <TDADashboard client={client}  /> */}
+        {/* <TDAGradSearch client={client}  /> */}
 
         <br></br>
         <Row>
