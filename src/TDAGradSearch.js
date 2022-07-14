@@ -118,20 +118,6 @@ function TDADashboard(props) {
   //  };
 
 
-  const section = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-          <Card className = "col-md-8">
-            <div>
-              <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
-            </div>
-            </Card>
-        </div>
-      );
-    });
-  };
 
   const section1 = () => {
     return profiles.map((current) => {
@@ -139,12 +125,11 @@ function TDADashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>
-              {/* <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div> */}
+              <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
+              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
               <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
-              <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>
-              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>
+              <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>              
             </div>
             </Card>
         </div>
@@ -157,10 +142,13 @@ function TDADashboard(props) {
       return (
         <div key={current._id}>
           <Card className = "col-md-2">
-            <div>             
+            <div>           
+              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
+              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>       
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
+              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>        
+          
             </div>
            </Card>
         </div>
@@ -175,11 +163,9 @@ function TDADashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>
+              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>
               <div className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</div>
               <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div>          
-              {/* <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn Account:</strong> {linkedIn()}</div>              
-              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub Link:</strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio Link:</strong> {personalPortfolio()}</div> */}
               <div className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</div>
             </div>
            </Card>
@@ -272,8 +258,15 @@ function TDADashboard(props) {
       <div className = "row  col-md-8">
 
         <Row>
-            <p>Search for Gradute by Full Name</p>
 
+            {/*create a new Gradute */}
+            <p>Create a new Gradute or search for an existing one: </p>
+            <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> Create New Gradute</button>
+
+            <br></br>
+            <br></br>
+
+            <p>Search for Gradute by Full Name</p>
             <input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/>
 
             <br></br>
@@ -282,6 +275,10 @@ function TDADashboard(props) {
             <button onClick={() =>  unfilters("Clear Filters")}> 
                 Clear Filter               
             </button>
+
+
+        
+
 
            
 
@@ -331,9 +328,9 @@ function TDADashboard(props) {
               </div>
               } 
 
-              <Row className="row3 col-md-4">
+              {/* <Row className="row3 col-md-4">
                 <div>{section3()}</div>
-              </Row>
+              </Row> */}
 
               </div>     
             

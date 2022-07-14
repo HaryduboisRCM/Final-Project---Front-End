@@ -33,10 +33,9 @@ function App() {
           Log Out
         </Button>
           
-        {/* <Dashboard client={client}  /> */}
+        <Dashboard client={client}  />
         {/* <EmployerDashboard client={client}  /> */}
-        {/* <TDADashboard client={client}  /> */}
-        <TDAGradSearch client={client}  />
+        {/* <TDAGradSearch client={client}  /> */}
 
         <br></br>
         <Row>
