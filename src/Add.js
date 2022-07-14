@@ -15,6 +15,7 @@ function Add(props) {
       result = props.client.updateProfile(
         props.currentProfile._id,
         e.target.uName.value,
+        // (uName) => setuName(uName),
         e.target.cTitle.value,
         e.target.fName.value,
         e.target.email.value,
@@ -27,6 +28,7 @@ function Add(props) {
         e.target.portfolio.value);
     } else {
       result = props.client.addProfile(
+        // (uName) => setuName(uName),
         e.target.uName.value,
         e.target.cTitle.value,
         e.target.fName.value,
@@ -55,16 +57,29 @@ function Add(props) {
 
   const handleOnchange = (value) => setvalue(value);
 
-  console.log (handleOnchange)
-
   const options = [
-    { label: "Option 1", value: "Option 1" },
-    { label: "Option 2", value: "Option 2" },
-    { label: "Option 3", value: "Option 3" },
-    { label: "Option 4", value: "Option 4" }
+    { label: "Teamwork", value: "Teamwork" },
+    { label: "GitHub", value: "GitHub" },
+    { label: "HTML", value: "HTML" },
+    { label: "Javascript", value: "Javascript" },
+    { label: "CSS", value: "CSS" },
+    { label: "Bootstrap", value: "Bootstrap" },
+    { label: "PHP", value: "PHP" },
+    { label: "Flexbox", value: "Flexbox" },
+    { label: "OOP", value: "OOP" },
+    { label: "Paired Programming", value: "Paired Programming" },
+    { label: "TDD", value: "TDD" },
+    { label: "MongoDB", value: "MongoDB" },
+    { label: "SASS", value: "SASS" },
+    { label: "Agile", value: "Agile" },
+    { label: "REST APIs", value: "REST APIs" },
+    { label: "Express", value: "Express" },
+    { label: "Regular Expressions", value: "Regular Expressions" },
+    { label: "Node.JS", value: "Node.JS" },
+    { label: "Debugging", value: "Debugging" },
+    { label: "Project Management", value: "Project Management" },
   ];
 
- 
   // const [visible, setVisible] = useState(true);
 
   return (
@@ -143,7 +158,7 @@ function Add(props) {
 
                   <div>
                     <b>Skills Selected: </b>
-                    {value}
+                    {/* {value} */}
                   </div>
                 </div> 
 
