@@ -44,7 +44,7 @@ function Dashboard(props) {
   //   this.setState({ selectedFile: event.target.files[0] }); 
   // }; 
 
-
+    
   const refreshList = () => {
     props.client.getProfiles().then((response) => cProfiles(response.data));
   };

@@ -22,6 +22,7 @@ import WebPort from "./webport.png";
 function TDADashboard(props) {
   const [profiles, cProfiles] = useState([]);
   const [current, cCurrent] = useState(undefined);
+  const [unfilter, unfilterProfiles] = useState([]);
   const [img, setImg] = useState();
   const [file, setFile] = useState();
 
@@ -41,10 +42,27 @@ function TDADashboard(props) {
   //   this.setState({ selectedFile: event.target.files[0] }); 
   // }; 
 
-
   const refreshList = () => {
-    props.client.getProfiles().then((response) => cProfiles(response.data));
+    props.client.getProfiles().then((response) => {
+
+    cProfiles(response.data)
+    unfilterProfiles(response.data)
+  
+    })
   };
+
+  const filters = (tech) => {
+    cProfiles ( profiles.filter(profiles => {
+      return profiles.fullName.toUpperCase().includes(tech);
+        }
+    ))
+  };
+
+  const unfilters = () => {
+    cProfiles (unfilter);
+    document.getElementById("search").value = "";
+  };
+
 
   const removeProfile = (id) => {
     props.client.removeProfile(id).then(() => refreshList());
@@ -251,14 +269,24 @@ function TDADashboard(props) {
 
       {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
     
-      <div className = " row  col-md-8">
+      <div className = "row  col-md-8">
 
         <Row>
-            <p>Search for Gradute by Name</p>
-            <label for="fname">Full name:</label>
-            <input type="text" id="fname" name="fname" placeholder="Search by Full Name..." size ="30"/>
-        </Row>
+            <p>Search for Gradute by Full Name</p>
 
+            <input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/>
+
+            <br></br>
+            <br></br>
+
+            <button onClick={() =>  unfilters("Clear Filters")}> 
+                Clear Filter               
+            </button>
+
+           
+
+          
+          </Row>
         <br></br>
 
         {/* <Row className="column2 col-md-2">
@@ -302,7 +330,6 @@ function TDADashboard(props) {
 
               </div>
               } 
-
 
               <Row className="row3 col-md-4">
                 <div>{section3()}</div>
