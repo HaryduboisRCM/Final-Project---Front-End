@@ -28,7 +28,7 @@ function Dashboard(props) {
   const [img, setImg] = useState();
   const [file, setFile] = useState();
 
-  // Allow a user to insert an image of themsleves
+  // // Allow a user to insert an image of themsleves
   const onImageChange = (e) => {
     const [file] = e.target.files;
     setImg(URL.createObjectURL(file));
@@ -62,6 +62,7 @@ function Dashboard(props) {
   }, []);
 
 
+
   const linkedIn = () => {
     return profiles.map((current) => {
       return (
@@ -87,6 +88,26 @@ function Dashboard(props) {
       return (
         <div key={current._id}>
             <a href={current.portfolio} target="_blank"> {current.portfolio} </a>
+       </div>
+       );
+     });
+   };
+
+   const image = () => {
+    return profiles.map((current) => {
+      return (
+        <div key={current._id}>
+            <a href={current.image} target="_blank"> {current.image} </a>
+       </div>
+       );
+     });
+   };
+
+   const cv = () => {
+    return profiles.map((current) => {
+      return (
+        <div key={current._id}>
+            <a href={current.cv} target="_blank"> {current.cv} </a>
        </div>
        );
      });
@@ -144,6 +165,8 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>             
+
+     
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
@@ -184,8 +207,9 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "">
               <div className = "add-submit">
-                <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
-                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>
+                {/* <button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</button>
+                <br></br> */}
+                <button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> Edit Profile</button>
                 {/* <button className = "login-submit2"  onClick={() => updateProfile(current)}> update</button> */}
               </div>
             </Card>
@@ -218,106 +242,95 @@ function Dashboard(props) {
 
 {/* /****Main Container*********************************************************************************************************************************/}
 
-<Container fluid className = " row mainContainer col-md-12">
+<Container fluid className = "mainContainer col-md-12">
 
-    
+      <Container className ="column1 col-md-4">
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
-      <div className =" column1 col-md-4">
-        <br></br> 
-          <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
-        <br></br> 
-          <input type="file" onChange={onImageChange} />
-        <br></br> 
-        <br></br> 
+      <div>
+          <br></br> 
+            <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
+          <br></br> 
+            <input type="file" onChange={onImageChange} />
+          <br></br> 
+          <br></br> 
 
-        {/* CV */}
+     
         <div className = "socialSpacing">        
-            <img src={CV} width="50" height="50" alt="TDA logo"/>
-            {/* <input type="text" placeholder ="Upload your CV"/> */}
-            <input type="file" onChange={onFileChange} /> 
-            <button> 
-              Upload
-            </button> 
+              <img src={CV} width="50" height="50" alt="TDA logo"/>          
+              <input type="file" onChange={onFileChange} /> 
+              <button> 
+                Upload
+              </button> 
+          </div>  
+         
+
+        <div className = "socialMedia">
+          {Media()}
         </div>
-        
-
-        {/* LinkedIn  */}
-       <div className = "socialMedia">
-
-       {Media()}
-
       </div>
 
-      </div>
-
-
+      </Container>
 
       {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
     
-      <div className = " row  col-md-8">
+      <Container className = "column2 col-md-8">
 
-            <Row className="column2 col-md-2">
-              <Col>{section()}</Col>
-            </Row>
+          <Row>
+            <Col>{section()}</Col>
+          </Row>
 
-        {/* <div className = >
-            col2
-            <br></br>
-            <br></br>
-            Full Name : Rachel Bennett
-            <br></br>
-            <br></br>
-            Job Title: Junior Web Developer
-        </div> */}
+          {/* /****Column 2 - User Input form***************************************************************************************************************/}  
+         <Container className = "column2Section1 col-md-8">
 
-          {/* /****Column 2/1 - User Input form***************************************************************************************************************/}  
-          <Container className = "row col-md-8">
+            {visibleOutput && 
 
-          {visibleOutput && 
+              <Row >
+            
+                  <Col className = "addForm">
+                    <Add
+                      client={props.client}
+                      refreshList={() => {
+                        refreshList();
+                        cCurrent(undefined);
+                      }}
+                      currentProfile={current}
+                    />
+                  </Col>
+              </Row> 
+              
+            }
 
-            <Row className = "row column2Section1 col-md-4" id = "inputForm">
-          
-                <Col className = "addForm">
-                  <Add
-                    client={props.client}
-                    refreshList={() => {
-                      refreshList();
-                      cCurrent(undefined);
-                    }}
-                    currentProfile={current}
-                  />
-                </Col>
-            </Row> }
+          </Container>
 
 
-            {/* /****Column 2/2 - Profile Display table***************************************************************************************************************/}    
-            <div className = "column2Section2 col-md-4" id = "outputForm">
+            {/* /****Column 2 - Profile Display table***************************************************************************************************************/}   
+            <Container className = "column2Section2 col-md-8"> 
 
-            {visibleInput &&  
+              {visibleInput &&  
 
-             <div className = "cols">
+                <div className = "cols">
+                
+                    <Row className="col1 col-md-4">
+                      <Col>{section1()}</Col>
+                    </Row>
+           
+                    <Row className="col2 col-md-4">
+                      <Col>{section2()}</Col>
+                    </Row>
 
-                <Row className="col1 col-md-2">
-                  <Col>{section1()}</Col>
-                </Row>
-
-                <Row className="col2 col-md-2">
-                  <Col>{section2()}</Col>
-                </Row>
-
-              </div>
+                </div>
               } 
 
+             
+                <Row className="row3 col-md-4">
+                  <div>{section3()}</div>
+                </Row> 
 
-              <Row className="row3 col-md-4">
-                <div>{section3()}</div>
-              </Row>
+            </Container> 
 
-              </div>     
-            
-          </Container>
-     </div>
+
+  </Container>
   
 {/* /********************************************************************************************************************************/}      
     </Container>
