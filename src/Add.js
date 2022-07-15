@@ -7,6 +7,22 @@ function Add(props) {
   const [disabled, cDisabled] = useState(false);
   // const [uName, setuName] = useState();
 
+  const [img, setImg] = useState();
+  const [file, setFile] = useState();
+
+  // Allow a user to insert an image of themsleves
+  const onImageChange = (e) => {
+    const [file] = e.target.files;
+    setImg(URL.createObjectURL(file));
+  };
+
+
+  const onFileChange = (e) => {
+    const [file] = e.target.files;
+    setFile(URL.createObjectURL(file));
+  };
+
+
   const submitHandler = (e) => {
     e.preventDefault();
     cDisabled(true);
@@ -25,7 +41,9 @@ function Add(props) {
         e.target.skills.value,
         e.target.linkedIn.value,
         e.target.gitHub.value,
-        e.target.portfolio.value);
+        e.target.portfolio.value,
+        e.target.image.value,
+        e.target.cv.value,);
     } else {
       result = props.client.addProfile(
         // (uName) => setuName(uName),
@@ -39,7 +57,9 @@ function Add(props) {
         e.target.skills.value,
         e.target.linkedIn.value,
         e.target.gitHub.value,
-        e.target.portfolio.value);
+        e.target.portfolio.value,
+        e.target.image.value,
+        e.target.cv.value);
     }
     result
       .then(() => {
@@ -84,20 +104,23 @@ function Add(props) {
 
   return (
     <>
+
+
+
       {props.currentProfile ? "Update" : ""}
       <br />
 
-      <div class="Card">
-        <div class="Card-body">
-         <card>
-          <card-body>              
+      <div className="Card">
+        <div className="Card-body">
+         <Card>
+          <Card-Body>              
 
 
           {/* {visible &&  */}
           
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
 
-        <div class="form-col-one">
+        <div className="form-col-one">
               Username:
               <br />
                  <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
@@ -136,8 +159,8 @@ function Add(props) {
         </div>
       
 
-        <div class="form-col-one">
-          <div class="sub-entry">
+        <div className="form-col-one">
+          <div className="sub-entry">
               Personal Bio: 
               <br />     
                 <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
@@ -183,6 +206,23 @@ function Add(props) {
                 <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
               <br />
               <br />  
+        
+
+              Image: 
+              <br /> 
+              <input type="file" onChange={onImageChange} />    
+              <input type="text" defaultValue={props.currentProfile?.image}  name="cv" disabled={disabled}/>       
+                          
+              <br />
+              <br />  
+        
+              change
+
+              cv: 
+              <br />      
+                <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>     
+              <br />
+              <br />  
               </div>
 
                   
@@ -200,8 +240,8 @@ function Add(props) {
         </div> */}
         
       </form>
-      </card-body>
-      </card>
+      </Card-Body>
+      </Card>
       </div> 
      </div> 
     </>

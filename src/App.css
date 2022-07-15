@@ -15,7 +15,7 @@
 
 
 body {
-  height:1010px;
+  height:1040px;
 
     background-color:  var(--primary);
              
@@ -34,7 +34,7 @@ body {
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
-  height: 750px;
+  height: 800px;
   padding:20px;
   font-family: poppins;
  
@@ -44,14 +44,17 @@ body {
 
 /* /*************Column 1 - Profile Image and Social Media*******************************************************************************************************************/
 
+
+
 .column1 {
   display: inline-block;
-  background-color: grey;
-  justify-content: center;  
+  flex-wrap: wrap;
+  background-color: var(--seventh);
+  width: 30%;
 }
 
 .image {
-  background-color: grey;
+  background-color: var(--seventh);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -74,9 +77,12 @@ body {
 /* /*************Column 2 Main - Profiler Information - Name, Title*******************************************************************************************************************/
 
 .column2 {
-  background-color: red;
-  /* flex-direction: row; */
-  align-items: center;
+  background-color: white;
+  display: inline-block;
+  width: 66%;
+  border: black solid;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
@@ -85,14 +91,12 @@ body {
 /* /*************Column 2 Section 1 - User input data information form*****************************************************************************************************************/
 
 .column2Section1 {
-  background-color: green;
-  display:inline-block;
-  margin: 20px;
-  padding: 20px;
+  background-color:   var(--secondary);
+  display: inline-block; 
+  /* margin: 20px; */
+  /* padding: 20px; */
   align-items: center;
-  justify-content: space-around;
-  /* flex-direction: row; */
-  /* justify-content: center; */
+  width: 100%;
   
 }
 
@@ -104,6 +108,8 @@ body {
 
 .add-submit{
   padding-top: 15px;
+  padding-left: 15px;
+  justify-content: space-between;
 }
 
 .sub-entry{
@@ -116,11 +122,12 @@ body {
 
 /* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
 .column2Section2 {
-  background-color: blue;
-  display:inline-block;
-  margin: 20px;
-  padding: 20px;
+  background-color: var(--ninth);
+  display: inline-block; 
+  align-items: center;
   width: 100%;
+  padding-bottom: 20px;
+
 }
 
 .card {
@@ -131,26 +138,16 @@ body {
 }
 
 .cols {
-
   display: flex;
   align-items: center;
-
 }
 
 .col1 {
   width:50%;
-  background-color: lightblue;
 }
 
 .col2 {
   width: 50%;
-  background-color: blue;
-}
-
-.row3 {
-  justify-content: center;
-  background-color: pink;
-  /* align-items: center; */
 }
 
 .fieldSpace {
@@ -160,68 +157,8 @@ body {
 }
 
 
-
-
-
 .select {
 
   padding: 50px;
-
 }
 
-
-
-
-
-
-/* 
-.mainpage-header {
-    display: flex;
-    justify-content: center;
-    font-family: Staatliches, cursive;
-    font-size: 60px;
-    text-decoration: underline;
-}
-.update-event {
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-}
-.event-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-family: Staatliches, cursive;
-
-    padding-left: 150px;
-    height: auto;
-
-}
-.addForm {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-family: Staatliches, cursive;
-
-}
-
-
-table { 
-  border-collapse:collapse; 
-  
-}
-
-th {
-  justify-content: left;
-  margin: 0px;
-  padding-right: 100px;
-}
-
-
-td { 
-  border-top: 1px solid #000; 
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
- */

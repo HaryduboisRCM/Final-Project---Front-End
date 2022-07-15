@@ -276,13 +276,6 @@ function TDADashboard(props) {
                 Clear Filter               
             </button>
 
-
-        
-
-
-           
-
-          
           </Row>
         <br></br>
 
