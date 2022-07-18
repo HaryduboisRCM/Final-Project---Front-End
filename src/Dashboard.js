@@ -20,6 +20,7 @@ import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 import WebPort from "./webport.png";
+// import { PickerOverlay } from 'filestack-react';
 
 
 function Dashboard(props) {
@@ -61,6 +62,12 @@ function Dashboard(props) {
     refreshList();
     console.log(props)
   }, []);
+
+//   <PickerOverlay
+//   apikey={AmYEocDZSRbOwoISVx42lz}
+//   onSuccess={(res) => console.log(res)}
+//   onUploadDone={(res) => console.log(res)}
+// />
 
 
 

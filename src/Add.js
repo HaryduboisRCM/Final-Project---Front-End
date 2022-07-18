@@ -13,8 +13,7 @@ function Add(props) {
   // Allow a user to insert an image of themsleves
   const onImageChange = (e) => {
     console.log(e.target.files[0].name)
-    const file = e.target.files;
-    console.log(file[0].name);
+    setImg (e.target.files[0].name);
     // setImg(URL.createObjectURL(file));
   };
 
@@ -42,7 +41,7 @@ function Add(props) {
         e.target.linkedIn.value,
         e.target.gitHub.value,
         e.target.portfolio.value,
-        e.target.files[0].name,
+        img,
         e.target.cv.value);
     } else {
       result = props.client.addProfile(
@@ -57,7 +56,7 @@ function Add(props) {
         e.target.linkedIn.value,
         e.target.gitHub.value,
         e.target.portfolio.value,
-        e.target.files[0].name,
+        img,
         e.target.cv.value);
     }
     result
