@@ -1,6 +1,6 @@
 import axios from "axios";
 // const url =  "http://localhost:3001";
-const url = "https://finalprojecttda.herokuapp.com/"; 
+const url = "https://graduateapp.herokuapp.com/"; 
 
 
 export class ApiClient {
@@ -50,15 +50,15 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addProfile(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
-    return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio });
+  addProfile(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, image, cv) {
+    return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, image, cv});
   }
 
   removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateProfile(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio) {
-    return this.authenticatedCall("put", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio });
+  updateProfile(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, image, cv) {
+    return this.authenticatedCall("put", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, image, cv});
   }
 }

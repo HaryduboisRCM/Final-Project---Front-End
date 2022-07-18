@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React, { Profiler, useState } from "react";
 import Card from "react-bootstrap/Card"
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
-  // const [uName, setuName] = useState();
+  const [uName, setuName] = useState();
 
   const [img, setImg] = useState();
   const [file, setFile] = useState();
 
   // Allow a user to insert an image of themsleves
   const onImageChange = (e) => {
-    const [file] = e.target.files;
-    setImg(URL.createObjectURL(file));
+    console.log(e.target.files[0].name)
+    const file = e.target.files;
+    console.log(file[0].name);
+    // setImg(URL.createObjectURL(file));
   };
 
-
-  const onFileChange = (e) => {
-    const [file] = e.target.files;
-    setFile(URL.createObjectURL(file));
-  };
+  // const onFileChange = (e) => {
+  //   const [file] = e.target.files;
+  //   setFile(URL.createObjectURL(file));
+  // };
 
 
   const submitHandler = (e) => {
@@ -31,7 +32,6 @@ function Add(props) {
       result = props.client.updateProfile(
         props.currentProfile._id,
         e.target.uName.value,
-        // (uName) => setuName(uName),
         e.target.cTitle.value,
         e.target.fName.value,
         e.target.email.value,
@@ -42,11 +42,10 @@ function Add(props) {
         e.target.linkedIn.value,
         e.target.gitHub.value,
         e.target.portfolio.value,
-        e.target.image.value,
-        e.target.cv.value,);
+        e.target.files[0].name,
+        e.target.cv.value);
     } else {
       result = props.client.addProfile(
-        // (uName) => setuName(uName),
         e.target.uName.value,
         e.target.cTitle.value,
         e.target.fName.value,
@@ -58,7 +57,7 @@ function Add(props) {
         e.target.linkedIn.value,
         e.target.gitHub.value,
         e.target.portfolio.value,
-        e.target.image.value,
+        e.target.files[0].name,
         e.target.cv.value);
     }
     result
@@ -206,18 +205,17 @@ function Add(props) {
                 <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
               <br />
               <br />  
-        
-
+          
               Image: 
               <br /> 
-              <input type="file" onChange={onImageChange} />    
-              <input type="text" defaultValue={props.currentProfile?.image}  name="cv" disabled={disabled}/>       
+            
+              {/* <input type="text" defaultValue={props.currentProfile?.image}  name="image" disabled={disabled}/>     */}
+              <input type="file" onChange={onImageChange}  />     
+              {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
                           
               <br />
               <br />  
-        
-              change
-
+                
               cv: 
               <br />      
                 <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>     

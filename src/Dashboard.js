@@ -29,15 +29,15 @@ function Dashboard(props) {
   const [file, setFile] = useState();
 
   // // Allow a user to insert an image of themsleves
-  const onImageChange = (e) => {
-    const [file] = e.target.files;
-    setImg(URL.createObjectURL(file));
-  };
+  // const onImageChange = (e) => {
+  //   const [file] = e.target.files;
+  //   setImg(URL.createObjectURL(file));
+  // };
 
-  const onFileChange = (e) => {
-    const [file] = e.target.files;
-    setFile(URL.createObjectURL(file));
-  };
+  // const onFileChange = (e) => {
+  //   const [file] = e.target.files;
+  //   setFile(URL.createObjectURL(file));
+  // };
 
   // const onFileChange = event => { 
   //   // Update the state 
@@ -59,6 +59,7 @@ function Dashboard(props) {
 
   useEffect(() => {
     refreshList();
+    console.log(props)
   }, []);
 
 
@@ -93,25 +94,25 @@ function Dashboard(props) {
      });
    };
 
-   const image = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-            <a href={current.image} target="_blank"> {current.image} </a>
-       </div>
-       );
-     });
-   };
+  //  const image = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //           <a href={current.image} target="_blank"> {current.image} </a>
+  //      </div>
+  //      );
+  //    });
+  //  };
 
-   const cv = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-            <a href={current.cv} target="_blank"> {current.cv} </a>
-       </div>
-       );
-     });
-   };
+  //  const cv = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //           <a href={current.cv} target="_blank"> {current.cv} </a>
+  //      </div>
+  //      );
+  //    });
+  //  };
 
   //  const email = () => {
   //   return profiles.map((current) => {
@@ -147,8 +148,7 @@ function Dashboard(props) {
             <div>
               {/* <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
               <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div> */}
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>
-       
+              <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
               <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>
               <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>
@@ -180,16 +180,19 @@ function Dashboard(props) {
 
   const section2 = () => {
     return profiles.map((current) => {
+      // console.log(current)
       return (
         <div key={current._id}>
-          <Card className = "col-md-2">
+          <Card >
             <div>
               <div className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</div>
               <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div>          
               {/* <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn Account:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub Link:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio Link:</strong> {personalPortfolio()}</div> */}
-              <div className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</div>
+              <div className = "fieldSpace"><strong>Hired?:</strong> {current.employed} </div>
+              <div className = "fieldSpace"><strong>Image URL:</strong> {current.image} </div>
+              <div className = "fieldSpace"><strong>CV File:</strong> {current.cv} </div>
             </div>
            </Card>
         </div>
@@ -207,8 +210,8 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "">
               <div className = "add-submit">
-                {/* <button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</button>
-                <br></br> */}
+                <button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</button>
+                <br></br> 
                 <button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> Edit Profile</button>
                 {/* <button className = "login-submit2"  onClick={() => updateProfile(current)}> update</button> */}
               </div>
@@ -248,20 +251,20 @@ function Dashboard(props) {
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
       <div>
-          <br></br> 
+          {/* <br></br> 
             <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
           <br></br> 
             <input type="file" onChange={onImageChange} />
           <br></br> 
-          <br></br> 
+          <br></br>  */}
 
      
         <div className = "socialSpacing">        
-              <img src={CV} width="50" height="50" alt="TDA logo"/>          
+              {/* <img src={CV} width="50" height="50" alt="TDA logo"/>          
               <input type="file" onChange={onFileChange} /> 
               <button> 
                 Upload
-              </button> 
+              </button>  */}
           </div>  
          
 
