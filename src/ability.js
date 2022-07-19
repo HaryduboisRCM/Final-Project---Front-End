@@ -13,7 +13,7 @@ function subjectName(item) {
 
 export default AbilityBuilder.define({ Graduate }, can => {
   can(['read', 'update'], 'Graduate')
-  can(['update', 'delete'], 'TDA', { assignee: 'me' })
+  can(['update', 'delete', 'read', 'create'], 'TDA', { assignee: 'me' })
 })
 
 // export default AbilityBuilder.define({ employer }, can => {

@@ -1,27 +1,31 @@
-import React, { Profiler, useState } from "react";
+import React, { Profiler, useState, useEffect } from "react";
 import Card from "react-bootstrap/Card"
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
-  const [uName, setuName] = useState();
+  // const [userName, setuserName] = useState(false);
 
   const [img, setImg] = useState();
-  const [file, setFile] = useState();
+  const [cvfile, setFile] = useState();
 
   // Allow a user to insert an image of themsleves
   const onImageChange = (e) => {
-    console.log(e.target.files[0].name)
-    const file = e.target.files;
-    console.log(file[0].name);
-    // setImg(URL.createObjectURL(file));
+    const img = e.target.files;
+    setImg(e.target.files[0].name);
   };
 
-  // const onFileChange = (e) => {
-  //   const [file] = e.target.files;
-  //   setFile(URL.createObjectURL(file));
+  const onFileChange = (e) => {
+    const cvfile = e.target.files;
+    setFile(e.target.files[0].name);
+  };
+
+  // const onUserChange = (e) => {
+  //   const userName = e.target.userName;
+  //   setFile(e.target.userName.value);
   // };
+
 
 
   const submitHandler = (e) => {
@@ -42,8 +46,8 @@ function Add(props) {
         e.target.linkedIn.value,
         e.target.gitHub.value,
         e.target.portfolio.value,
-        e.target.files[0].name,
-        e.target.cv.value);
+        img,
+        cvfile);
     } else {
       result = props.client.addProfile(
         e.target.uName.value,
@@ -57,8 +61,8 @@ function Add(props) {
         e.target.linkedIn.value,
         e.target.gitHub.value,
         e.target.portfolio.value,
-        e.target.files[0].name,
-        e.target.cv.value);
+        img,
+        cvfile);
     }
     result
       .then(() => {
@@ -104,8 +108,6 @@ function Add(props) {
   return (
     <>
 
-
-
       {props.currentProfile ? "Update" : ""}
       <br />
 
@@ -114,10 +116,11 @@ function Add(props) {
          <Card>
           <Card-Body>              
 
+          {/* window.location.reload(true) */}
 
           {/* {visible &&  */}
           
-      <form onSubmit={(e) => submitHandler(e)} id="addForm">
+      <form onSubmit={(e) => {submitHandler(e); /*setVisible();*/ }} id="addForm">
 
         <div className="form-col-one">
               Username:
@@ -206,19 +209,21 @@ function Add(props) {
               <br />
               <br />  
           
+
               Image: 
               <br /> 
-            
-              {/* <input type="text" defaultValue={props.currentProfile?.image}  name="image" disabled={disabled}/>     */}
-              <input type="file" onChange={onImageChange}  />     
+              <input type="file" onChange={onImageChange}  />    
+              {/* <input type="text" defaultValue={props.currentProfile?.[file]}  name="image" disabled={disabled}/>      */}
               {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
                           
               <br />
               <br />  
-                
+        
+        
               cv: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>     
+              <br />   
+              <input type="file" onChange={onFileChange}  />       
+                {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
               <br />
               <br />  
               </div>
@@ -231,13 +236,9 @@ function Add(props) {
               </div>
 
         </div> 
-        {/* <div className = "add-submit">
-          <button className = "login-submit" type="submit" disabled={disabled}>
-            {" "}Submit{" "}
-          </button>
-        </div> */}
-        
+ 
       </form>
+
       </Card-Body>
       </Card>
       </div> 
@@ -247,32 +248,4 @@ function Add(props) {
 }
 
 export default Add;
-
-
-   {/* <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}></input> */}
-
-              {/* <label for="skills">Choose 5 Skills:</label>
-              <select name="skills" id="skills" multiple>
-              <option value="Teamwork">Teamwork</option>
-              <option value="GitHub">GitHub</option>
-              <option value="HTML">HTML</option> */}
-               {/* <option value="Javascript">Javascript</option>
-              <option value="CSS">CSS</option>
-              <option value="Bootstrap">Bootstrap</option>
-              <option value="PHP">PHP</option>
-              <option value="Flexbox">Flexbox</option>
-              <option value="OOP">OOP</option>
-              <option value="Paired Programming">Paired Programming</option>
-              <option value="TDD">TDD</option>
-              <option value="MongoDB">MongoDB</option>
-              <option value="SASS">SASS</option>
-              <option value="Agile">Agile</option>
-              <option value="API's">API's</option>
-              <option value="Express">Express</option>
-              <option value="Regular Expressions">Regular Expressions</option>
-              <option value="Node.JS">Node.JS</option>
-              <option value="Debugging">Debugging</option>
-              <option value="Project Management">Project Management</option>
-              </select>
-              <br /> */}
 
