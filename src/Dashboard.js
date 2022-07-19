@@ -122,8 +122,7 @@ function Dashboard(props) {
       return (
         <div key={current._id}>
           <Card className = "col-md-2">
-            <div> 
-                         
+            <div>                          
               <div className = "fieldSpace"><strong>Image URL:</strong><img src={current.image} width="50px" height="50px"/> </div>                          
               <div className = "fieldSpace"><strong>CV File:</strong> <img src={current.cv} width="50px" height="50px"/></div>     
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
