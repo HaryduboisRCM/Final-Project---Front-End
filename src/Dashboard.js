@@ -123,8 +123,8 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>                          
-              <div className = "fieldSpace"><strong>Image URL:</strong><img src={current.image} width="50px" height="50px"/> </div>                          
-              <div className = "fieldSpace"><strong>CV File:</strong> <img src={current.cv} width="50px" height="50px"/></div>     
+              <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong>Profile Picture</strong></div>                          
+              <div className = "fieldSpace"><img src={current.cv} width="100px" height="100px"/> <br></br><strong>CV</strong></div>     
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
@@ -209,26 +209,14 @@ function Dashboard(props) {
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
       <div>
-      <div>
-      <img
-        src={"https://bobbyhadz.com/images/blog/react-prevent-multiple-button-clicks/thumbnail.webp"}
-        alt="car"
-      />
-    </div>
-
-     
+       
         <div className = "socialSpacing">        
-              {/* <img src={CV} width="50" height="50" alt="TDA logo"/>          
-              <input type="file" onChange={onFileChange} /> 
-              <button> 
-                Upload
-              </button>  */}
-          </div>  
+        </div>  
          
-
         <div className = "socialMedia">
           {Media()}
         </div>
+
       </div>
 
       </Container>
