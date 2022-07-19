@@ -1,66 +1,71 @@
-import React, { useState } from "react";
+import React, { Profiler, useState, useEffect } from "react";
 import Card from "react-bootstrap/Card"
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
+import { PickerOverlay, PickerDropPane, PickerInline   } from 'filestack-react';
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
-  // const [uName, setuName] = useState();
+  const [fields, setFields] = useState(false);
 
   const [img, setImg] = useState();
-  const [file, setFile] = useState();
+  const [cvfile, setFile] = useState();
 
   // Allow a user to insert an image of themsleves
-  const onImageChange = (e) => {
-    const [file] = e.target.files;
-    setImg(URL.createObjectURL(file));
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    const newState = {...fields}
+    newState [e.target.name] = e.target.value;
+    setFields(newState);
   };
-
 
   const onFileChange = (e) => {
-    const [file] = e.target.files;
-    setFile(URL.createObjectURL(file));
+    const cvfile = e.target.files;
+    setFile(e.target.files[0].name);
   };
+;
+
 
 
   const submitHandler = (e) => {
+    console.log(fields.uName)
     e.preventDefault();
     cDisabled(true);
     let result;
     if (props.currentProfile) {
+      console.log(fields,img,cvfile)
       result = props.client.updateProfile(
         props.currentProfile._id,
-        e.target.uName.value,
-        // (uName) => setuName(uName),
-        e.target.cTitle.value,
-        e.target.fName.value,
-        e.target.email.value,
-        e.target.cNumber.value,
-        e.target.city.value,
-        e.target.bio.value,
-        e.target.skills.value,
-        e.target.linkedIn.value,
-        e.target.gitHub.value,
-        e.target.portfolio.value,
-        e.target.image.value,
-        e.target.cv.value,);
+        fields.uName,
+        fields.cTitle,
+        fields.fName,
+        fields.email,
+        fields.cNumber,
+        fields.city,
+        fields.bio,
+        fields.skills,
+        fields.linkedIn,
+        fields.gitHub,
+        fields.portfolio,
+        img,
+        cvfile);
     } else {
       result = props.client.addProfile(
-        // (uName) => setuName(uName),
-        e.target.uName.value,
-        e.target.cTitle.value,
-        e.target.fName.value,
-        e.target.email.value,
-        e.target.cNumber.value,
-        e.target.city.value,
-        e.target.bio.value,
-        e.target.skills.value,
-        e.target.linkedIn.value,
-        e.target.gitHub.value,
-        e.target.portfolio.value,
-        e.target.image.value,
-        e.target.cv.value);
+        fields.uName,
+        fields.cTitle,
+        fields.fName,
+        fields.email,
+        fields.cNumber,
+        fields.city,
+        fields.bio,
+        fields.skills,
+        fields.linkedIn,
+        fields.gitHub,
+        fields.portfolio,
+        img,
+        cvfile);
     }
+
     result
       .then(() => {
         cDisabled(false);
@@ -68,14 +73,20 @@ function Add(props) {
         props.refreshList();
       })
       .catch(() => {
-        alert("error occurred -incorrect input format, please try again");
+        console.error("error occurred -incorrect input format, please try again");
         cDisabled(false);
+        props.refreshList();
       });
   };
 
   const [value, setvalue] = useState("");
 
-  const handleOnchange = (value) => setvalue(value);
+  const handleOnchange = (value) => {setvalue (value) 
+   const newState = {...fields}
+  //  console.log(newState)
+   newState ['skills'] = value;
+   setFields(newState);
+  };
 
   const options = [
     { label: "Teamwork", value: "Teamwork" },
@@ -100,13 +111,11 @@ function Add(props) {
     { label: "Project Management", value: "Project Management" },
   ];
 
-  // const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
 
   return (
     <>
-
-
-
+   
       {props.currentProfile ? "Update" : ""}
       <br />
 
@@ -115,45 +124,47 @@ function Add(props) {
          <Card>
           <Card-Body>              
 
+          {/* window.location.reload(true) */}
 
-          {/* {visible &&  */}
+          {visible && 
           
-      <form onSubmit={(e) => submitHandler(e)} id="addForm">
+      <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
         <div className="form-col-one">
               Username:
               <br />
-                 <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
+                 {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>   */}
+                  <input type="text" defaultValue={props.currentProfile?.userName} name="uName" onChange={(e) => handleChange(e)} />   
               <br />
               <br />     
 
               Course Title: 
               <br />
-                <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" disabled={disabled}/>       
+                <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
               <br />
               <br />  
 
               Full Name: 
               <br />
-                <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" disabled={disabled}/>
+                <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />   
 
               Email: 
               <br />    
-                <input type="text" defaultValue={props.currentProfile?.email} name="email" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
 
               Contact Number:
               <br />
-                <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" disabled={disabled}/>
+                <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />  
 
               City:
               <br />       
-                <input type="text" defaultValue={props.currentProfile?.city} name="city" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
         </div>
@@ -163,7 +174,7 @@ function Add(props) {
           <div className="sub-entry">
               Personal Bio: 
               <br />     
-                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
 
@@ -185,42 +196,55 @@ function Add(props) {
                   </div>
                 </div> 
 
-                <input type="text" defaultValue={value} name="skills" disabled={disabled}/>     
+                <input type="text" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />    
 
               linkedIn: 
               <br />      
-                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" disabled={disabled} />     
+                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
               <br />
               <br />    
 
               gitHub: 
               <br />    
-                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub"  disabled={disabled} />     
+                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
               <br />
               <br />    
 
               portfolio: 
               <br />      
-                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
-        
+          
 
               Image: 
               <br /> 
-              <input type="file" onChange={onImageChange} />    
-              <input type="text" defaultValue={props.currentProfile?.image}  name="cv" disabled={disabled}/>       
+              <PickerDropPane 
+                apikey={'AmYEocDZSRbOwoISVx42lz'}
+                onSuccess={(res) => setImg(res.filesUploaded[0].url)}
+                onUploadDone={(res) => console.log(res)}
+                />
+   
+              {/* <button className = "buttonspace updatebutton"  onClick={() => imagePicker()}> Choose File</button> */}
+              {/* <input type="file" onChange={onImageChange}  />     */}
+              {/* <input type="text" defaultValue={props.currentProfile?.[file]}  name="image" disabled={disabled}/>      */}
+              {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
                           
               <br />
               <br />  
         
-              change
-
+        
               cv: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>     
+              <br />   
+              <PickerDropPane 
+                apikey={'AmYEocDZSRbOwoISVx42lz'}
+                onSuccess={(res) => setFile(res.filesUploaded[0].url)}
+                onUploadDone={(res) => console.log(res)}
+                />
+              {/* <input type="file" onChange={onFileChange}  />        */}
+                {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
               <br />
               <br />  
               </div>
@@ -233,13 +257,9 @@ function Add(props) {
               </div>
 
         </div> 
-        {/* <div className = "add-submit">
-          <button className = "login-submit" type="submit" disabled={disabled}>
-            {" "}Submit{" "}
-          </button>
-        </div> */}
-        
+ 
       </form>
+}
       </Card-Body>
       </Card>
       </div> 
@@ -249,32 +269,4 @@ function Add(props) {
 }
 
 export default Add;
-
-
-   {/* <input type="text" defaultValue={props.currentProfile?.skills} name="skills" disabled={disabled}></input> */}
-
-              {/* <label for="skills">Choose 5 Skills:</label>
-              <select name="skills" id="skills" multiple>
-              <option value="Teamwork">Teamwork</option>
-              <option value="GitHub">GitHub</option>
-              <option value="HTML">HTML</option> */}
-               {/* <option value="Javascript">Javascript</option>
-              <option value="CSS">CSS</option>
-              <option value="Bootstrap">Bootstrap</option>
-              <option value="PHP">PHP</option>
-              <option value="Flexbox">Flexbox</option>
-              <option value="OOP">OOP</option>
-              <option value="Paired Programming">Paired Programming</option>
-              <option value="TDD">TDD</option>
-              <option value="MongoDB">MongoDB</option>
-              <option value="SASS">SASS</option>
-              <option value="Agile">Agile</option>
-              <option value="API's">API's</option>
-              <option value="Express">Express</option>
-              <option value="Regular Expressions">Regular Expressions</option>
-              <option value="Node.JS">Node.JS</option>
-              <option value="Debugging">Debugging</option>
-              <option value="Project Management">Project Management</option>
-              </select>
-              <br /> */}
 

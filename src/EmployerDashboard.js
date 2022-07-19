@@ -52,9 +52,18 @@ const section1 = () => {
           <Card className = "col-md-2">
          
             <tr key={current._id}>
+            <a href={current.image} target="_blank"> {current.image} </a>
                 <td>{current.fullName}</td>        
-                <td>{current.courseTitle}</td>       
-                <td>{current.skills}</td>           
+                <td>{current.courseTitle}</td>   
+                <td className = "fieldSpace"><strong>Email:</strong> {current.email}</td>
+                <td className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</td>
+                <td className = "fieldSpace"><strong>City:</strong>   {current.city}</td>    
+                <td>{current.skills}</td>  
+                <td className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</td>                  
+                <td><a href={current.linkedIn} target="_blank"> {current.linkedIn} </a></td>
+                <td><a href={current.gitHub} target="_blank"> {current.gitHub} </a> </td> 
+                <td><a href={current.portfolio} target="_blank"> {current.portfolio} </a>   </td>
+                <td><a href={current.cv} target="_blank"> {current.cv} </a>  </td>
             </tr>
             </Card>
 

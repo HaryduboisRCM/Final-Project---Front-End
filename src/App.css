@@ -80,7 +80,7 @@ body {
   background-color: white;
   display: inline-block;
   width: 66%;
-  border: black solid;
+  border: var(--primary) solid;
   padding-left: 20px;
   padding-right: 20px;
 }
