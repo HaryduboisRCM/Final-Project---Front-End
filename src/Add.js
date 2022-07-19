@@ -2,68 +2,70 @@ import React, { Profiler, useState, useEffect } from "react";
 import Card from "react-bootstrap/Card"
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
+import { PickerOverlay, PickerDropPane, PickerInline   } from 'filestack-react';
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
-  // const [userName, setuserName] = useState(false);
+  const [fields, setFields] = useState(false);
 
   const [img, setImg] = useState();
   const [cvfile, setFile] = useState();
 
   // Allow a user to insert an image of themsleves
-  const onImageChange = (e) => {
-    const img = e.target.files;
-    setImg(e.target.files[0].name);
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    const newState = {...fields}
+    newState [e.target.name] = e.target.value;
+    setFields(newState);
   };
 
   const onFileChange = (e) => {
     const cvfile = e.target.files;
     setFile(e.target.files[0].name);
   };
-
-  // const onUserChange = (e) => {
-  //   const userName = e.target.userName;
-  //   setFile(e.target.userName.value);
-  // };
+;
 
 
 
   const submitHandler = (e) => {
+    console.log(fields.uName)
     e.preventDefault();
     cDisabled(true);
     let result;
     if (props.currentProfile) {
+      console.log(fields,img,cvfile)
       result = props.client.updateProfile(
         props.currentProfile._id,
-        e.target.uName.value,
-        e.target.cTitle.value,
-        e.target.fName.value,
-        e.target.email.value,
-        e.target.cNumber.value,
-        e.target.city.value,
-        e.target.bio.value,
-        e.target.skills.value,
-        e.target.linkedIn.value,
-        e.target.gitHub.value,
-        e.target.portfolio.value,
+        fields.uName,
+        fields.cTitle,
+        fields.fName,
+        fields.email,
+        fields.cNumber,
+        fields.city,
+        fields.bio,
+        fields.skills,
+        fields.linkedIn,
+        fields.gitHub,
+        fields.portfolio,
         img,
         cvfile);
     } else {
       result = props.client.addProfile(
-        e.target.uName.value,
-        e.target.cTitle.value,
-        e.target.fName.value,
-        e.target.email.value,
-        e.target.cNumber.value,
-        e.target.city.value,
-        e.target.bio.value,
-        e.target.skills.value,
-        e.target.linkedIn.value,
-        e.target.gitHub.value,
-        e.target.portfolio.value,
+        fields.uName,
+        fields.cTitle,
+        fields.fName,
+        fields.email,
+        fields.cNumber,
+        fields.city,
+        fields.bio,
+        fields.skills,
+        fields.linkedIn,
+        fields.gitHub,
+        fields.portfolio,
         img,
         cvfile);
     }
+
     result
       .then(() => {
         cDisabled(false);
@@ -71,14 +73,20 @@ function Add(props) {
         props.refreshList();
       })
       .catch(() => {
-        alert("error occurred -incorrect input format, please try again");
+        console.error("error occurred -incorrect input format, please try again");
         cDisabled(false);
+        props.refreshList();
       });
   };
 
   const [value, setvalue] = useState("");
 
-  const handleOnchange = (value) => setvalue(value);
+  const handleOnchange = (value) => {setvalue (value) 
+   const newState = {...fields}
+  //  console.log(newState)
+   newState ['skills'] = value;
+   setFields(newState);
+  };
 
   const options = [
     { label: "Teamwork", value: "Teamwork" },
@@ -103,11 +111,11 @@ function Add(props) {
     { label: "Project Management", value: "Project Management" },
   ];
 
-  // const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
 
   return (
     <>
-
+   
       {props.currentProfile ? "Update" : ""}
       <br />
 
@@ -118,44 +126,45 @@ function Add(props) {
 
           {/* window.location.reload(true) */}
 
-          {/* {visible &&  */}
+          {visible && 
           
-      <form onSubmit={(e) => {submitHandler(e); /*setVisible();*/ }} id="addForm">
+      <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
         <div className="form-col-one">
               Username:
               <br />
-                 <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>       
+                 {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>   */}
+                  <input type="text" defaultValue={props.currentProfile?.userName} name="uName" onChange={(e) => handleChange(e)} />   
               <br />
               <br />     
 
               Course Title: 
               <br />
-                <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" disabled={disabled}/>       
+                <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
               <br />
               <br />  
 
               Full Name: 
               <br />
-                <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" disabled={disabled}/>
+                <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />   
 
               Email: 
               <br />    
-                <input type="text" defaultValue={props.currentProfile?.email} name="email" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
 
               Contact Number:
               <br />
-                <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" disabled={disabled}/>
+                <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />  
 
               City:
               <br />       
-                <input type="text" defaultValue={props.currentProfile?.city} name="city" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
         </div>
@@ -165,7 +174,7 @@ function Add(props) {
           <div className="sub-entry">
               Personal Bio: 
               <br />     
-                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
 
@@ -187,32 +196,39 @@ function Add(props) {
                   </div>
                 </div> 
 
-                <input type="text" defaultValue={value} name="skills" disabled={disabled}/>     
+                <input type="text" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />    
 
               linkedIn: 
               <br />      
-                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" disabled={disabled} />     
+                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
               <br />
               <br />    
 
               gitHub: 
               <br />    
-                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub"  disabled={disabled} />     
+                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
               <br />
               <br />    
 
               portfolio: 
               <br />      
-                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" disabled={disabled}/>     
+                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
           
 
               Image: 
               <br /> 
-              <input type="file" onChange={onImageChange}  />    
+              <PickerDropPane 
+                apikey={'AmYEocDZSRbOwoISVx42lz'}
+                onSuccess={(res) => setImg(res.filesUploaded[0].url)}
+                onUploadDone={(res) => console.log(res)}
+                />
+   
+              {/* <button className = "buttonspace updatebutton"  onClick={() => imagePicker()}> Choose File</button> */}
+              {/* <input type="file" onChange={onImageChange}  />     */}
               {/* <input type="text" defaultValue={props.currentProfile?.[file]}  name="image" disabled={disabled}/>      */}
               {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
                           
@@ -222,7 +238,12 @@ function Add(props) {
         
               cv: 
               <br />   
-              <input type="file" onChange={onFileChange}  />       
+              <PickerDropPane 
+                apikey={'AmYEocDZSRbOwoISVx42lz'}
+                onSuccess={(res) => setFile(res.filesUploaded[0].url)}
+                onUploadDone={(res) => console.log(res)}
+                />
+              {/* <input type="file" onChange={onFileChange}  />        */}
                 {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
               <br />
               <br />  
@@ -238,7 +259,7 @@ function Add(props) {
         </div> 
  
       </form>
-
+}
       </Card-Body>
       </Card>
       </div> 

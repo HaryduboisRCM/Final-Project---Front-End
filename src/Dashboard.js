@@ -19,8 +19,6 @@ import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 import WebPort from "./webport.png";
-// import { PickerOverlay } from 'filestack-react';
-
 
 function Dashboard(props) {
   const [profiles, cProfiles] = useState([]);
@@ -42,13 +40,6 @@ function Dashboard(props) {
     refreshList();
     console.log(props)
   }, []);
-
-//   <PickerOverlay
-//   apikey={AmYEocDZSRbOwoISVx42lz}
-//   onSuccess={(res) => console.log(res)}
-//   onUploadDone={(res) => console.log(res)}
-// />
-
 
 
   const linkedIn = () => {
@@ -118,7 +109,7 @@ function Dashboard(props) {
               <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
               <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>
-              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>
+             
             </div>
             </Card>
         </div>
@@ -131,9 +122,10 @@ function Dashboard(props) {
       return (
         <div key={current._id}>
           <Card className = "col-md-2">
-            <div>             
-
-     
+            <div> 
+                         
+              <div className = "fieldSpace"><strong>Image URL:</strong><img src={current.image} width="50px" height="50px"/> </div>                          
+              <div className = "fieldSpace"><strong>CV File:</strong> <img src={current.cv} width="50px" height="50px"/></div>     
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
@@ -153,13 +145,14 @@ function Dashboard(props) {
           <Card >
             <div>
               <div className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</div>
-              <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div>          
+              <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div> 
+              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>         
               {/* <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn Account:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub Link:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio Link:</strong> {personalPortfolio()}</div> */}
               {/* <div className = "fieldSpace"><strong>Hired?:</strong> {current.employed} </div> */}
-              <div className = "fieldSpace"><strong>Image URL:</strong> {current.image} </div>
-              <div className = "fieldSpace"><strong>CV File:</strong> {current.cv} </div>
+              {/* <div className = "fieldSpace"><strong>Image URL:</strong> {current.image} </div>
+              <div className = "fieldSpace"><strong>CV File:</strong> {current.cv} </div> */}
             </div>
            </Card>
         </div>
@@ -217,12 +210,12 @@ function Dashboard(props) {
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
       <div>
-          {/* <br></br> 
-            <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
-          <br></br> 
-            <input type="file" onChange={onImageChange} />
-          <br></br> 
-          <br></br>  */}
+      <div>
+      <img
+        src={"https://bobbyhadz.com/images/blog/react-prevent-multiple-button-clicks/thumbnail.webp"}
+        alt="car"
+      />
+    </div>
 
      
         <div className = "socialSpacing">        
