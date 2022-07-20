@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import logo from "./TDA Logo.jpg";
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container';
 
 function Login(props) {
   // super(props);
@@ -25,9 +28,23 @@ function Login(props) {
     
     <>
     <div className="loginarea">
-      <br /><br /><br /><br /><br /><br />
+    <Navbar  className = "header col-md-12">
+  <Container >
+    <Navbar.Brand href="#home">
+      <img
+        src={logo}
+        width="140"
+        height="140"
+        // className="d-inline-block align-top"
+        alt="TDA logo"
+      />
+    </Navbar.Brand>
+  </Container>
+</Navbar>
+
+      {/* <br /><br /> */}
       <div className="loginpage-header">
-        Graduate Profile
+        The Developer Academy <br /> Employment Portal
       </div>
         <br />
         <br />

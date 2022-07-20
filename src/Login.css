@@ -31,21 +31,23 @@
 .loginpage-header {
     display: flex;
     justify-content: center;
-    font-family: Staatliches, cursive;
+    font-family: Poppins, cursive;
     font-size: 60px;
     text-decoration: underline;
+    text-align: center;
 }
 .loginheader {
     display: flex;
     justify-content: center;
-    font-family: Roboto, Arial;
-    font-size: 20px;
+    font-family: Poppins, Arial;
+    font-size: 28px;
     text-decoration: underline;
 }
 .logininput {
     display: flex;
     justify-content: center;
-    font-family: Roboto, Arial;
+    font-family: Poppins, Arial;
+    text-align: center;
 }
 .login-submit {
     background: linear-gradient(-45deg,  #2a9d8f,  #e9c46a,  #f4a261, #e76f51);
@@ -55,7 +57,7 @@
     padding: 10px 40px;
     text-align: center;
     font-size: 16px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Poppins, sans-serif;
     transition-duration: 0.4s;
     cursor: pointer;
     justify-content: center;
@@ -69,7 +71,7 @@
   padding: 5px 10px;
   text-align: center;
   font-size: 16px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Poppins, sans-serif;
   transition-duration: 0.4s;
   cursor: pointer;
   justify-content: center;
