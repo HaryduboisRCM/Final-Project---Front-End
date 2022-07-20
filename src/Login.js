@@ -15,7 +15,7 @@ function Login(props) {
       props.loggedIn(response.data.token);
     })
     .catch ( (error) => {
-      alert("An error has occurred, please try again later");
+      alert("Incorrect Username or Password. Please Re-enter Credentials.");
       console.log("Login error", error);
       cDisabled(false);
     })
