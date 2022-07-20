@@ -35,17 +35,17 @@ function App() {
         <Button  className = "logoutButton" onClick={logout} size="sm">
           Log Out
         </Button>
-          
- 
-        {hasPermission('GRADUATE', actions.VIEW_FILE) && (
-          <Dashboard client={client}  /> 
-        )}
 
-        {hasPermission('EMPLOYER', actions.VIEW_FILE) && (
+ 
+        {hasPermission('GRADUATE', actions.GRADUATE_PAGE) && (
+          <Dashboard client={client}  /> 
+         )}
+
+        {hasPermission('EMPLOYER', actions.EMPLOYER_PAGE) && (
           <EmployerDashboard client={client}  />
         )}
 
-        {hasPermission('TDA', actions.VIEW_FILE) && (
+        {hasPermission('TDA', actions.TDA_PAGE) && (
           <TDAGradSearch client={client}  />
         )}
 
