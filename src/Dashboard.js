@@ -13,7 +13,7 @@ import Row from 'react-bootstrap/Row'
 import Add from './Add';
 import Login from './Login';
 import Card from 'react-bootstrap/Card'
-import {Button} from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
@@ -123,6 +123,7 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>                          
+            
               <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong>Profile Picture</strong></div>                          
               <div className = "fieldSpace">CV:  <a href={current.cv} target="_blank"> {current.cv} </a></div> 
              
@@ -173,9 +174,9 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "">
               <div className = "add-submit">
-                <button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</button>
+                <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button>
                 <br></br> 
-                <button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</button>
+                <Button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</Button>
               </div>
             </Card>
         </div>
@@ -184,7 +185,7 @@ function Dashboard(props) {
   };
 
   return (
-    <>
+    <Container>
 
 
 {/* /****Navigation Bar****************************************************************************************************************************/}
@@ -205,23 +206,25 @@ function Dashboard(props) {
 </Navbar>
 
 
+
+
 {/* /****Main Container*********************************************************************************************************************************/}
 
 <Container fluid className = "mainContainer col-md-12">
 
-      <Container className ="column1 col-md-4">
+      <Container fluid className ="column1 col-md-4">
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
-      <div>
-       
-        <div className = "socialSpacing">        
-        </div>  
-         
-        <div className = "socialMedia">
-          {Media()}
-        </div>
+        <div>
+        
+          <div className = "socialSpacing">        
+          </div>  
+          
+          <div className = "socialMedia">
+            {Media()}
+          </div>
 
-      </div>
+        </div>
 
       </Container>
 
@@ -262,27 +265,31 @@ function Dashboard(props) {
 
             {/* {visibleInput &&   */}
 
-              <div className = "cols">
+              <div className = "col1">
               
-                  <Row className="col1 col-md-4">
+                  {/* <Row className="col1 col-md-4">
                     <Col>{section1()}</Col>
-                  </Row>
-          
-                  <Row className="col2 col-md-4">
                     <Col>{section2()}</Col>
-                  </Row>
+                  </Row> */}
+          
+                  {/* <Row className="col2 col-md-4">
+                    <Col>{section2()}</Col>
+                  </Row> */}
+
+                  <Col>{section1()}</Col>
+                  <Col>{section2()}</Col>
 
               </div>
               {/* } */}
 
     
-                <Row className="row3 col-md-4">
+                <Row className="col-md-4">
                   <div>{section3()}</div>
                 </Row> 
             
 
 
-            </Container> 
+          </Container> 
 
 
   </Container>
@@ -291,7 +298,7 @@ function Dashboard(props) {
     </Container>
       
 {/* /**********************************************************************************************************************/}
-    </>
+    </Container>
   );
 }
 

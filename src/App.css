@@ -25,16 +25,21 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&family=Poppins:wght@200;300;400;500;600&display=swap');
 
 
+.navbar {
+  background-color: #f3b546;
+}
+
 /* /*************Main Page CSS*******************************************************************************************************************/
 
 
 .mainContainer {
   background-color: white;
+  position: relative;
   margin: 50px;
   border-radius: 10px;
   display: flex;
-  flex-wrap: wrap;
-  height: 800px;
+  height: auto;
+  min-width: min-content;
   padding:20px;
   font-family: poppins;
  
@@ -47,11 +52,22 @@ body {
 
 
 .column1 {
-  display: inline-block;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   background-color: var(--seventh);
+  border: var(--primary) solid;
+  border-width: 2px;
   width: 30%;
+  min-width: min-content;
 }
+
+@media screen and (max-width: 600px){
+  .column1 {
+    width: 30%;
+    
+  }
+}
+
 
 .image {
   background-color: var(--seventh);
@@ -78,11 +94,13 @@ body {
 
 .column2 {
   background-color: white;
-  display: inline-block;
+  /* display: inline-block; */
   width: 66%;
+  margin-left: 5px;
   border: var(--primary) solid;
-  padding-left: 20px;
-  padding-right: 20px;
+  border-width: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 
@@ -123,11 +141,19 @@ body {
 /* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
 .column2Section2 {
   background-color: var(--ninth);
-  display: inline-block; 
-  align-items: center;
-  width: 100%;
-  padding-bottom: 20px;
+  padding-left: 20px;
+  /* display: block;  */
+  /* flex-direction: column; */
+  /* align-items: center;
+  width: 100%; */
+  /* padding-bottom: 20px; */
 
+}
+@media screen and (max-width: 600px){
+  .col1, .col2 {
+    flex-direction: column;
+    float: left;
+  }
 }
 
 .card {
@@ -138,20 +164,27 @@ body {
 }
 
 .cols {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .col1 {
-  width:50%;
+  width:100%;
+  display: inline-block;
+    /* overflow-wrap: anywhere; */
+  word-break: break-word;
+  
 }
 
-.col2 {
+
+/* .col2 {
   width: 50%;
-}
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+} */
 
 .fieldSpace {
-
+  display: flexbox;
   padding-top:20px;
   padding-bottom:20px;
 }
