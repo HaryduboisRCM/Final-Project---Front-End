@@ -124,7 +124,11 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>                          
               <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong>Profile Picture</strong></div>                          
-              <div className = "fieldSpace"><img src={current.cv} width="100px" height="100px"/> <br></br><strong>CV</strong></div>     
+              <div className = "fieldSpace">CV:  <a href={current.cv} target="_blank"> {current.cv} </a></div> 
+             
+
+              {/* <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://remote.url.tld/path/to/document.doc' width='1366px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe> */}
+
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
