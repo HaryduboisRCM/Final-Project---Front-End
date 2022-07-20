@@ -26,7 +26,6 @@ function Add(props) {
 ;
 
 
-
   const submitHandler = (e) => {
     console.log(fields.uName)
     e.preventDefault();
@@ -47,8 +46,10 @@ function Add(props) {
         fields.linkedIn,
         fields.gitHub,
         fields.portfolio,
+        fields.employed,
         img,
-        cvfile);
+        cvfile,
+        fields.accessLevel);
     } else {
       result = props.client.addProfile(
         fields.uName,
@@ -62,8 +63,10 @@ function Add(props) {
         fields.linkedIn,
         fields.gitHub,
         fields.portfolio,
+        fields.employed,
         img,
-        cvfile);
+        cvfile,
+        fields.accessLevel);
     }
 
     result
@@ -128,7 +131,7 @@ function Add(props) {
 
           {visible && 
           
-      <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
+      <form onSubmit={(e) => {submitHandler(e); setVisible(); window.location.reload(true) }} id="addForm">
 
         <div className="form-col-one">
               Username:
@@ -217,6 +220,12 @@ function Add(props) {
                 <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
+
+              Employed: 
+              <br />      
+                <input type="text" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              <br />
+              <br /> 
           
 
               Image: 
@@ -248,6 +257,12 @@ function Add(props) {
               <br />
               <br />  
               </div>
+
+              Access Level: 
+              <br />      
+                <input type="text" defaultValue={props.currentProfile?.accessLevel}  name="accessLevel" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              <br />
+              <br />
 
                   
               <div className = "add-submit">

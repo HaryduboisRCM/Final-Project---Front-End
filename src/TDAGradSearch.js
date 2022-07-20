@@ -26,33 +26,19 @@ function TDADashboard(props) {
   const [img, setImg] = useState();
   const [file, setFile] = useState();
 
-  // Allow a user to insert an image of themsleves
-  const onImageChange = (e) => {
-    const [file] = e.target.files;
-    setImg(URL.createObjectURL(file));
-  };
-
-  const onFileChange = (e) => {
-    const [file] = e.target.files;
-    setFile(URL.createObjectURL(file));
-  };
-
-  // const onFileChange = event => { 
-  //   // Update the state 
-  //   this.setState({ selectedFile: event.target.files[0] }); 
-  // }; 
 
   const refreshList = () => {
     props.client.getProfiles().then((response) => {
 
     cProfiles(response.data)
-    unfilterProfiles(response.data)
+  unfilterProfiles(response.data)             
   
     })
   };
 
   const filters = (tech) => {
-    cProfiles ( profiles.filter(profiles => {
+    console.log(profiles)
+    cProfiles (profiles.filter(profiles => {
       return profiles.fullName.toUpperCase().includes(tech);
         }
     ))
@@ -224,22 +210,22 @@ function TDADashboard(props) {
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
       <div className =" column1 col-md-4">
-        <br></br> 
+        {/* <br></br> 
           <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
         <br></br> 
           <input type="file" onChange={onImageChange} />
         <br></br> 
-        <br></br> 
+        <br></br>  */}
 
         {/* CV */}
-        <div className = "socialSpacing">        
-            <img src={CV} width="50" height="50" alt="TDA logo"/>
+        {/* <div className = "socialSpacing">        
+            <img src={CV} width="50" height="50" alt="TDA logo"/> */}
             {/* <input type="text" placeholder ="Upload your CV"/> */}
-            <input type="file" onChange={onFileChange} /> 
+            {/* <input type="file" onChange={onFileChange} /> 
             <button> 
               Upload
             </button> 
-        </div>
+        </div> */}
         
 
         {/* LinkedIn  */}

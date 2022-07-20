@@ -7,7 +7,8 @@ import { ApiClient } from "./apiClient";
 import Login from "./Login";
 import './Buttons.css';
 import {Button, Row} from 'react-bootstrap';
-
+import { actions, roles } from "./constants.js";
+import hasPermission from "./permissions.js";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   }
   const client = new ApiClient(token, logout);
 
+
   return (
     <>
       {token ? (
@@ -33,10 +35,19 @@ function App() {
         <Button  className = "logoutButton" onClick={logout} size="sm">
           Log Out
         </Button>
-          
-        <Dashboard client={client}  />
-        {/* <EmployerDashboard client={client}  /> */}
-        {/* <TDAGradSearch client={client}  /> */}
+
+ 
+        {hasPermission('GRADUATE', actions.GRADUATE_PAGE) && (
+          <Dashboard client={client}  /> 
+         )}
+
+        {hasPermission('EMPLOYER', actions.EMPLOYER_PAGE) && (
+          <EmployerDashboard client={client}  />
+        )}
+
+        {hasPermission('TDA', actions.TDA_PAGE) && (
+          <TDAGradSearch client={client}  />
+        )}
 
         <br></br>
         <Row>
