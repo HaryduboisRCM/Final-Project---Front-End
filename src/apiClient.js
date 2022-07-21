@@ -52,9 +52,9 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  getGradProfile(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
-    return this.authenticatedCall("get", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
-  }
+  // getGradProfile(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
+  //   return this.authenticatedCall("get", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
+  // }
 
   addProfile(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
     return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
