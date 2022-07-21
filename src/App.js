@@ -41,13 +41,13 @@ function App() {
           <Dashboard client={client}  /> 
          )}
 
-        {hasPermission('EMPLOYER', actions.EMPLOYER_PAGE) && (
+        {/* {hasPermission('EMPLOYER', actions.EMPLOYER_PAGE) && (
           <EmployerDashboard client={client}  />
-        )}
-
+        )} */}
+{/* 
         {hasPermission('TDA', actions.TDA_PAGE) && (
           <TDAGradSearch client={client}  />
-        )}
+        )} */}
 
         <br></br>
         <Row>

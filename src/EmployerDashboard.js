@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Link, Rout } from "react";
 import './App.css';
+import './EmployerDashboard.css';
 import './Login.css';
 import './Navigation.css';
 import './Buttons.css';
@@ -53,8 +54,16 @@ const section1 = () => {
          
             <tr key={current._id}>
             <a href={current.image} target="_blank"> {current.image} </a>
-                <td>{current.fullName}</td>        
-                <td>{current.courseTitle}</td>   
+                <div>Name: {current.fullName}</div> <br></br>       
+                <div>Course: {current.courseTitle}</div>   
+    
+            </tr>
+         </Card>
+
+          <Card className = "col-md-2">
+         
+            <tr key={current._id}>
+            <a href={current.image} target="_blank"> {current.image} </a>
                 <td className = "fieldSpace"><strong>Email:</strong> {current.email}</td>
                 <td className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</td>
                 <td className = "fieldSpace"><strong>City:</strong>   {current.city}</td>    
@@ -179,12 +188,13 @@ const section1 = () => {
 
           <Container className = "row col-md-8">
             
-            <div className = "column2Section2 col-md-8" id = "outputForm">
+            <div className = "col-md-8" id = "outputForm">
            
-               <div className = "cols">
-                <Row className="col1 col-md-2">
+               <div className = "output">
+                  {section1()}
+                {/* <Row className="output col-md-2">
                   <Col>{section1()}</Col>
-                </Row>
+                </Row> */}
               </div>
 
               </div>     
