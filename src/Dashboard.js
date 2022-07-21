@@ -118,21 +118,18 @@ function Dashboard(props) {
   };
   
   const Media = () => {
+    console.log(profiles)
     return profiles.map((current) => {
       return (
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>                          
             
-              <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong>Profile Picture</strong></div>                          
-              <div className = "fieldSpace">CV:  <a href={current.cv} target="_blank"> {current.cv} </a></div> 
-             
-
-              {/* <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://remote.url.tld/path/to/document.doc' width='1366px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe> */}
-
-              <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
-              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
+              <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
+              <div className = "fieldSpace"><strong>Download CV Here:</strong> <a href={current.cv} target="_blank"> {current.cv}  </a></div> 
+              <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> {linkedIn()}</div>              
+              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong> {gitHub()}</div>
+              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><br></br><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
             </div>
            </Card>
         </div>
@@ -177,6 +174,7 @@ function Dashboard(props) {
                 <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button>
                 <br></br> 
                 <Button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</Button>
+                {/* <button type="submit" id="submitbutton" onclick="document.getElementById('submitbutton').disabled = true;">Click Me</button> */}
               </div>
             </Card>
         </div>
@@ -263,7 +261,7 @@ function Dashboard(props) {
           {/* /****Column 2 - Profile Display table***************************************************************************************************************/}   
           <Container className = "column2Section2 col-md-8"> 
 
-            {/* {visibleInput &&   */}
+            {visibleInput &&  
 
               <div className = "col1">
               
@@ -280,7 +278,7 @@ function Dashboard(props) {
                   <Col>{section2()}</Col>
 
               </div>
-              {/* } */}
+}
 
     
                 <Row className="col-md-4">

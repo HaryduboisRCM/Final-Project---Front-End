@@ -7,15 +7,13 @@ import { ApiClient } from "./apiClient";
 import Login from "./Login";
 import './Buttons.css';
 import {Button, Row} from 'react-bootstrap';
-import { actions, roles } from "./constants.js";
-import hasPermission from "./permissions.js";
+
 
 
 function App() {
 
   const [token,changeToken] = useState(window.localStorage.getItem("token"));
   const [roles,changeRoles] = useState(window.localStorage.getItem("roles"));
-
 
   const login = (newToken, newRoles) => {
     console.log(newRoles)

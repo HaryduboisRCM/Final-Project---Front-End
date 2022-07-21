@@ -23,15 +23,12 @@ function TDADashboard(props) {
   const [profiles, cProfiles] = useState([]);
   const [current, cCurrent] = useState(undefined);
   const [unfilter, unfilterProfiles] = useState([]);
-  const [img, setImg] = useState();
-  const [file, setFile] = useState();
-
 
   const refreshList = () => {
     props.client.getProfiles().then((response) => {
 
     cProfiles(response.data)
-  unfilterProfiles(response.data)             
+    unfilterProfiles(response.data)             
   
     })
   };
@@ -171,8 +168,7 @@ function TDADashboard(props) {
           <Card className = "">
               <div className = "add-submit">
                 <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
-                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>
-                {/* <button className = "login-submit2"  onClick={() => updateProfile(current)}> update</button> */}
+                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>               
               </div>
             </Card>
         </div>

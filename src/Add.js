@@ -19,13 +19,6 @@ function Add(props) {
     setFields(newState);
   };
 
-  const onFileChange = (e) => {
-    const cvfile = e.target.files;
-    setFile(e.target.files[0].name);
-  };
-;
-
-
   const submitHandler = (e) => {
     console.log(fields.uName)
     e.preventDefault();
@@ -258,13 +251,7 @@ function Add(props) {
               <br />  
               </div>
 
-              Access Level: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.accessLevel}  name="accessLevel" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br />
-
-                  
+                           
               <div className = "add-submit">
                 <button className = "login-submit" type="submit" disabled={disabled}>
                   {" "}Submit{" "}
