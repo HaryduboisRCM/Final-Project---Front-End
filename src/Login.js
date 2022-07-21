@@ -12,7 +12,8 @@ function Login(props) {
     .login(e.target.username.value, e.target.password.value)
     .then( (response) => {
       cDisabled(false);
-      props.loggedIn(response.data.token);
+      console.log(response.data)
+      props.loggedIn(response.data.token, response.data.roles);
     })
     .catch ( (error) => {
       alert("An error has occurred, please try again later");

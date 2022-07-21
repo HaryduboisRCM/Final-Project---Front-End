@@ -14,17 +14,43 @@ import hasPermission from "./permissions.js";
 function App() {
 
   const [token,changeToken] = useState(window.localStorage.getItem("token"));
+  const [roles,changeRoles] = useState(window.localStorage.getItem("roles"));
 
-  const login = (newToken) => {
+
+  const login = (newToken, newRoles) => {
+    console.log(newRoles)
     window.localStorage.setItem("token",newToken)
+    window.localStorage.setItem("roles",newRoles)
     changeToken(newToken);
+    changeRoles(newRoles);
   }
 
   const logout = () => {
     window.localStorage.removeItem("token")
+    window.localStorage.removeItem("roles")
     changeToken(undefined);
+    changeRoles(undefined);
   }
+
   const client = new ApiClient(token, logout);
+
+
+  const page = () => {
+
+    console.log(roles)
+
+      if (roles === "GRADUATE") { 
+          return <Dashboard client={client} />
+      } else if (roles === "EMPLOYER") {
+          return  <EmployerDashboard client={client}  />
+          } else if (roles === "TDA") {
+              return  <TDAGradSearch client={client}  /> 
+          } else {
+            // logout() 
+            console.log("no role");
+          }      
+    }
+
 
 
   return (
@@ -32,31 +58,16 @@ function App() {
       {token ? (
         <>
 
-        <Button  className = "logoutButton" onClick={logout} size="sm">
+        <Button  className = "logoutButton" onClick= {logout} size="sm">
           Log Out
         </Button>
 
- 
-        {hasPermission('GRADUATE', actions.GRADUATE_PAGE) && (
-          <Dashboard client={client}  /> 
-         )}
-
-        {hasPermission('EMPLOYER', actions.EMPLOYER_PAGE) && (
-          <EmployerDashboard client={client}  />
-        )}
-
-        {hasPermission('TDA', actions.TDA_PAGE) && (
-          <TDAGradSearch client={client}  />
-        )}
-
-        <br></br>
-        <Row>
-       
-          
-        </Row>
+    
+        { page() }
+         
         </>
       ) : (
-        <Login loggedIn={(token) => login(token)} client={client} />
+        <Login loggedIn={(token, roles) => login(token, roles)} client={client} />
       )
       } 
     </>
