@@ -26,6 +26,7 @@ function Dashboard(props) {
     
   const refreshList = () => {
     props.client.getProfiles().then((response) => cProfiles(response.data));
+
   };
 
   const removeProfile = (id) => {
@@ -278,13 +279,15 @@ function Dashboard(props) {
                   <Col>{section2()}</Col>
 
               </div>
-}
 
+                }
     
+    {visibleInput &&  
                 <Row className="col-md-4">
                   <div>{section3()}</div>
                 </Row> 
-            
+}
+
 
 
           </Container> 
