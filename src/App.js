@@ -43,7 +43,7 @@ function App() {
           } else if (roles === "TDA") {
               return  <TDAGradSearch client={client}  /> 
           } else {
-            // logout() 
+            logout() 
             console.log("no role");
           }      
     }

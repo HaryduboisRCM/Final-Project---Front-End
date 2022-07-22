@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card"
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
 import { PickerOverlay, PickerDropPane, PickerInline   } from 'filestack-react';
+import './Add.css';
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
@@ -221,11 +222,13 @@ function Add(props) {
 
               Image: 
               <br /> 
-              <PickerDropPane 
-                apikey={'AmYEocDZSRbOwoISVx42lz'}
-                onSuccess={(res) => setImg(res.filesUploaded[0].url)}
-                onUploadDone={(res) => console.log(res)}
-                />
+              <div className="fileUpload">
+                <PickerDropPane 
+                  apikey={'AmYEocDZSRbOwoISVx42lz'}
+                  onSuccess={(res) => setImg(res.filesUploaded[0].url)}
+                  onUploadDone={(res) => console.log(res)}
+                  />
+              </div>
    
               {/* <button className = "buttonspace updatebutton"  onClick={() => imagePicker()}> Choose File</button> */}
               {/* <input type="file" onChange={onImageChange}  />     */}
@@ -238,11 +241,13 @@ function Add(props) {
         
               cv: 
               <br />   
-              <PickerDropPane 
-                apikey={'AmYEocDZSRbOwoISVx42lz'}
-                onSuccess={(res) => setFile(res.filesUploaded[0].url)}
-                onUploadDone={(res) => console.log(res)}
-                />
+              <div className="fileUpload">
+                <PickerDropPane 
+                  apikey={'AmYEocDZSRbOwoISVx42lz'}
+                  onSuccess={(res) => setFile(res.filesUploaded[0].url)}
+                  onUploadDone={(res) => console.log(res)}
+                  />
+              </div>
               {/* <input type="file" onChange={onFileChange}  />        */}
                 {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
               <br />

@@ -19,6 +19,7 @@ import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 import WebPort from "./webport.png";
+import Portfolio from "./Portfolio.png";
 
 function Dashboard(props) {
   const [profiles, cProfiles] = useState({});
@@ -81,8 +82,10 @@ function Dashboard(props) {
         <div>
           <Card className = "col-md-8">
             <div>
+
               <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div>
               <div className = "fieldSpace"><strong>Course Title:</strong>   {profiles.courseTitle}</div>
+              
             </div>
             </Card>
         </div>
@@ -95,9 +98,11 @@ function Dashboard(props) {
         <div>
           <Card className = "col-md-2">
             <div>
+
               <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {profiles.email}</div>
               <div className = "fieldSpace"><strong>Contact Number:</strong>   {profiles.contactNumber}</div>
+
              
             </div>
             </Card>
@@ -112,11 +117,16 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>                          
             
-              <div className = "fieldSpace"><img src={profiles.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
-              <div className = "fieldSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank"> {profiles.cv}  </a></div> 
-              <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> {linkedIn()}</div>              
-              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><br></br><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
+
+              <div className = "profilePicture"><img className="profileImage" src={profiles.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
+              <div className = "cvSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank"> {profiles.cv}  </a></div> 
+              <div className = "smediaIcon"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> </div>   
+              <div className= "smediaLink">{linkedIn()}</div>           
+              <div className = "smediaIcon"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong></div>
+              <div className= "smediaLink">{gitHub()}</div>
+              <div className = "smediaIcon"> <img src={Portfolio} width="50" height="50" alt="TDA logo"/><br></br><strong></strong> </div>    
+              <div className= "smediaLink">{personalPortfolio()}</div>         
+
             </div>
            </Card>
         </div>
@@ -129,9 +139,11 @@ function Dashboard(props) {
         <div>
           <Card >
             <div>
+
               <div className = "fieldSpace"><strong>Full Bio:</strong> {profiles.bio}</div>
               <div className = "fieldSpace"><strong>List of Skills:</strong> {profiles.skills}</div> 
               <div className = "fieldSpace"><strong>City:</strong>   {profiles.city}</div>         
+
             </div>
            </Card>
         </div>
@@ -147,7 +159,9 @@ function Dashboard(props) {
         <div>
           <Card className = "">
               <div className = "add-submit">
-                <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (profiles._id)}> Remove</Button>
+
+                {/* <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button> */}
+
                 <br></br> 
                 <Button className = " buttonspace updatebutton"  onClick={() => {updateProfile(profiles); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</Button>
               </div>
@@ -204,9 +218,12 @@ function Dashboard(props) {
     
       <Container className = "column2 col-md-8">
 
-          <Row>
+          <div className="userField">
             <Col>{section()}</Col>
-          </Row>
+            <Col>{section3()}</Col>
+          </div>
+
+          
 
           {/* /****Column 2 - User Input form***************************************************************************************************************/}  
          <Container className = "column2Section1 col-md-8">
@@ -239,20 +256,29 @@ function Dashboard(props) {
 
               <div className = "col1">
 
-                  <Col>{section1()}</Col>
-                  <Col>{section2()}</Col>
+              
+                  <Row className="col-md-4">
+                    <Col>{section1()}</Col> <br></br>
+                    <Col>{section2()}</Col>
+                  </Row>
+          
+                  {/* <Row className="col2 col-md-4">
+                    <Col>{section2()}</Col>
+                  </Row> */}
+
+
+                  {/* <Col>{section1()}</Col>
+                  <Col>{section2()}</Col> */}
 
               </div>
 
                 }
     
-            {visibleInput &&  
 
-                  <Row className="col-md-4">
-                    <div>{section3()}</div>
-                  </Row> 
-
-            }
+                {/* <Row className="col-md-4">
+                  <div>{section3()}</div>
+                </Row>  */}
+            
 
 
 
