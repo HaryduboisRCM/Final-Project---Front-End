@@ -21,12 +21,11 @@ import GitHub from "./GitHub Logo.png";
 import WebPort from "./webport.png";
 
 function Dashboard(props) {
-  const [profiles, cProfiles] = useState([]);
+  const [profiles, cProfiles] = useState({});
   const [current, cCurrent] = useState(undefined);
     
   const refreshList = () => {
-    props.client.getProfiles().then((response) => cProfiles(response.data));
-
+    props.client.getGradProfile(props.token).then((response) => cProfiles(response.data));
   };
 
   const removeProfile = (id) => {
@@ -44,90 +43,77 @@ function Dashboard(props) {
 
 
   const linkedIn = () => {
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
-            <a href={current.linkedIn} target="_blank"> {current.linkedIn} </a>
+        <div>
+            <a href={profiles.linkedIn} target="_blank"> {profiles.linkedIn} </a>
        </div>
        );
-     });
    };
 
    const gitHub = () => {
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
-            <a href={current.gitHub} target="_blank"> {current.gitHub} </a>
+        <div>
+            <a href={profiles.gitHub} target="_blank"> {profiles.gitHub} </a>
        </div>
        );
-     });
    };
 
    const personalPortfolio = () => {
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
-            <a href={current.portfolio} target="_blank"> {current.portfolio} </a>
+        <div>
+            <a href={profiles.portfolio} target="_blank"> {profiles.portfolio} </a>
        </div>
        );
-     });
    };
 
   //  const email = () => {
-  //   return profiles.map((current) => {
   //     return (
-  //       <div key={current._id}>
-  //           <a href={current.email} target="_blank"> {current.email} </a>
+  //       <div>
+  //           <a href={profiles.email} target="_blank"> {profiles.email} </a>
   //      </div>
   //      );
-  //    });
+
   //  };
 
 
   const section = () => {
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
+        <div>
           <Card className = "col-md-8">
             <div>
-              <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
+              <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div>
+              <div className = "fieldSpace"><strong>Course Title:</strong>   {profiles.courseTitle}</div>
             </div>
             </Card>
         </div>
       );
-    });
+
   };
 
   const section1 = () => {
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
+        <div>
           <Card className = "col-md-2">
             <div>
-              {/* <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div> */}
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
-              <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
-              <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>
+              <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>       
+              <div className = "fieldSpace"><strong>Email:</strong> {profiles.email}</div>
+              <div className = "fieldSpace"><strong>Contact Number:</strong>   {profiles.contactNumber}</div>
              
             </div>
             </Card>
         </div>
       );
-    });
   };
   
   const Media = () => {
     console.log(profiles)
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
+        <div>
           <Card className = "col-md-2">
             <div>                          
             
-              <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
-              <div className = "fieldSpace"><strong>Download CV Here:</strong> <a href={current.cv} target="_blank"> {current.cv}  </a></div> 
+              <div className = "fieldSpace"><img src={profiles.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
+              <div className = "fieldSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank"> {profiles.cv}  </a></div> 
               <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><br></br><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
@@ -135,31 +121,21 @@ function Dashboard(props) {
            </Card>
         </div>
       );
-    });
   };
 
 
   const section2 = () => {
-    return profiles.map((current) => {
-      // console.log(current)
       return (
-        <div key={current._id}>
+        <div>
           <Card >
             <div>
-              <div className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</div>
-              <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div> 
-              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>         
-              {/* <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn Account:</strong> {linkedIn()}</div>              
-              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub Link:</strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio Link:</strong> {personalPortfolio()}</div> */}
-              {/* <div className = "fieldSpace"><strong>Hired?:</strong> {current.employed} </div> */}
-              {/* <div className = "fieldSpace"><strong>Image URL:</strong> {current.image} </div>
-              <div className = "fieldSpace"><strong>CV File:</strong> {current.cv} </div> */}
+              <div className = "fieldSpace"><strong>Full Bio:</strong> {profiles.bio}</div>
+              <div className = "fieldSpace"><strong>List of Skills:</strong> {profiles.skills}</div> 
+              <div className = "fieldSpace"><strong>City:</strong>   {profiles.city}</div>         
             </div>
            </Card>
         </div>
       );
-    });
   };
 
   const [visibleOutput, setVisibleOutput] = useState(false);
@@ -167,20 +143,17 @@ function Dashboard(props) {
 
 
   const section3 = () => {
-    return profiles.map((current) => {
       return (
-        <div key={current._id}>
+        <div>
           <Card className = "">
               <div className = "add-submit">
-                <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button>
+                <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (profiles._id)}> Remove</Button>
                 <br></br> 
-                <Button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</Button>
-                {/* <button type="submit" id="submitbutton" onclick="document.getElementById('submitbutton').disabled = true;">Click Me</button> */}
+                <Button className = " buttonspace updatebutton"  onClick={() => {updateProfile(profiles); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</Button>
               </div>
             </Card>
         </div>
       );
-    });
   };
 
   return (
@@ -249,7 +222,7 @@ function Dashboard(props) {
                         refreshList();
                         cCurrent(undefined);
                       }}
-                      currentProfile={current}
+                      currentProfile={profiles}
                     />
                   </Col>
               </Row> 
@@ -265,15 +238,6 @@ function Dashboard(props) {
             {visibleInput &&  
 
               <div className = "col1">
-              
-                  {/* <Row className="col1 col-md-4">
-                    <Col>{section1()}</Col>
-                    <Col>{section2()}</Col>
-                  </Row> */}
-          
-                  {/* <Row className="col2 col-md-4">
-                    <Col>{section2()}</Col>
-                  </Row> */}
 
                   <Col>{section1()}</Col>
                   <Col>{section2()}</Col>
@@ -282,11 +246,13 @@ function Dashboard(props) {
 
                 }
     
-    {visibleInput &&  
-                <Row className="col-md-4">
-                  <div>{section3()}</div>
-                </Row> 
-}
+            {visibleInput &&  
+
+                  <Row className="col-md-4">
+                    <div>{section3()}</div>
+                  </Row> 
+
+            }
 
 
 
