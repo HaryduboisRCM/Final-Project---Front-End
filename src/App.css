@@ -14,7 +14,7 @@
 }
 
 
-body {
+.body {
   height:1040px;
 
     background-color:  var(--primary);
@@ -163,10 +163,10 @@ body {
   
 }
 
-.cols {
+/* .cols {
   /* display: flex; */
   /* align-items: center; */
-}
+ */
 
 .col1 {
   width:100%;
