@@ -42,10 +42,12 @@ function Login(props) {
     </Navbar.Brand>
   </Container>
 </Navbar>
-
-      {/* <br /><br /> */}
+      <div className = "col-md-4">        
+      </div>
+      <div className = "col-md-4"></div>
+      <br /><br /><br />
       <div className="loginpage-header">
-        The Developer Academy <br /> Employment Portal
+       the <br />Developer <br /> Academy <br /> Employment Portal
       </div>
         <br />
         <br />
