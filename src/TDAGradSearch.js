@@ -125,12 +125,16 @@ function TDADashboard(props) {
       return (
         <div key={current._id}>
           <Card className = "col-md-2">
-            <div>           
-              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
-              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>       
-              <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn:</strong> {linkedIn()}</div>              
-              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub:</strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>        
+            <div>    
+
+              <div ><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/> {linkedIn()}
+
+                    <img src={GitHub} width="50" height="50" alt="TDA logo"/>{gitHub()}
+              
+              <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>  
+              
+              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Graduate Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> Remove Graduate Profile</button>      
           
             </div>
            </Card>
@@ -167,8 +171,8 @@ function TDADashboard(props) {
         <div key={current._id}>
           <Card className = "">
               <div className = "add-submit">
-                <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
-                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>               
+                {/* <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
+                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>                */}
               </div>
             </Card>
         </div>
@@ -205,7 +209,7 @@ function TDADashboard(props) {
     
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
-      <div className =" column1 col-md-4">
+      <div className =" column1 col-md-2">
         {/* <br></br> 
           <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
         <br></br> 
@@ -227,28 +231,22 @@ function TDADashboard(props) {
         {/* LinkedIn  */}
        <div className = "socialMedia">
 
-       {Media()}
-
-      </div>
-
-      </div>
-
-
-
-      {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
-    
-      <div className = "row  col-md-8">
-
-        <Row>
+       
+       <Row>
+        <h1> the 
+        <br></br>DEVELOPER 
+        <br></br>Academy</h1>
 
             {/*create a new Gradute */}
-            <p>Create a new Gradute or search for an existing one: </p>
-            <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> Create New Gradute</button>
+            <p>Create a new Graduate Profile</p>
+            <br></br>
+            <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Gradute</button>
 
             <br></br>
             <br></br>
+            <br></br>
 
-            <p>Search for Gradute by Full Name</p>
+            <p>Search for a Graduate by Full Name</p>
             <input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/>
 
             <br></br>
@@ -261,16 +259,28 @@ function TDADashboard(props) {
           </Row>
         <br></br>
 
+      </div>
+
+      </div>
+
+
+
+      {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
+    
+      <div className = "row  col-md-10">
+
+        
+
         {/* <Row className="column2 col-md-2">
             <Col>{section()}</Col>
         </Row> */}
 
           {/* /****Column 2/1 - User Input form***************************************************************************************************************/}  
-          <Container className = "row col-md-8">
+          <Container className = "row col-md-10">
 
           {visibleOutput && 
 
-            <Row className = "row column2Section1 col-md-4" id = "inputForm">
+            <Row className = "row column2Section1 col-md-5" id = "inputForm">
           
                 <Col className = "addForm">
                   <Add
@@ -286,19 +296,21 @@ function TDADashboard(props) {
 
 
             {/* /****Column 2/2 - Profile Display table***************************************************************************************************************/}    
-            <div className = "column2Section2 col-md-4" id = "outputForm">
+            <div className = "column2Section2 col-md-5" id = "outputForm">
 
             {visibleInput &&  
 
              <div className = "cols">
 
-                <Row className="col1 col-md-2">
+                <Row className="col1 col-md-2.5">
                   <Col>{section1()}</Col>
                 </Row>
 
-                <Row className="col2 col-md-2">
+                <Row className="col2 col-md-2.5">
                   <Col>{section2()}</Col>
                 </Row>
+
+                {Media()}
 
               </div>
               } 

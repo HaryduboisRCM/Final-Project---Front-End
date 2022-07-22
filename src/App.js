@@ -9,7 +9,6 @@ import './Buttons.css';
 import {Button, Row} from 'react-bootstrap';
 
 
-
 function App() {
 
   const [token,changeToken] = useState(window.localStorage.getItem("token"));
@@ -38,7 +37,7 @@ function App() {
     console.log(roles)
 
       if (roles === "GRADUATE") { 
-          return <Dashboard client={client} />
+          return <Dashboard client={client} token={token} />
       } else if (roles === "EMPLOYER") {
           return  <EmployerDashboard client={client}  />
           } else if (roles === "TDA") {

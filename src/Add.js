@@ -41,8 +41,7 @@ function Add(props) {
         fields.portfolio,
         fields.employed,
         img,
-        cvfile,
-        fields.accessLevel);
+        cvfile);
     } else {
       result = props.client.addProfile(
         fields.uName,
@@ -58,8 +57,7 @@ function Add(props) {
         fields.portfolio,
         fields.employed,
         img,
-        cvfile,
-        fields.accessLevel);
+        cvfile);
     }
 
     result
@@ -71,7 +69,7 @@ function Add(props) {
       .catch(() => {
         console.error("error occurred -incorrect input format, please try again");
         cDisabled(false);
-        props.refreshList();
+        // props.refreshList();
       });
   };
 
