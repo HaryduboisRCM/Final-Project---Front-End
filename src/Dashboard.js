@@ -19,6 +19,7 @@ import LinkedIn from "./LinkedInLogo.png";
 import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 import WebPort from "./webport.png";
+import Portfolio from "./Portfolio.png";
 
 function Dashboard(props) {
   const [profiles, cProfiles] = useState([]);
@@ -89,8 +90,8 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-8">
             <div>
-              <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
+              <div className = "user"><strong>Username:</strong>  {current.userName}</div>
+              <div className = "user"><strong>Course Title:</strong>   {current.courseTitle}</div>
             </div>
             </Card>
         </div>
@@ -106,9 +107,9 @@ function Dashboard(props) {
             <div>
               {/* <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
               <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div> */}
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
-              <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
-              <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>
+              <div className = "fieldSpac"><strong>Full Name:</strong>   {current.fullName}</div>       
+              <div className = "fieldSpac"><strong>Email:</strong> {current.email}</div>
+              <div className = "fieldSpac"><strong>Contact Number:</strong>   {current.contactNumber}</div>
              
             </div>
             </Card>
@@ -125,11 +126,14 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>                          
             
-              <div className = "fieldSpace"><img src={current.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
-              <div className = "fieldSpace"><strong>Download CV Here:</strong> <a href={current.cv} target="_blank"> {current.cv}  </a></div> 
-              <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> {linkedIn()}</div>              
-              <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong> {gitHub()}</div>
-              <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><br></br><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>             
+              <div className = "profilePicture"><img className="profileImage" src={current.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
+              <div className = "cvSpace"><strong>Download CV Here:</strong> <a href={current.cv} target="_blank"> {current.cv}  </a></div> 
+              <div className = "smediaIcon"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> </div>   
+              <div className= "smediaLink">{linkedIn()}</div>           
+              <div className = "smediaIcon"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong></div>
+              <div className= "smediaLink">{gitHub()}</div>
+              <div className = "smediaIcon"> <img src={Portfolio} width="50" height="50" alt="TDA logo"/><br></br><strong></strong> </div>    
+              <div className= "smediaLink">{personalPortfolio()}</div>         
             </div>
            </Card>
         </div>
@@ -145,9 +149,9 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card >
             <div>
-              <div className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</div>
-              <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div> 
-              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>         
+              <div className = "fieldSpac"><strong>Full Bio:</strong> {current.bio}</div> <br></br>
+              <div className = "fieldSpac"><strong>List of Skills:</strong> {current.skills}</div> 
+              <div className = "fieldSpac"><strong>City:</strong>   {current.city}</div>         
               {/* <div className = "fieldSpace"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong>LinkedIn Account:</strong> {linkedIn()}</div>              
               <div className = "fieldSpace"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong>gitHub Link:</strong> {gitHub()}</div>
               <div className = "fieldSpace"> <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio Link:</strong> {personalPortfolio()}</div> */}
@@ -171,7 +175,7 @@ function Dashboard(props) {
         <div key={current._id}>
           <Card className = "">
               <div className = "add-submit">
-                <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button>
+                {/* <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button> */}
                 <br></br> 
                 <Button className = " buttonspace updatebutton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</Button>
                 {/* <button type="submit" id="submitbutton" onclick="document.getElementById('submitbutton').disabled = true;">Click Me</button> */}
@@ -230,9 +234,12 @@ function Dashboard(props) {
     
       <Container className = "column2 col-md-8">
 
-          <Row>
+          <div className="userField">
             <Col>{section()}</Col>
-          </Row>
+            <Col>{section3()}</Col>
+          </div>
+
+          
 
           {/* /****Column 2 - User Input form***************************************************************************************************************/}  
          <Container className = "column2Section1 col-md-8">
@@ -265,25 +272,25 @@ function Dashboard(props) {
 
               <div className = "col1">
               
-                  {/* <Row className="col1 col-md-4">
-                    <Col>{section1()}</Col>
+                  <Row className="col-md-4">
+                    <Col>{section1()}</Col> <br></br>
                     <Col>{section2()}</Col>
-                  </Row> */}
+                  </Row>
           
                   {/* <Row className="col2 col-md-4">
                     <Col>{section2()}</Col>
                   </Row> */}
 
-                  <Col>{section1()}</Col>
-                  <Col>{section2()}</Col>
+                  {/* <Col>{section1()}</Col>
+                  <Col>{section2()}</Col> */}
 
               </div>
 }
 
     
-                <Row className="col-md-4">
+                {/* <Row className="col-md-4">
                   <div>{section3()}</div>
-                </Row> 
+                </Row>  */}
             
 
 

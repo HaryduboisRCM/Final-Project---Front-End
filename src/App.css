@@ -38,6 +38,7 @@ body {
   margin: 50px;
   border-radius: 10px;
   display: flex;
+  justify-content: space-between;
   height: auto;
   min-width: min-content;
   padding:20px;
@@ -54,12 +55,16 @@ body {
 .column1 {
   /* display: flex; */
   /* flex-wrap: wrap; */
+  justify-content: center;
   background-color: var(--seventh);
   border: var(--primary) solid;
   border-width: 2px;
+  border-radius: 10px;
   width: 30%;
   min-width: min-content;
+  word-break: break-word;
 }
+
 
 @media screen and (max-width: 600px){
   .column1 {
@@ -78,16 +83,12 @@ body {
 
 .socialMedia {
   margin: 20px;
+  
 }
 
 .socialSpacing {
   padding: 20px;
 }
-
-
-
-
-
 
 
 /* /*************Column 2 Main - Profiler Information - Name, Title*******************************************************************************************************************/
@@ -99,10 +100,27 @@ body {
   margin-left: 5px;
   border: var(--primary) solid;
   border-width: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
+/* ******************User field****************************** */
+.userField {
+  background-color: rgb(48, 64, 92);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 10px;
+  border-radius: 10px;
+  font-size: 30px;
+}
+
+.user {
+  font-size: 22px;
+}
 
 
 
@@ -110,12 +128,14 @@ body {
 
 .column2Section1 {
   background-color:   var(--secondary);
-  display: inline-block; 
-  /* margin: 20px; */
+  /* display: inline-block;  */
+    /* margin: 20px; */
   /* padding: 20px; */
-  align-items: center;
+  display:inline-flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  /* align-items: center; */
   width: 100%;
-  
 }
 
 .form-col-one{
@@ -125,8 +145,6 @@ body {
 } 
 
 .add-submit{
-  padding-top: 15px;
-  padding-left: 15px;
   justify-content: space-between;
 }
 
@@ -141,7 +159,12 @@ body {
 /* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
 .column2Section2 {
   background-color: var(--ninth);
-  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 10px;
+  border-radius: 10px;
+  
   /* display: block;  */
   /* flex-direction: column; */
   /* align-items: center;
@@ -183,10 +206,39 @@ body {
   word-wrap: break-word;
 } */
 
-.fieldSpace {
+.cvSpace {
   display: flexbox;
   padding-top:20px;
-  padding-bottom:20px;
+  /* padding-bottom:20px; */
+  display: flex;
+  justify-content:center
+}
+
+.profilePicture {
+  display: flexbox;
+  /* padding-bottom:20px; */
+  display: flex;
+  justify-content:center;
+}
+
+.profileImage {
+  border: none;
+  border-radius: 60px;
+}
+
+.smediaIcon {
+  display: flexbox;
+  padding-top:35px;
+  /* padding-bottom:20px; */
+  display: flex;
+  justify-content:center
+}
+.smediaLink {
+  display: flexbox;
+  padding-top:5px;
+  /* padding-bottom:20px; */
+  display: flex;
+  justify-content:center
 }
 
 
