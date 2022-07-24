@@ -126,12 +126,12 @@ function Add(props) {
       <form onSubmit={(e) => {submitHandler(e); setVisible(); window.location.reload(true) }} id="addForm">
 
         <div className="form-col-one">
-              Username:
-              <br />
+              {/* Username: */}
+              {/* <br /> */}
                  {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>   */}
-                  <input type="text" defaultValue={props.currentProfile?.userName} name="uName" onChange={(e) => handleChange(e)} />   
+                  {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" onChange={(e) => handleChange(e)} />   
               <br />
-              <br />     
+              <br />      */}
 
               Course Title: 
               <br />

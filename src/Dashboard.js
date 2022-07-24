@@ -83,7 +83,8 @@ function Dashboard(props) {
           <Card className = "col-md-8">
             <div>
 
-              <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div>
+              {/* <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div> */}
+              <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>      
               <div className = "fieldSpace"><strong>Course Title:</strong>   {profiles.courseTitle}</div>
               
             </div>
@@ -99,10 +100,11 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>
 
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {profiles.email}</div>
               <div className = "fieldSpace"><strong>Contact Number:</strong>   {profiles.contactNumber}</div>
-
+              <div className = "fieldSpace"><strong>Full Bio:</strong> {profiles.bio}</div>
+              <div className = "fieldSpace"><strong>List of Skills:</strong> {profiles.skills}</div> 
+              <div className = "fieldSpace"><strong>City:</strong>   {profiles.city}</div>     
              
             </div>
             </Card>
@@ -117,7 +119,6 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>                          
             
-
               <div className = "profilePicture"><img className="profileImage" src={profiles.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
               <div className = "cvSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank"> {profiles.cv}  </a></div> 
               <div className = "smediaIcon"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> </div>   
@@ -134,21 +135,18 @@ function Dashboard(props) {
   };
 
 
-  const section2 = () => {
-      return (
-        <div>
-          <Card >
-            <div>
+  // const section2 = () => {
+  //     return (
+  //       <div>
+  //         <Card >
+  //           <div>
+                 
 
-              <div className = "fieldSpace"><strong>Full Bio:</strong> {profiles.bio}</div>
-              <div className = "fieldSpace"><strong>List of Skills:</strong> {profiles.skills}</div> 
-              <div className = "fieldSpace"><strong>City:</strong>   {profiles.city}</div>         
-
-            </div>
-           </Card>
-        </div>
-      );
-  };
+  //           </div>
+  //          </Card>
+  //       </div>
+  //     );
+  // };
 
   const [visibleOutput, setVisibleOutput] = useState(false);
   const [visibleInput, setVisibleInput] = useState(true);
@@ -259,7 +257,7 @@ function Dashboard(props) {
               
                   <Row className="col-md-4">
                     <Col>{section1()}</Col> <br></br>
-                    <Col>{section2()}</Col>
+                    {/* <Col>{section2()}</Col> */}
                   </Row>
           
                   {/* <Row className="col2 col-md-4">
