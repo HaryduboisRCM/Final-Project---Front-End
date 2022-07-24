@@ -284,6 +284,7 @@ function TDAGradSearch(props) {
                     refreshList={() => {
                       refreshList();
                       cCurrent(undefined);
+                      window.location.reload(true) 
                     }}
                     currentProfile={current}
                   />
