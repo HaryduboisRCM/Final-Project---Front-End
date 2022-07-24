@@ -1,8 +1,8 @@
-import React, { Profiler, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card"
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
-import { PickerOverlay, PickerDropPane, PickerInline   } from 'filestack-react';
+import { PickerDropPane  } from 'filestack-react';
 import './Add.css';
 
 function Add(props) {
@@ -16,7 +16,7 @@ function Add(props) {
   const handleChange = (e) => {
     console.log(e.target.value)
     const newState = {...fields}
-    newState [e.target.name] = e.target.value;
+    newState[e.target.name] = e.target.value;
     setFields(newState);
   };
 
@@ -29,7 +29,7 @@ function Add(props) {
       console.log(fields,img,cvfile)
       result = props.client.updateProfile(
         props.currentProfile._id,
-        fields.uName,
+        // fields.uName,
         fields.cTitle,
         fields.fName,
         fields.email,
@@ -45,7 +45,7 @@ function Add(props) {
         cvfile);
     } else {
       result = props.client.addProfile(
-        fields.uName,
+        // fields.uName,
         fields.cTitle,
         fields.fName,
         fields.email,
@@ -70,7 +70,7 @@ function Add(props) {
       .catch(() => {
         console.error("error occurred -incorrect input format, please try again");
         cDisabled(false);
-        // props.refreshList();
+        props.refreshList();
       });
   };
 
@@ -78,8 +78,8 @@ function Add(props) {
 
   const handleOnchange = (value) => {setvalue (value) 
    const newState = {...fields}
-  //  console.log(newState)
-   newState ['skills'] = value;
+   console.log(newState)
+   newState['skills'] = value;
    setFields(newState);
   };
 

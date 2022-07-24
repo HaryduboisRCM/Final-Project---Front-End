@@ -20,7 +20,7 @@ export class ApiClient {
       data,
     }).catch((error) => {
       console.log("api error" , this.token);
-      if(error.response.status == 403) {
+      if(error.response.status === 403) {
         //logout the user
         this.logoutHandler();
         return Promise.reject();
@@ -57,15 +57,15 @@ export class ApiClient {
     return this.authenticatedCall("get", `${url}id/${id}`);
   }
 
-  addProfile(userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
-    return this.authenticatedCall("post", url, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
+  addProfile(courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
+    return this.authenticatedCall("post", url, {courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
   }
 
   removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateProfile(id, userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
-    return this.authenticatedCall("put", `${url}${id}`, { userName, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
+  updateProfile(id, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
+    return this.authenticatedCall("put", `${url}${id}`, {courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
   }
 }
