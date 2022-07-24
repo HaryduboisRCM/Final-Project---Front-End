@@ -236,8 +236,10 @@ function Dashboard(props) {
                       refreshList={() => {
                         refreshList();
                         cCurrent(undefined);
+                        window.location.reload(true) 
                       }}
                       currentProfile={profiles}
+                     
                     />
                   </Col>
               </Row> 

@@ -30,9 +30,9 @@ function EmployerDashboard(props) {
   }, []);
 
 
-const filters = (tech) => {
-  cProfiles ( profiles.filter(profiles => {
-    return profiles.skills.includes(tech);
+const filters = () => {
+  cProfiles (profiles.filter(profiles => {
+    return profiles.skills.includes(); //may need to be value
       }
   ))
 };

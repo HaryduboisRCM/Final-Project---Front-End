@@ -21,7 +21,6 @@ function Add(props) {
   };
 
   const submitHandler = (e) => {
-    console.log(fields.uName)
     e.preventDefault();
     cDisabled(true);
     let result;
@@ -123,7 +122,7 @@ function Add(props) {
 
           {visible && 
           
-      <form onSubmit={(e) => {submitHandler(e); setVisible(); window.location.reload(true) }} id="addForm">
+      <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
         <div className="form-col-one">
               {/* Username: */}
