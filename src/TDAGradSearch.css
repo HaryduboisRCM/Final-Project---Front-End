@@ -1,10 +1,28 @@
 .gradCard {
-    background-color: white;
-  
+  background-color: white;
   margin-bottom: 20px;
   border-radius:10px;
   padding:10px;
+display: block;
+}
 
+.fieldSpace {
+  display: flex;
+}
+
+.editRemoveButtons {
+  display: inline-block;
+  background-color:var(--ninth);
+  border: var(--primary) solid;
+  border-width: 5px;
+  border-radius: 50px;
+  color:  var(--primary);
+  padding: 17px 30px;
+  text-align: center;
+  font-size: 20px;
+  font-family: poppins;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .cols {
