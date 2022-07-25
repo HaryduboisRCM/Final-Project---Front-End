@@ -135,12 +135,14 @@ function Dashboard(props) {
   };
 
 
+
   // const section2 = () => {
   //     return (
   //       <div>
   //         <Card >
   //           <div>
                  
+
 
   //           </div>
   //          </Card>
@@ -156,7 +158,7 @@ function Dashboard(props) {
       return (
         <div>
           <Card className = "">
-              <div className = "add-submit">
+              <div className="editProfileButton">
 
                 {/* <Button className = "buttonspace updatebutton"  onClick={() => removeProfile (current._id)}> Remove</Button> */}
 
@@ -224,13 +226,13 @@ function Dashboard(props) {
           
 
           {/* /****Column 2 - User Input form***************************************************************************************************************/}  
-         <Container className = "column2Section1 col-md-8">
+         <Container className = "editProfileForm col-md-8">
 
             {visibleOutput && 
 
               <Row >
             
-                  <Col className = "addForm">
+                  <Col>
                     <Add
                       client={props.client}
                       refreshList={() => {
@@ -247,17 +249,17 @@ function Dashboard(props) {
             }
 
           </Container>
-
+          
 
           {/* /****Column 2 - Profile Display table***************************************************************************************************************/}   
-          <Container className = "column2Section2 col-md-8"> 
+          <Container className = "profileDisplay col-md-8"> 
 
             {visibleInput &&  
 
               <div className = "col1">
 
               
-                  <Row className="col-md-4">
+                  <Row className="col1 col-md-4">
                     <Col>{section1()}</Col> <br></br>
                     {/* <Col>{section2()}</Col> */}
                   </Row>
