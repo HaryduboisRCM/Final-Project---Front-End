@@ -1,6 +1,6 @@
 import axios from "axios";
-// const url =  "http://localhost:3001/";
-const url = "https://graduateapp.herokuapp.com/"; 
+const url =  "http://localhost:3001/";
+// const url = "https://graduateapp.herokuapp.com/"; 
 
 
 export class ApiClient {
@@ -48,13 +48,21 @@ export class ApiClient {
     return this.apiCall("post", `${url}auth`, {"userName": userName, "password": password});
   }
 
+  // all profiles in database
   getProfiles() {
     return this.authenticatedCall("get", url);
   }
 
+  // graduate view
   getGradProfile(id) {
     console.log(id)
     return this.authenticatedCall("get", `${url}id/${id}`);
+  }
+
+
+  getEmployedProfile(employed) {
+    console.log(employed)
+    return this.authenticatedCall("get", `${url}employed/${employed}`);
   }
 
   addProfile(courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
