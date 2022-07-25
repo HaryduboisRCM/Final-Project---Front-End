@@ -57,35 +57,37 @@ function TDAGradSearch(props) {
   }, []);
 
 
-  const linkedIn = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-            <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>
-       </div>
-       );
-     });
-   };
 
-   const gitHub = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-            <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>
-       </div>
-       );
-     });
-   };
 
-   const personalPortfolio = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-            <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>
-       </div>
-       );
-     });
-   };
+  // const linkedIn = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //           <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>
+  //      </div>
+  //      );
+  //    });
+  //  };
+
+  //  const gitHub = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //           <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>
+  //      </div>
+  //      );
+  //    });
+  //  };
+
+  //  const personalPortfolio = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //           <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>
+  //      </div>
+  //      );
+  //    });
+  //  };
 
   //  const email = () => {
   //   return profiles.map((current) => {
@@ -99,25 +101,24 @@ function TDAGradSearch(props) {
 
 
 
-  const section1 = () => {
+  const NewGrad = () => {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
-            <div className = "gradCard">
-              <tb className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</tb>
-              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>       
+            <div className = "gradCard">           
+              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>  
+              <tb className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</tb>     
               <tb className = "fieldSpace"><strong>Email:</strong> {current.email}</tb>
               <tb className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</tb>   
               <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
               <tb className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</tb>
-        
               <tb className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</tb>          
               <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb>     
               <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>           
               <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>              
               <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>                       
-              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Graduate Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> Remove Graduate Profile</button>  
+              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> Remove Profile</button>  
               <br></br>         
               <br></br>
             </div>
@@ -126,36 +127,33 @@ function TDAGradSearch(props) {
     });
   };
   
-  // const Media = () => {
-  //   return profiles.map((current) => {
-  //     return (
-  //       <div key={current._id}>
-  //         <Card className = "col-md-2">
-  //           <div>    
+  const NewEmployer = () => {
+    return profiles.map((current) => {
+      return (
+        <div key={current._id}>
+            <div className = "gradCard">
+              {/* <tb className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</tb> */}
+              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>       
+              <tb className = "fieldSpace"><strong>Email:</strong> {current.email}</tb>
+              <tb className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</tb>   
+              <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
+              <tb className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</tb>
+              {/* <tb className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</tb>           */}
+              {/* <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb>      */}
+              {/* <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>           
+              <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>              
+              <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>                        */}
+              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Employer Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> Remove Employer Profile</button>  
+              <br></br>         
+              <br></br>
+            </div>
+        </div>
+      );
+    });
+  };
 
-             
-          
-  //           </div>
-  //          </Card>
-  //       </div>
-  //     );
-  //   });
-  // };
 
-
-  // const section2 = () => {
-  //   return profiles.map((current) => {
-  //     return (
-  //       <div key={current._id}>
-  //         <Card className = "col-md-2">
-  //           <div>
-           
-  //           </div>
-  //          </Card>
-  //       </div>
-  //     );
-  //   });
-  // };
 
   const [visibleOutput, setVisibleOutput] = useState(false);
   const [visibleInput, setVisibleInput] = useState(true);
@@ -234,22 +232,16 @@ function TDAGradSearch(props) {
         <br></br>Academy</h1>
 
             {/*create a new Gradute */}
-            <p>Create a new Graduate Profile</p>
+             <p>Create a new Graduate Profile</p>
             <br></br>
-            <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Graduate</button>
-     
-
+              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Profile</button>
             <br></br>
             <br></br>
-            <br></br>
-
-            <p>Search for a Graduate by Full Name</p>
+              <p>Search for a Graduate by Full Name</p>
             <input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/>
-
             <br></br>
             <br></br>
-
-            <button onClick={() =>  unfilters("Clear Filters")}> 
+              <button onClick={() =>  unfilters("Clear Filters")}> 
                 Clear Filter               
             </button>
 
@@ -303,8 +295,8 @@ function TDAGradSearch(props) {
              <div className = "cols">
 
              
-                  {section1()}
-                
+                  {NewGrad()}
+              
 
               </div>
 
