@@ -1,7 +1,17 @@
-.addForm {
-    /* border-radius: 20px; */
+.editProfile {
+    padding-left: 15px;
+   
 }
 
 .fileUpload {
-    width: 350px;
+    width: 265px;
+}
+
+.bioTextbox {
+    height: 100px;
+    width: auto;
+}
+
+.profileSubmit {
+    padding-left: 80px;
 }

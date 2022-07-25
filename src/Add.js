@@ -17,9 +17,9 @@ function Add(props) {
     console.log(e.target.value)
     const newState = {...fields}
     newState [e.target.name] = e.target.value;
-    setFields(newState);
+    setFields(newState);    
   };
-
+  
   const submitHandler = (e) => {
     console.log(fields.uName)
     e.preventDefault();
@@ -109,23 +109,16 @@ function Add(props) {
   const [visible, setVisible] = useState(true);
 
   return (
-    <>
+    <div className="editProfile">
    
-      {props.currentProfile ? "Update" : ""}
-      <br />
-
-      <div className="Card">
-        <div className="Card-body">
-         <Card>
-          <Card-Body>              
-
-          {/* window.location.reload(true) */}
+      {/* {props.currentProfile ? "Update" : ""} */}
+      {/* window.location.reload(true) */}
 
           {visible && 
           
       <form onSubmit={(e) => {submitHandler(e); setVisible(); window.location.reload(true) }} id="addForm">
-
-        <div className="form-col-one">
+       
+        <div>
               Username:
               <br />
                  {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>   */}
@@ -163,113 +156,108 @@ function Add(props) {
               <br />
               <br />  
         </div>
+    
+        <div>
+            Personal Bio: 
+            <br />     
+              <input className="bioTextbox" type="text" defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>      
+            <br />
+            <br />  
+            
+
+            Skills: 
+            <br />    
+            
+            <div>
+              <label></label>
+                <MultiSelect
+                  // className="multi-select"
+                  onChange={handleOnchange}
+                  options={options}                 
+                />
+                <br />
+
+                <div>
+                  <b>Skills Selected: </b>
+                  {/* {value} */}
+                </div>
+              </div> 
+
+              <input type="text" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+            <br />
+            <br />    
+
+            linkedIn: 
+            <br />      
+              <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
+            <br />
+            <br />    
+
+            gitHub: 
+            <br />    
+              <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
+            <br />
+            <br />    
+
+            portfolio: 
+            <br />      
+              <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+            <br />
+            <br />  
+
+            Employed: 
+            <br />      
+              <input type="text" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+            <br />
+            <br /> 
+        
+
+            Image: 
+            <br /> 
+            <div className="fileUpload">
+              <PickerDropPane 
+                apikey={'AmYEocDZSRbOwoISVx42lz'}
+                onSuccess={(res) => setImg(res.filesUploaded[0].url)}
+                onUploadDone={(res) => console.log(res)}
+                />
+            </div>
+  
+            {/* <button className = "buttonspace updatebutton"  onClick={() => imagePicker()}> Choose File</button> */}
+            {/* <input type="file" onChange={onImageChange}  />     */}
+            {/* <input type="text" defaultValue={props.currentProfile?.[file]}  name="image" disabled={disabled}/>      */}
+            {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
+                        
+            <br />
+            <br />  
       
-
-        <div className="form-col-one">
-          <div className="sub-entry">
-              Personal Bio: 
-              <br />     
-                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br />  
-
-              Skills: 
-              <br />    
+      
+            cv: 
+            <br />   
+            <div className="fileUpload">
+              <PickerDropPane 
+                apikey={'AmYEocDZSRbOwoISVx42lz'}
+                onSuccess={(res) => setFile(res.filesUploaded[0].url)}
+                onUploadDone={(res) => console.log(res)}
+                />
+            </div>
+            {/* <input type="file" onChange={onFileChange}  />        */}
+              {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
+            <br />
              
-              <div>
-                <label></label>
-                  <MultiSelect
-                    // className="multi-select"
-                    onChange={handleOnchange}
-                    options={options}                 
-                  />
-                  <br />
+          </div>      
 
-                  <div>
-                    <b>Skills Selected: </b>
-                    {/* {value} */}
-                  </div>
-                </div> 
+          <div className = "profileSubmit">
+            <button className = "login-submit" type="submit" disabled={disabled}>
+              {" "}Submit{" "}
+            </button>
+          </div>
 
-                <input type="text" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br />    
-
-              linkedIn: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
-              <br />
-              <br />    
-
-              gitHub: 
-              <br />    
-                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
-              <br />
-              <br />    
-
-              portfolio: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br />  
-
-              Employed: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br /> 
-          
-
-              Image: 
-              <br /> 
-              <div className="fileUpload">
-                <PickerDropPane 
-                  apikey={'AmYEocDZSRbOwoISVx42lz'}
-                  onSuccess={(res) => setImg(res.filesUploaded[0].url)}
-                  onUploadDone={(res) => console.log(res)}
-                  />
-              </div>
-   
-              {/* <button className = "buttonspace updatebutton"  onClick={() => imagePicker()}> Choose File</button> */}
-              {/* <input type="file" onChange={onImageChange}  />     */}
-              {/* <input type="text" defaultValue={props.currentProfile?.[file]}  name="image" disabled={disabled}/>      */}
-              {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
-                          
-              <br />
-              <br />  
-        
-        
-              cv: 
-              <br />   
-              <div className="fileUpload">
-                <PickerDropPane 
-                  apikey={'AmYEocDZSRbOwoISVx42lz'}
-                  onSuccess={(res) => setFile(res.filesUploaded[0].url)}
-                  onUploadDone={(res) => console.log(res)}
-                  />
-              </div>
-              {/* <input type="file" onChange={onFileChange}  />        */}
-                {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
-              <br />
-              <br />  
-              </div>
-
-                           
-              <div className = "add-submit">
-                <button className = "login-submit" type="submit" disabled={disabled}>
-                  {" "}Submit{" "}
-                </button>
-              </div>
-
-        </div> 
- 
       </form>
+            
 }
-      </Card-Body>
-      </Card>
-      </div> 
-     </div> 
-    </>
+
+    </div>
+    
   );
 }
 
