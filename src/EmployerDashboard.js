@@ -16,6 +16,7 @@ function EmployerDashboard(props) {
   // const [current, cCurrent] = useState(undefined);
 
   const refreshList = () => {
+    console.log(props.client.getProfiles())
     props.client.getProfiles().then((response) => {
 
     cProfiles(response.data)
@@ -24,11 +25,9 @@ function EmployerDashboard(props) {
     })
   };
 
-
   useEffect(() => {
     refreshList();
   }, []);
-
 
 const filters = () => {
   cProfiles (profiles.filter(profiles => {
@@ -40,7 +39,6 @@ const filters = () => {
 const unfilters = () => {
   cProfiles (unfilter)
 };
-
 
 const section1 = () => {
   
