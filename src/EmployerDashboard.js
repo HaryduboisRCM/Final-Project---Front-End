@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Link, Rout } from "react";
+import React, { useState, useEffect} from "react";
 import './Employer.css';
 // import './Login.css';
 // import './Navigation.css';
@@ -16,6 +16,7 @@ function EmployerDashboard(props) {
   // const [current, cCurrent] = useState(undefined);
 
   const refreshList = () => {
+    console.log(props.client.getProfiles())
     props.client.getProfiles().then((response) => {
 
     cProfiles(response.data)
@@ -24,15 +25,13 @@ function EmployerDashboard(props) {
     })
   };
 
-
   useEffect(() => {
     refreshList();
   }, []);
 
-
-const filters = (tech) => {
-  cProfiles ( profiles.filter(profiles => {
-    return profiles.skills.includes(tech);
+const filters = () => {
+  cProfiles (profiles.filter(profiles => {
+    return profiles.skills.includes(); //may need to be value
       }
   ))
 };
@@ -40,7 +39,6 @@ const filters = (tech) => {
 const unfilters = () => {
   cProfiles (unfilter)
 };
-
 
 const section1 = () => {
   
@@ -52,7 +50,7 @@ const section1 = () => {
           <Card className = "col-md-2">
          
             <tr key={current._id}>
-            <a href={current.image} target="_blank"> {current.image} </a>
+            <a href={current.image} target="_blank" rel="noopener noreferrer"> {current.image} </a>
                 <td>{current.fullName}</td>        
                 <td>{current.courseTitle}</td>   
                 <td className = "fieldSpace"><strong>Email:</strong> {current.email}</td>
@@ -60,10 +58,10 @@ const section1 = () => {
                 <td className = "fieldSpace"><strong>City:</strong>   {current.city}</td>    
                 <td>{current.skills}</td>  
                 <td className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</td>                  
-                <td><a href={current.linkedIn} target="_blank"> {current.linkedIn} </a></td>
-                <td><a href={current.gitHub} target="_blank"> {current.gitHub} </a> </td> 
-                <td><a href={current.portfolio} target="_blank"> {current.portfolio} </a>   </td>
-                <td><a href={current.cv} target="_blank"> {current.cv} </a>  </td>
+                <td><a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a></td>
+                <td><a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a> </td> 
+                <td><a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>   </td>
+                <td><a href={current.cv} target="_blank" rel="noopener noreferrer"> {current.cv} </a>  </td>
             </tr>
             </Card>
 
@@ -73,10 +71,6 @@ const section1 = () => {
     });
   };
 
-
-
-  const [visibleOutput, setVisibleOutput] = useState(false);
-  const [visibleInput, setVisibleInput] = useState(true);
 
 
   return (

@@ -1,25 +1,21 @@
-import React, { useState, useEffect, Link, Route } from "react";
+import React, { useState, useEffect} from "react";
 import './App.css';
 import './Login.css';
 import './Navigation.css';
 import './Buttons.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Add from './Add';
-import Login from './Login';
 import Card from 'react-bootstrap/Card'
-import {Button} from 'react-bootstrap';
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
-import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
 import WebPort from "./webport.png";
 
 
-function TDADashboard(props) {
+function TDAGradSearch(props) {
   const [profiles, cProfiles] = useState([]);
   const [current, cCurrent] = useState(undefined);
   const [unfilter, unfilterProfiles] = useState([]);
@@ -64,7 +60,7 @@ function TDADashboard(props) {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
-            <a href={current.linkedIn} target="_blank"> {current.linkedIn} </a>
+            <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>
        </div>
        );
      });
@@ -74,7 +70,7 @@ function TDADashboard(props) {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
-            <a href={current.gitHub} target="_blank"> {current.gitHub} </a>
+            <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>
        </div>
        );
      });
@@ -84,7 +80,7 @@ function TDADashboard(props) {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
-            <a href={current.portfolio} target="_blank"> {current.portfolio} </a>
+            <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>
        </div>
        );
      });
@@ -108,7 +104,7 @@ function TDADashboard(props) {
         <div key={current._id}>
           <Card className = "col-md-2">
             <div>
-              <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div>
+              {/* <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div> */}
               <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
               <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
@@ -165,20 +161,20 @@ function TDADashboard(props) {
   const [visibleInput, setVisibleInput] = useState(true);
 
 
-  const section3 = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-          <Card className = "">
-              <div className = "add-submit">
-                {/* <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
-                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>                */}
-              </div>
+  // const section3 = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //         <Card className = "">
+  //             <div className = "add-submit">
+                /* <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> remove</button>
+                <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(true); setVisibleOutput(true)}}> update</button>                */
+              /* </div>
             </Card>
         </div>
       );
     });
-  };
+  }; */
 
   return (
     <>
@@ -288,6 +284,7 @@ function TDADashboard(props) {
                     refreshList={() => {
                       refreshList();
                       cCurrent(undefined);
+                      window.location.reload(true) 
                     }}
                     currentProfile={current}
                   />
@@ -332,6 +329,6 @@ function TDADashboard(props) {
   );
 }
 
-export default TDADashboard;
+export default TDAGradSearch;
 
 

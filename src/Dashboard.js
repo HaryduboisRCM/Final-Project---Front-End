@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Link, Route } from "react";
+import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 // import {Link } from "react";
 import './App.css';
@@ -7,18 +7,18 @@ import './Navigation.css';
 import './Buttons.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+// import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Add from './Add';
-import Login from './Login';
+// import Login from './Login';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
-import CV from "./CV Logo3.png";
+// import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
-import WebPort from "./webport.png";
+// import WebPort from "./webport.png";
 import Portfolio from "./Portfolio.png";
 
 function Dashboard(props) {
@@ -29,9 +29,9 @@ function Dashboard(props) {
     props.client.getGradProfile(props.token).then((response) => cProfiles(response.data));
   };
 
-  const removeProfile = (id) => {
-    props.client.removeProfile(id).then(() => refreshList());
-  };
+  // const removeProfile = (id) => {
+  //   props.client.removeProfile(id).then(() => refreshList());
+  // };
 
   const updateProfile = (profile) => {
     cCurrent(profile);
@@ -46,7 +46,7 @@ function Dashboard(props) {
   const linkedIn = () => {
       return (
         <div>
-            <a href={profiles.linkedIn} target="_blank"> {profiles.linkedIn} </a>
+            <a href={profiles.linkedIn} target="_blank" rel="noopener noreferrer"> {profiles.linkedIn} </a>
        </div>
        );
    };
@@ -54,7 +54,7 @@ function Dashboard(props) {
    const gitHub = () => {
       return (
         <div>
-            <a href={profiles.gitHub} target="_blank"> {profiles.gitHub} </a>
+            <a href={profiles.gitHub} target="_blank" rel="noopener noreferrer"> {profiles.gitHub} </a>
        </div>
        );
    };
@@ -62,7 +62,7 @@ function Dashboard(props) {
    const personalPortfolio = () => {
       return (
         <div>
-            <a href={profiles.portfolio} target="_blank"> {profiles.portfolio} </a>
+            <a href={profiles.portfolio} target="_blank" rel="noopener noreferrer"> {profiles.portfolio} </a>
        </div>
        );
    };
@@ -83,7 +83,8 @@ function Dashboard(props) {
           <Card className = "col-md-8">
             <div>
 
-              <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div>
+              {/* <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div> */}
+              <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>      
               <div className = "fieldSpace"><strong>Course Title:</strong>   {profiles.courseTitle}</div>
               
             </div>
@@ -99,10 +100,11 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>
 
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>       
               <div className = "fieldSpace"><strong>Email:</strong> {profiles.email}</div>
               <div className = "fieldSpace"><strong>Contact Number:</strong>   {profiles.contactNumber}</div>
-
+              <div className = "fieldSpace"><strong>Full Bio:</strong> {profiles.bio}</div>
+              <div className = "fieldSpace"><strong>List of Skills:</strong> {profiles.skills}</div> 
+              <div className = "fieldSpace"><strong>City:</strong>   {profiles.city}</div>     
              
             </div>
             </Card>
@@ -117,9 +119,8 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>                          
             
-
-              <div className = "profilePicture"><img className="profileImage" src={profiles.image} width="100px" height="100px"/> <br></br><strong></strong></div>                          
-              <div className = "cvSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank"> {profiles.cv}  </a></div> 
+              <div className = "profilePicture"><img className="profileImage" src={profiles.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>                          
+              <div className = "cvSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank" rel="noopener noreferrer"> {profiles.cv}  </a></div> 
               <div className = "smediaIcon"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> </div>   
               <div className= "smediaLink">{linkedIn()}</div>           
               <div className = "smediaIcon"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong></div>
@@ -134,21 +135,20 @@ function Dashboard(props) {
   };
 
 
-  const section2 = () => {
-      return (
-        <div>
-          <Card >
-            <div>
 
-              <div className = "profileOutput"><strong>Full Bio:</strong> {profiles.bio}</div> <br></br>
-              <div className = "profileOutput"><strong>List of Skills:</strong> {profiles.skills}</div> 
-              <div className = "profileOutput"><strong>City:</strong>   {profiles.city}</div>         
+  // const section2 = () => {
+  //     return (
+  //       <div>
+  //         <Card >
+  //           <div>
+                 
 
-            </div>
-           </Card>
-        </div>
-      );
-  };
+
+  //           </div>
+  //          </Card>
+  //       </div>
+  //     );
+  // };
 
   const [visibleOutput, setVisibleOutput] = useState(false);
   const [visibleInput, setVisibleInput] = useState(true);
@@ -238,8 +238,10 @@ function Dashboard(props) {
                       refreshList={() => {
                         refreshList();
                         cCurrent(undefined);
+                        window.location.reload(true) 
                       }}
                       currentProfile={profiles}
+                     
                     />
                   </Col>
               </Row> 
@@ -259,7 +261,7 @@ function Dashboard(props) {
               
                   <Row className="col1 col-md-4">
                     <Col>{section1()}</Col> <br></br>
-                    <Col>{section2()}</Col>
+                    {/* <Col>{section2()}</Col> */}
                   </Row>
           
                   {/* <Row className="col2 col-md-4">

@@ -1,17 +1,28 @@
-.editProfile {
-    padding-left: 15px;
-   
+.addForm {
+  font-family: poppins;
+  font-size: 24px;
 }
 
-.fileUpload {
-    width: 265px;
+.fileUploadI {
+    width: 480px;
+    margin-top: -2px;
 }
 
-.bioTextbox {
-    height: 100px;
-    width: auto;
+
+.fileUploadC {
+    width: 480px;
+    margin-top: 2px;
+    
 }
 
-.profileSubmit {
-    padding-left: 80px;
+#submit {
+margin-top: 50px;
+margin-left: -170px;
+margin-bottom: 50px;
 }
+
+.inputForm {
+  font-size: 20px;
+}
+
+
