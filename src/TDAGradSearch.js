@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import './App.css';
+import './TDAGradSearch.css';
 import './Login.css';
 import './Navigation.css';
 import './Buttons.css';
@@ -22,7 +23,7 @@ function TDAGradSearch(props) {
 
   const refreshList = () => {
     props.client.getProfiles().then((response) => {
-    console.log(response.data)
+    // console.log(response.data)
     cProfiles(response.data)
     unfilterProfiles(response.data)             
   
@@ -30,7 +31,7 @@ function TDAGradSearch(props) {
   };
 
   const filters = (tech) => {
-    console.log(profiles)
+    // console.log(profiles)
     cProfiles (profiles.filter(profiles => {
       return profiles.fullName.toUpperCase().includes(tech);
         }
@@ -102,60 +103,59 @@ function TDAGradSearch(props) {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
-          <Card className = "col-md-2">
-            <div>
-              {/* <div className = "fieldSpace"><strong>Username:</strong>  {current.userName}</div> */}
-              <div className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</div>
-              <div className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</div>       
-              <div className = "fieldSpace"><strong>Email:</strong> {current.email}</div>
-              <div className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</div>              
+            <div className = "gradCard">
+              <tb className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</tb>
+              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>       
+              <tb className = "fieldSpace"><strong>Email:</strong> {current.email}</tb>
+              <tb className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</tb>   
+              <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
+              <tb className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</tb>
+        
+              <tb className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</tb>          
+              <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb>     
+              <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>           
+              <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>              
+              <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>                       
+              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Graduate Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> Remove Graduate Profile</button>  
+              <br></br>         
+              <br></br>
             </div>
-            </Card>
         </div>
       );
     });
   };
   
-  const Media = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-          <Card className = "col-md-2">
-            <div>    
+  // const Media = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //         <Card className = "col-md-2">
+  //           <div>    
 
-              <div ><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/> {linkedIn()}
-
-                    <img src={GitHub} width="50" height="50" alt="TDA logo"/>{gitHub()}
-              
-              <img src={WebPort} width="50" height="50" alt="TDA logo"/><strong>Personal Portfolio:</strong> {personalPortfolio()}</div>  
-              
-              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Graduate Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-              <button className = "login-submit2"  onClick={() => removeProfile (current._id)}> Remove Graduate Profile</button>      
+             
           
-            </div>
-           </Card>
-        </div>
-      );
-    });
-  };
+  //           </div>
+  //          </Card>
+  //       </div>
+  //     );
+  //   });
+  // };
 
 
-  const section2 = () => {
-    return profiles.map((current) => {
-      return (
-        <div key={current._id}>
-          <Card className = "col-md-2">
-            <div>
-              <div className = "fieldSpace"><strong>City:</strong>   {current.city}</div>
-              <div className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</div>
-              <div className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</div>          
-              <div className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</div>
-            </div>
-           </Card>
-        </div>
-      );
-    });
-  };
+  // const section2 = () => {
+  //   return profiles.map((current) => {
+  //     return (
+  //       <div key={current._id}>
+  //         <Card className = "col-md-2">
+  //           <div>
+           
+  //           </div>
+  //          </Card>
+  //       </div>
+  //     );
+  //   });
+  // };
 
   const [visibleOutput, setVisibleOutput] = useState(false);
   const [visibleInput, setVisibleInput] = useState(true);
@@ -236,7 +236,8 @@ function TDAGradSearch(props) {
             {/*create a new Gradute */}
             <p>Create a new Graduate Profile</p>
             <br></br>
-            <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Gradute</button>
+            <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Graduate</button>
+     
 
             <br></br>
             <br></br>
@@ -276,7 +277,7 @@ function TDAGradSearch(props) {
 
           {visibleOutput && 
 
-            <Row className = "row column2Section1 col-md-5" id = "inputForm">
+            <Row className = "row column2Section1 col-md-5">
           
                 <Col className = "addForm">
                   <Add
@@ -289,33 +290,27 @@ function TDAGradSearch(props) {
                     currentProfile={current}
                   />
                 </Col>
-            </Row> }
+            </Row> 
+            
+            }
 
 
             {/* /****Column 2/2 - Profile Display table***************************************************************************************************************/}    
-            <div className = "column2Section2 col-md-5" id = "outputForm">
+            <div className = "column2Section2 col-md-5">
 
             {visibleInput &&  
 
              <div className = "cols">
 
-                <Row className="col1 col-md-2.5">
-                  <Col>{section1()}</Col>
-                </Row>
-
-                <Row className="col2 col-md-2.5">
-                  <Col>{section2()}</Col>
-                </Row>
-
-                {Media()}
+             
+                  {section1()}
+                
 
               </div>
+
               } 
 
-              {/* <Row className="row3 col-md-4">
-                <div>{section3()}</div>
-              </Row> */}
-
+            
               </div>     
             
           </Container>
