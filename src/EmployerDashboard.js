@@ -1,7 +1,5 @@
 import React, { useState, useEffect} from "react";
 import './Employer.css';
-// import './Login.css';
-// import './Navigation.css';
 import './Buttons.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar'
@@ -13,17 +11,17 @@ import logo from "./TDA Logo.jpg";
 function EmployerDashboard(props) {
   const [profiles, cProfiles] = useState([]);
   const [unfilter, unfilterProfiles] = useState([]);
-  // const [current, cCurrent] = useState(undefined);
+  const [current, cCurrent] = useState(undefined);
 
   const refreshList = () => {
-    console.log(props.client.getProfiles())
+    // console.log(props.client.getProfiles())
     props.client.getProfiles().then((response) => {
-
     cProfiles(response.data)
     unfilterProfiles(response.data)
-  
     })
   };
+
+  // the filter needs to be able to deal with missing
 
   useEffect(() => {
     refreshList();
@@ -31,7 +29,8 @@ function EmployerDashboard(props) {
 
 const filters = () => {
   cProfiles (profiles.filter(profiles => {
-    return profiles.skills.includes(); //may need to be value
+    console.log(profiles.skills)
+    return profiles.skills.includes();
       }
   ))
 };

@@ -1,0 +1,14 @@
+.gradCard {
+    background-color: white;
+  
+  margin-bottom: 20px;
+  border-radius:10px;
+  padding:10px;
+
+}
+
+.cols {
+    /* background-color: grey; */
+  
+    margin: 20px;
+}
