@@ -1,7 +1,22 @@
 .addForm {
-    /* border-radius: 20px; */
+  font-family: poppins;
+  font-size: 24px;
 }
 
-.fileUpload {
-    width: 350px;
+.fileUploadI {
+    width: 480px;
+    margin-top: -2px;
+}
+
+
+.fileUploadC {
+    width: 480px;
+    margin-top: 2px;
+    
+}
+
+#submit {
+margin-top: 50px;
+margin-left: -170px;
+margin-bottom: 50px;
 }
