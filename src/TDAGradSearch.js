@@ -38,9 +38,22 @@ function TDAGradSearch(props) {
     ))
   };
 
+  const rolefilters = (tech) => {
+    // console.log(profiles)
+    cProfiles (profiles.filter(profiles => {
+      return profiles.roles.toUpperCase().includes(tech);
+        }
+    ))
+  };
+
   const unfilters = () => {
     cProfiles (unfilter);
     document.getElementById("search").value = "";
+  };
+
+  const roleunfilters = () => {
+    cProfiles (unfilter);
+    document.getElementById("searchroles").value = "";
   };
 
 
@@ -106,14 +119,15 @@ function TDAGradSearch(props) {
       return (
         <div key={current._id}>
             <div className = "gradCard">           
-              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>  
-              <tb className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</tb>     
-              <tb className = "fieldSpace"><strong>Email:</strong> {current.email}</tb>
-              <tb className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</tb>   
-              <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
-              <tb className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</tb>
-              <tb className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</tb>          
-              <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb>     
+              <tb className = "fieldSpace"><strong>Full Name:</strong>&nbsp;   {current.fullName}</tb>  
+              <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>  
+              <tb className = "fieldSpace"><strong>Course Title:</strong>&nbsp;   {current.courseTitle}</tb>     
+              <tb className = "fieldSpace"><strong>Email:</strong>&nbsp; {current.email}</tb>
+              <tb className = "fieldSpace"><strong>Contact Number:</strong>&nbsp;  {current.contactNumber}</tb>   
+              <tb className = "fieldSpace"><strong>City:</strong>&nbsp;   {current.city}</tb>
+              <tb className = "fieldSpace"><strong>Full Bio:</strong>&nbsp; {current.bio}</tb>
+              <tb className = "fieldSpace"><strong>List of Skills:</strong>&nbsp; {current.skills}</tb>          
+              <tb className = "fieldSpace"><strong>Hired?:</strong>&nbsp; {current.employed}</tb>     
               <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>           
               <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>              
               <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>                       
@@ -133,7 +147,8 @@ function TDAGradSearch(props) {
         <div key={current._id}>
             <div className = "gradCard">
               {/* <tb className = "fieldSpace"><strong>Course Title:</strong>   {current.courseTitle}</tb> */}
-              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>       
+              <tb className = "fieldSpace"><strong>Full Name:</strong>   {current.fullName}</tb>      
+          
               <tb className = "fieldSpace"><strong>Email:</strong> {current.email}</tb>
               <tb className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</tb>   
               <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
@@ -242,8 +257,19 @@ function TDAGradSearch(props) {
             <br></br>
             <br></br>
               <button onClick={() =>  unfilters("Clear Filters")}> 
-                Clear Filter               
+                Clear Graduate Full Name Filter               
             </button>
+            <br></br>
+            <br></br>
+            <p>Search for a Profiles by Roles</p>
+            <input type="text" id="searchroles" onChange={() => rolefilters(document.getElementById("searchroles").value.toUpperCase())}/>
+            <br></br>
+            <br></br>
+              <button onClick={() =>  roleunfilters("Clear Filters")}> 
+                Clear Role Filter               
+            </button>
+
+            
 
           </Row>
         <br></br>
