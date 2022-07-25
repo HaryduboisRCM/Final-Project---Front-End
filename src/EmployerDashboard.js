@@ -28,10 +28,10 @@ function EmployerDashboard(props) {
     refreshList();
   }, []);
 
-const filters = () => {
-  cProfiles (profiles.filter(profiles => {
+const filters = (tech) => {
+    cProfiles (profiles.filter(profiles => {
     console.log(profiles.skills)
-    return profiles.skills.includes();
+    return profiles.skills.includes(tech);
       }
   ))
 };
@@ -111,7 +111,6 @@ const section1 = () => {
 
             {/* <input type="checkbox" name="Teamwork" onChange={() => filters("Teamwork")}/> */}
 
-
             <input type="checkbox" name="Teamwork" onChange={() => filters("Teamwork")}/><label for="Teamwork">Teamwork</label>
             <input type="checkbox" name="GitHub" onChange={() => filters("GitHub")}/><label for="GitHub">GitHub</label>
             <input type="checkbox" name="HTML" onChange={() => filters("HTML")}/><label for="HTML">HTML</label>
@@ -135,41 +134,8 @@ const section1 = () => {
            
         </form>
 
-   
-            <br></br>
-            <br></br>
-
-
-           {/* < EmployerFilter>
-                {EmployerFilter()}
-           </EmployerFilter> */}
-
-          
-            {/* <div>
-             {filtered1.map(options => {
-                return (
-                 <div key={options.id}>
-                     <h2>skills: {options.value}</h2>
-              
-
-            //         <hr />
-            //     </div>
-            //     );
-            // })}
-            // </div>
-            <div>
-            {filteredtest.map(filter => {
-                return (
-                <div key={filter.id}>
-                    <h2>skills: {filter.skills}</h2>
-                
-
-                    <hr />
-                </div>
-                );
-            })}
-            </div>
-         */}
+        <br></br>
+        <br></br>
 
           <Container className = "row col-md-8">
             
