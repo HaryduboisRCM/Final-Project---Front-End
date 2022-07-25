@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card'
 import logo from "./TDA Logo.jpg";
+import Table from 'react-bootstrap/Table'
 
 function EmployerDashboard(props) {
   const [profiles, cProfiles] = useState([]);
@@ -44,28 +45,28 @@ const section1 = () => {
     return profiles.map((current) => {      
 
       return (
+        <Table> 
         <div key={current._id}>
-
-          <Card className = "col-md-2">
-         
-            <tr key={current._id}>
-            <a href={current.image} target="_blank" rel="noopener noreferrer"> {current.image} </a>
-                <td>{current.fullName}</td>        
-                <td>{current.courseTitle}</td>   
-                <td className = "fieldSpace"><strong>Email:</strong> {current.email}</td>
-                <td className = "fieldSpace"><strong>Contact Number:</strong>   {current.contactNumber}</td>
-                <td className = "fieldSpace"><strong>City:</strong>   {current.city}</td>    
-                <td>{current.skills}</td>  
-                <td className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</td>                  
-                <td><a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a></td>
-                <td><a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a> </td> 
-                <td><a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>   </td>
-                <td><a href={current.cv} target="_blank" rel="noopener noreferrer"> {current.cv} </a>  </td>
-            </tr>
-            </Card>
-
-    
+        <div className = "gradCard1">
+                  
+          <tb className = "fieldSpace"><strong>Full Name:  </strong>   {current.fullName}</tb>  <br />
+          <tb className = "fieldSpace"><strong>Course Title:  </strong>   {current.courseTitle}</tb>    <br /> 
+          <tb className = "fieldSpace"><strong>Email:  </strong> {current.email}</tb> <br />
+          <tb className = "fieldSpace"><strong>Contact Number:  </strong>   {current.contactNumber}</tb> <br />  
+          <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
+          <br /><tb className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</tb><br />
+          <tb className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</tb>   <br />       
+          <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb> 
+               
+          <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"><strong>LinkedIn:</strong> {current.linkedIn} </a> <br />          
+          <a href={current.gitHub} target="_blank" rel="noopener noreferrer"><strong>GitHub:</strong> {current.gitHub} </a>   <br />           
+          <a href={current.portfolio} target="_blank" rel="noopener noreferrer"><strong>Portfolio:</strong> {current.portfolio} </a>  <br />
+          <a href={current.cv} target="_blank" rel="noopener noreferrer"><strong>C.V:</strong> {current.cv} </a>                      
+          <br></br>         
+          <br></br>
         </div>
+        </div>
+        </Table>
       );
     });
   };
