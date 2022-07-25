@@ -22,7 +22,7 @@ function TDAGradSearch(props) {
 
   const refreshList = () => {
     props.client.getProfiles().then((response) => {
-
+    console.log(response.data)
     cProfiles(response.data)
     unfilterProfiles(response.data)             
   
