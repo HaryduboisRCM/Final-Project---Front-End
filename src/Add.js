@@ -16,12 +16,10 @@ function Add(props) {
   const handleChange = (e) => {
     console.log(e.target.value)
     const newState = {...fields}
-
     newState[e.target.name] = e.target.value;
     setFields(newState);
-
   };
-  
+
   const submitHandler = (e) => {
     e.preventDefault();
     cDisabled(true);
@@ -110,9 +108,8 @@ function Add(props) {
   const [visible, setVisible] = useState(true);
 
   return (
-    <div className="editProfile">
+    <>
    
-
       {props.currentProfile ? "" : ""}
       <br />
 
@@ -130,7 +127,6 @@ function Add(props) {
         <div className="form-col-one">
               {/* Username: */}
               {/* <br /> */}
-
                  {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>   */}
                   {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" onChange={(e) => handleChange(e)} />   
               <br />
@@ -159,7 +155,6 @@ function Add(props) {
               <br /> 
               <br />  
               <br />  
-
 
               City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
                 <input className = "inputForm" type="text" size="39" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
@@ -245,13 +240,13 @@ function Add(props) {
 
 
  
-
       </form>
-            
 }
-
-    </div>
-    
+      </Card-Body>
+      </Card>
+      </div> 
+     </div> 
+    </>
   );
 }
 
