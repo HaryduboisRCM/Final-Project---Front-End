@@ -128,21 +128,39 @@
 
 .column2Section1 {
   background-color:   var(--secondary);
-  /* display: inline-block;  */
-    /* margin: 20px; */
-  /* padding: 20px; */
   display:inline-flex;
-  /* flex-direction: column; */
   justify-content: space-around;
-  /* align-items: center; */
   width: 100%;
+  border-radius: 10px;
+  border-width: 2px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .form-col-one{
-  width: 50%;
+  width: 46%;
+  float:left;
+  justify-content: space-around;
+  color: white;
+  margin-left: 70px;  
+  margin-top: 50px;
+  font-size: 24px;
+  border-radius: 10px;
+} 
+
+.form-col-two{
+  width: 45%;
   float:left;
   justify-content: space-around;  
+  font-size: 24px;
+  margin-top: 50px;
+  color: white;
 } 
+
+.multi-select {
+color:black;
+
+}
 
 .add-submit{
   justify-content: space-between;

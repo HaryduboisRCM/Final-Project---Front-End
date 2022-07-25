@@ -110,7 +110,7 @@ function Add(props) {
   return (
     <>
    
-      {props.currentProfile ? "Update" : ""}
+      {props.currentProfile ? "" : ""}
       <br />
 
       <div className="Card">
@@ -132,135 +132,113 @@ function Add(props) {
               <br />
               <br />      */}
 
-              Course Title: 
+              Course Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 
+                <input type="text" size="40" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
               <br />
-                <input type="text" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
-              <br />
-              <br />  
-
-              Full Name: 
-              <br />
-                <input type="text" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />   
 
-              Email: 
-              <br />    
-                <input type="text" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
+              Full Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <input type="text" size="43" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
+              <br /> 
+              <br />   
               <br />  
 
-              Contact Number:
+              Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                <input type="text" size="50" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
-                <input type="text" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
+              <br />  
+              <br />  
+
+              Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <input type="text" size="31" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />  
-
-              City:
-              <br />       
-                <input type="text" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
               <br />  
+
+              City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+                <input type="text" size="53" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
+              <br /> 
+              <br />  
+              <br />  
+
+              Personal Bio:
+              <br></br>  
+                <textarea className = "bio" type="text" cols="65" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
+              <br /> 
+              <br />   
+
+              CV:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <div className="fileUploadC">
+                <PickerDropPane 
+                  apikey={'AmYEocDZSRbOwoISVx42lz'}
+                  onSuccess={(res) => setFile(res.filesUploaded[0].url)}
+                  onUploadDone={(res) => console.log(res)}
+                  />
+              </div> 
+
         </div>
       
 
-        <div className="form-col-one">
+        <div className="form-col-two">
           <div className="sub-entry">
-              Personal Bio: 
-              <br />     
-                <input type="text" defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+             
+              linkedIn:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+                <input type="text" size="47" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
+              <br />
+              <br />    
+              <br /> 
+
+              gitHub:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+                <input type="text" size="49" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
+              <br />
+              <br />    
+              <br /> 
+
+              portfolio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+                <input type="text" size="46" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
+              <br /> 
 
-              Skills: 
-              <br />    
-             
-              <div>
-                <label></label>
+              Employed: Yes/No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+                <input type="text" size="30" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              <br />
+              <br /> 
+              <br /> 
+
+              Skills:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
                   <MultiSelect
-                    // className="multi-select"
+                    className="multi-select"
                     onChange={handleOnchange}
                     options={options}                 
                   />
-                  <br />
-
-                  <div>
-                    <b>Skills Selected: </b>
-                    {/* {value} */}
-                  </div>
-                </div> 
-
-                <input type="text" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+               <br />   
+              Skills Selected:  
+              <br></br>
+              <textarea type="text" cols="65" rows="10" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />    
-
-              linkedIn: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
-              <br />
-              <br />    
-
-              gitHub: 
-              <br />    
-                <input type="text" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
-              <br />
-              <br />    
-
-              portfolio: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br />  
-
-              Employed: 
-              <br />      
-                <input type="text" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br /> 
-          
 
               Image: 
-              <br /> 
-              <div className="fileUpload">
+              <div className="fileUploadI">
                 <PickerDropPane 
                   apikey={'AmYEocDZSRbOwoISVx42lz'}
                   onSuccess={(res) => setImg(res.filesUploaded[0].url)}
                   onUploadDone={(res) => console.log(res)}
                   />
               </div>
-   
-              {/* <button className = "buttonspace updatebutton"  onClick={() => imagePicker()}> Choose File</button> */}
-              {/* <input type="file" onChange={onImageChange}  />     */}
-              {/* <input type="text" defaultValue={props.currentProfile?.[file]}  name="image" disabled={disabled}/>      */}
-              {/* <input type="text" defaultValue={[file]}  disabled={disabled}/>        */}
-                          
-              <br />
-              <br />  
-        
-        
-              cv: 
-              <br />   
-              <div className="fileUpload">
-                <PickerDropPane 
-                  apikey={'AmYEocDZSRbOwoISVx42lz'}
-                  onSuccess={(res) => setFile(res.filesUploaded[0].url)}
-                  onUploadDone={(res) => console.log(res)}
-                  />
-              </div>
-              {/* <input type="file" onChange={onFileChange}  />        */}
-                {/* <input type="text" defaultValue={props.currentProfile?.cv}  name="cv" disabled={disabled}/>      */}
-              <br />
-              <br />  
-              </div>
+        </div>
 
-                           
-              <div className = "add-submit">
-                <button className = "login-submit" type="submit" disabled={disabled}>
-                  {" "}Submit{" "}
-                </button>
-              </div>
+        <div className = "add-submit">
+          <button className = "login-submit" id="submit" type="submit" disabled={disabled}>
+            {" "}Submit{" "}
+          </button>
+         </div>
 
         </div> 
+
+
  
       </form>
 }
