@@ -71,54 +71,14 @@ function TDAGradSearch(props) {
 
 
 
-
-  // const linkedIn = () => {
-  //   return profiles.map((current) => {
-  //     return (
-  //       <div key={current._id}>
-  //           <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>
-  //      </div>
-  //      );
-  //    });
-  //  };
-
-  //  const gitHub = () => {
-  //   return profiles.map((current) => {
-  //     return (
-  //       <div key={current._id}>
-  //           <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>
-  //      </div>
-  //      );
-  //    });
-  //  };
-
-  //  const personalPortfolio = () => {
-  //   return profiles.map((current) => {
-  //     return (
-  //       <div key={current._id}>
-  //           <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>
-  //      </div>
-  //      );
-  //    });
-  //  };
-
-  //  const email = () => {
-  //   return profiles.map((current) => {
-  //     return (
-  //       <div key={current._id}>
-  //           <a href={current.email} target="_blank"> {current.email} </a>
-  //      </div>
-  //      );
-  //    });
-  //  };
-
-
-
   const NewGrad = () => {
     return profiles.map((current) => {
       return (
         <div key={current._id}>
-            <div className = "gradCard">           
+            <div className = "gradCard">    
+            <tb className = "fieldSpace"><strong>UserName:</strong>&nbsp;   {current.userName}</tb>  
+            <tb className = "fieldSpace"><strong>Password:</strong>&nbsp;   {current.password}</tb>
+            <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>                          
               <tb className = "fieldSpace"><strong>Full Name:</strong>&nbsp;   {current.fullName}</tb>  
               <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>  
               <tb className = "fieldSpace"><strong>Course Title:</strong>&nbsp;   {current.courseTitle}</tb>     

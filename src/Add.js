@@ -107,6 +107,7 @@ function Add(props) {
 
   const [visible, setVisible] = useState(true);
 
+
   return (
     <>
    
@@ -125,13 +126,6 @@ function Add(props) {
       <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
         <div className="form-col-one">
-              {/* Username: */}
-              {/* <br /> */}
-                 {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" disabled={disabled}/>   */}
-                  {/* <input type="text" defaultValue={props.currentProfile?.userName} name="uName" onChange={(e) => handleChange(e)} />   
-              <br />
-              <br />      */}
-
               Course Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 
                 <input className = "inputForm" type="text" size="28" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
               <br />
