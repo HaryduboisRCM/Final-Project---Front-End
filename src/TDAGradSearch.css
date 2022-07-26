@@ -3,7 +3,6 @@
   margin-bottom: 20px;
   border-radius:10px;
   padding:10px;
-display: block;
 }
 
 .fieldSpace {
@@ -11,13 +10,32 @@ display: block;
 }
 
 .editRemoveButtons {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+ }
+
+.editButton {
   background-color:var(--ninth);
   border: var(--primary) solid;
   border-width: 5px;
   border-radius: 50px;
   color:  var(--primary);
-  padding: 17px 30px;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 20px;
+  font-family: poppins;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  align-items: center;
+}
+
+.removeButton {
+  background-color:var(--ninth);
+  border: var(--primary) solid;
+  border-width: 5px;
+  border-radius: 50px;
+  color:  var(--primary);
+  padding: 10px 15px;
   text-align: center;
   font-size: 20px;
   font-family: poppins;
@@ -25,8 +43,7 @@ display: block;
   cursor: pointer;
 }
 
+
 .cols {
-    /* background-color: grey; */
-  
-    margin: 20px;
+  margin: 20px;
 }

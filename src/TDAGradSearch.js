@@ -76,9 +76,9 @@ function TDAGradSearch(props) {
       return (
         <div key={current._id}>
             <div className = "gradCard">    
-            <tb className = "fieldSpace"><strong>UserName:</strong>&nbsp;   {current.userName}</tb>  
-            <tb className = "fieldSpace"><strong>Password:</strong>&nbsp;   {current.password}</tb>
-            <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>                          
+              <tb className = "fieldSpace"><strong>UserName:</strong>&nbsp;   {current.userName}</tb>  
+              <tb className = "fieldSpace"><strong>Password:</strong>&nbsp;   {current.password}</tb>
+              <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>                          
               <tb className = "fieldSpace"><strong>Full Name:</strong>&nbsp;   {current.fullName}</tb>  
               <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>  
               <tb className = "fieldSpace"><strong>Course Title:</strong>&nbsp;   {current.courseTitle}</tb>     
@@ -87,14 +87,19 @@ function TDAGradSearch(props) {
               <tb className = "fieldSpace"><strong>City:</strong>&nbsp;   {current.city}</tb>
               <tb className = "fieldSpace"><strong>Full Bio:</strong>&nbsp; {current.bio}</tb>
               <tb className = "fieldSpace"><strong>List of Skills:</strong>&nbsp; {current.skills}</tb>          
-              <tb className = "fieldSpace"><strong>Hired?:</strong>&nbsp; {current.employed}</tb>     
-              <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a>           
-              <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a>              
-              <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>                       
-              <button className = "editRemoveButtons"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-              <button className = "editRemoveButtons"  onClick={() => removeProfile (current._id)}> Remove Profile</button>  
+              <tb className = "fieldSpace"><strong>Hired?:</strong>&nbsp; {current.employed}</tb> 
+              <tb className = "links"><strong>LinkedIn:</strong></tb>    
+              <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a> <br></br>   
+              <tb className = "links"><strong>GitHub:</strong></tb>        
+              <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a> <br></br>             
+              <tb className = "links"><strong>Portfolio Page:</strong></tb>
+              <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>    <br></br>                   
               <br></br>         
-              <br></br>
+
+              <div className="editRemoveButtons">
+                <button className = "editButton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                <button className = "removeButton"  onClick={() => removeProfile (current._id)}> Remove Profile</button>  
+              </div>
             </div>
         </div>
       );
