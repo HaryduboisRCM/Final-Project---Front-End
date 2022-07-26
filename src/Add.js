@@ -114,10 +114,10 @@ function Add(props) {
       {props.currentProfile ? "" : ""}
       <br />
 
-      <div className="Card">
+      {/* <div className="Card">
         <div className="Card-body">
          <Card>
-          <Card-Body>              
+          <Card-Body>               */}
 
           {/* window.location.reload(true) */}
 
@@ -125,83 +125,83 @@ function Add(props) {
           
       <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
-        <div className="form-col-one">
-              Course Title:&nbsp;&nbsp;              
-                <input className = "inputForm" type="text" size="21" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
-              <br />
-              <br /> 
-              <br />   
+        <div className = "addForm">
 
-              Full Name:&nbsp;&nbsp;
-                <input className = "inputForm" type="text" size="23" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
-              <br />
-              <br />   
-              <br />  
+            <div className="form-col-one">
+                Course Title:&nbsp;&nbsp;              
+                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
+                <br />
+                <br /> 
+                <br />   
 
-              Email:&nbsp;&nbsp;  
-                <input className = "inputForm" type="text" size="28" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
-              <br />
-              <br />  
-              <br />  
+                Full Name:&nbsp;&nbsp;
+                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
+                <br />
+                <br />   
+                <br />  
 
-              Contact Number:&nbsp;&nbsp;;
-                <input className = "inputForm" type="text" size="18" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
-              <br /> 
-              <br />  
-              <br />  
+                Email:&nbsp;&nbsp;  
+                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+                <br />
+                <br />  
+                <br />  
 
-              City:&nbsp;&nbsp;      
-                <input className = "inputForm" type="text" size="40" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
-              <br /> 
-              <br />  
-              <br />  
+                Contact Number:&nbsp;&nbsp;
+                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
+                <br /> 
+                <br />  
+                <br />  
 
-              Personal Bio:
-              <br></br>  
-                <textarea className = "inputForm" type="text" cols="45" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
-              <br /> 
-              <br />   
+                City:&nbsp;&nbsp;      
+                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
+                <br /> 
+                <br />  
+                <br />  
 
-              CV:&nbsp;&nbsp;
-              <div className="fileUploadC">
-                <PickerDropPane 
-                  apikey={'AmYEocDZSRbOwoISVx42lz'}
-                  onSuccess={(res) => setFile(res.filesUploaded[0].url)}
-                  onUploadDone={(res) => console.log(res)}
-                  />
-              </div> 
+                Personal Bio:
+                <br></br>  
+                  <textarea className = "inputForm" type="text" cols="30" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
+                <br /> 
+                <br />   
 
-        </div>
+                CV:&nbsp;&nbsp;
+                <div className="fileUploadC">
+                  <PickerDropPane 
+                    apikey={'AmYEocDZSRbOwoISVx42lz'}
+                    onSuccess={(res) => setFile(res.filesUploaded[0].url)}
+                    onUploadDone={(res) => console.log(res)}
+                    /> </div> 
+            </div> 
+
+      
       
 
-        <div className="form-col-two">
-          <div className="sub-entry">
-             
-              linkedIn:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
-                <input className = "inputForm" type="text" size="47" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
+            <div className="form-col-two">
+              linkedIn:&nbsp;&nbsp;      
+                <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.linkedIn} name="linkedIn" onChange={(e) => handleChange(e)} disabled={disabled} />     
               <br />
               <br />    
               <br /> 
 
-              gitHub:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
-                <input className = "inputForm" type="text" size="49" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
+              gitHub:&nbsp;&nbsp;   
+                <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.gitHub} name="gitHub" onChange={(e) => handleChange(e)} disabled={disabled} />     
               <br />
               <br />    
               <br /> 
 
-              portfolio:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
-                <input className = "inputForm" type="text" size="46" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              portfolio:&nbsp;&nbsp;      
+                <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.portfolio}  name="portfolio" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
               <br /> 
 
-              Employed: Yes/No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-                <input className = "inputForm" type="text" size="25" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              Employed: Yes/No:&nbsp;&nbsp;
+                <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br /> 
               <br /> 
 
-              Skills:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+              Skills:&nbsp;&nbsp;        
                   <MultiSelect
                     className="multi-select"
                     onChange={handleOnchange}
@@ -210,7 +210,7 @@ function Add(props) {
                <br />   
               Skills Selected:  
               <br></br>
-              <textarea type="text" cols="65" rows="10" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              <textarea type="text" className = "inputForm" cols="45" rows="10" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />    
 
@@ -222,24 +222,21 @@ function Add(props) {
                   onUploadDone={(res) => console.log(res)}
                   />
               </div>
-        </div>
+      
+            </div>
 
-        <div className = "add-submit">
-          <button className = "login-submit" id="submit" type="submit" disabled={disabled}>
-            {" "}Submit{" "}
-          </button>
-         </div>
+            </div>
 
-        </div> 
+            <div className = "add-submit">
+              <button className = "login-submit" id="submit" type="submit" disabled={disabled}>{" "}Submit{" "}</button>
+            </div>
 
-
- 
-      </form>
+ </form>
 }
-      </Card-Body>
+      {/* </Card-Body>
       </Card>
       </div> 
-     </div> 
+     </div>  */}
     </>
   );
 }
