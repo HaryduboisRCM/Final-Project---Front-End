@@ -126,43 +126,43 @@ function Add(props) {
       <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
         <div className="form-col-one">
-              Course Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 
-                <input className = "inputForm" type="text" size="28" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
+              Course Title:&nbsp;&nbsp;              
+                <input className = "inputForm" type="text" size="21" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
               <br />
               <br /> 
               <br />   
 
-              Full Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <input className = "inputForm" type="text" size="31" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
-              <br /> 
+              Full Name:&nbsp;&nbsp;
+                <input className = "inputForm" type="text" size="23" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
+              <br />
               <br />   
               <br />  
 
-              Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                <input className = "inputForm" type="text" size="36" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              Email:&nbsp;&nbsp;  
+                <input className = "inputForm" type="text" size="28" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />  
               <br />  
 
-              Contact Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <input className = "inputForm" type="text" size="23" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
+              Contact Number:&nbsp;&nbsp;;
+                <input className = "inputForm" type="text" size="18" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
               <br /> 
               <br />  
               <br />  
 
-              City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
-                <input className = "inputForm" type="text" size="39" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
+              City:&nbsp;&nbsp;      
+                <input className = "inputForm" type="text" size="40" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
               <br /> 
               <br />  
               <br />  
 
               Personal Bio:
               <br></br>  
-                <textarea className = "inputForm" type="text" cols="52" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
+                <textarea className = "inputForm" type="text" cols="45" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
               <br /> 
               <br />   
 
-              CV:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              CV:&nbsp;&nbsp;
               <div className="fileUploadC">
                 <PickerDropPane 
                   apikey={'AmYEocDZSRbOwoISVx42lz'}
