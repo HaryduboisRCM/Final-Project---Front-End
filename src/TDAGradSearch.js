@@ -128,12 +128,14 @@ function TDAGradSearch(props) {
                 <h3 className="bioTitle">Full Bio:</h3>
                 <tb>{current.bio}</tb>
             </div>
-    
+
+            
             <div className="editRemoveButtons">
                 <button className = "editButton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Edit Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                 <button className = "removeButton"  onClick={() => removeProfile (current._id)}> Remove Profile</button>  
             </div>
             <br></br> 
+            <br></br>
                      
         </div>
                 
@@ -292,7 +294,7 @@ function TDAGradSearch(props) {
 
       {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
     
-      <div className = "row  col-md-10">
+      <div className = "col-md-10">
 
         
 
@@ -301,13 +303,13 @@ function TDAGradSearch(props) {
         </Row> */}
 
           {/* /****Column 2/1 - User Input form***************************************************************************************************************/}  
-          <Container className = "row col-md-10">
+          <Container className = "rightSection col-md-10">
 
           {visibleOutput && 
 
-            <Row className = "row column2Section1 col-md-5">
+            // <Row className = "editProfile col-md-5">
           
-                <Col className = "addForm">
+                <div className = "editProfile">
                   <Add
                     client={props.client}
                     refreshList={() => {
@@ -317,8 +319,8 @@ function TDAGradSearch(props) {
                     }}
                     currentProfile={current}
                   />
-                </Col>
-            </Row> 
+                </div>
+            // </Row> 
             
             }
 
