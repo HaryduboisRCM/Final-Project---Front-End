@@ -77,32 +77,56 @@ function TDAGradSearch(props) {
         <div className="gradProfile" key={current._id}>
             <div className = "gradCard">
               <div className="topLeft">
-                <tb className = "fieldSpace"><strong>UserName:</strong>&nbsp;   {current.userName}</tb>  
-                <tb className = "fieldSpace"><strong>Password:</strong>&nbsp;   {current.password}</tb>
-                <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>                          
-                <tb className = "fieldSpace"><strong>Full Name:</strong>&nbsp;   {current.fullName}</tb>  
-                <tb className = "fieldSpace"><strong>Profile Role:</strong>&nbsp;   {current.roles}</tb>  
-                <tb className = "fieldSpace"><strong>Course Title:</strong>&nbsp;   {current.courseTitle}</tb>  
-                <tb className = "fieldSpace"><strong>List of Skills:</strong>&nbsp; {current.skills}</tb>          
-                <tb className = "fieldSpace"><strong>Hired?:</strong>&nbsp; {current.employed}</tb> 
+                <h3>User Name:</h3>
+                <tb>{current.userName}</tb>
+
+                <h3>Password:</h3>
+                <tb>{current.password}</tb>
+
+                <h3>Profile Role:</h3>
+                <tb>{current.roles}</tb> 
+                
+                <h3>Full Name:</h3>                       
+                <tb>{current.fullName}</tb>  
+ 
+                <h3>Profile Role:</h3>
+                <tb>{current.roles}</tb>
+                 
+                <h3>Course Title:</h3>
+                <tb>{current.courseTitle}</tb>  
+ 
+                <h3>List of Skills:</h3>
+                <tb>{current.skills}</tb>   
+
+                <h3>Hired?:</h3>     
+                <tb>{current.employed}</tb> 
               </div>    
 
               <div className="topRight">
-                <tb className = "fieldSpace"><strong>Email:</strong>&nbsp; {current.email}</tb>
-                <tb className = "fieldSpace"><strong>Contact Number:</strong>&nbsp;  {current.contactNumber}</tb>   
-                <tb className = "fieldSpace"><strong>City:</strong>&nbsp;   {current.city}</tb>
-                <tb className = "links"><strong>LinkedIn:</strong></tb>    
+                <h3>Email:</h3>
+                <tb>{current.email}</tb>
+
+                <h3>Contact Number:</h3>
+                <tb>{current.contactNumber}</tb>   
+
+                <h3>City:</h3>
+                <tb>{current.city}</tb>
+
+                <h3>LinkedIn:</h3>
                 <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"> {current.linkedIn} </a> <br></br> <br></br>
-                <tb className = "links"><strong>GitHub:</strong></tb>        
-                <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a> <br></br>  <br></br>           
-                <tb className = "links"><strong>Portfolio Page:</strong></tb>
+
+                <h3>GitHub:</h3>       
+                <a href={current.gitHub} target="_blank" rel="noopener noreferrer"> {current.gitHub} </a> <br></br>  <br></br>     
+
+                <h3>Portfolio Page:</h3>
                 <a href={current.portfolio} target="_blank" rel="noopener noreferrer"> {current.portfolio} </a>    <br></br>
               </div>                                                                       
             </div>
+            <br></br> 
 
             <div className="bioSpace">
-                <tb className = "links"><strong>Full Bio:</strong></tb>
-                <tb className = "fieldSpace">{current.bio}</tb>
+                <h3 className="bioTitle">Full Bio:</h3>
+                <tb>{current.bio}</tb>
             </div>
     
             <div className="editRemoveButtons">
@@ -191,12 +215,12 @@ function TDAGradSearch(props) {
 
 {/* /****Main Container*********************************************************************************************************************************/}
 
-<Container fluid className = " row mainContainer col-md-12">
+<Container fluid className = " row mainFrame col-md-12">
 
     
       {/* /****Column 1 - Image and links***************************************************************************************************************/}
     
-      <div className =" column1 col-md-2">
+      <div className =" leftPannel col-md-2">
         {/* <br></br> 
           <img className = "image" src={img} alt="" width = "150px" height = "150px"/>
         <br></br> 
@@ -220,36 +244,43 @@ function TDAGradSearch(props) {
 
        
        <Row>
-        <h1> the 
+        <h1 className="td"> the 
         <br></br>DEVELOPER 
         <br></br>Academy</h1>
 
             {/*create a new Gradute */}
-             <p>Create a new Graduate Profile</p>
-            <br></br>
-              <button className = "login-submit2"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Profile</button>
-            <br></br>
-            <br></br>
-              <p>Search for a Graduate by Full Name</p>
-            <input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/>
-            <br></br>
-            <br></br>
-              <button onClick={() =>  unfilters("Clear Filters")}> 
-                Clear Graduate Full Name Filter               
-            </button>
-            <br></br>
-            <br></br>
-            <p>Search for a Profiles by Roles</p>
-            <input type="text" id="searchroles" onChange={() => rolefilters(document.getElementById("searchroles").value.toUpperCase())}/>
-            <br></br>
-            <br></br>
-              <button onClick={() =>  roleunfilters("Clear Filters")}> 
-                Clear Role Filter               
-            </button>
+            <div className="innerLeftPannel">
+              <><p>Create a new Graduate Profile</p></>
+              <br></br>
 
-            
+              <button className = "createNewButton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Profile</button>
+              <br></br>
+              <br></br>
 
-          </Row>
+              <><p>Search for a Graduate by Full Name</p></>
+              
+              <><input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/></>
+              <br></br>
+              <br></br>
+
+              <button className="clearButton" onClick={() =>  unfilters("Clear Filters")}> 
+                Clear               
+              </button>
+              <br></br>
+              <br></br>
+
+              <><p>Search for a Profiles by Roles</p></>
+
+              <><input type="text" id="searchroles" onChange={() => rolefilters(document.getElementById("searchroles").value.toUpperCase())}/></>             
+              <br></br>
+              <br></br>
+
+              <button className="clearButton" onClick={() =>  roleunfilters("Clear Filters")}> 
+                  Clear            
+              </button>
+            </div>
+
+       </Row>
         <br></br>
 
       </div>
@@ -292,17 +323,15 @@ function TDAGradSearch(props) {
 
 
             {/* /****Column 2/2 - Profile Display table***************************************************************************************************************/}    
-            <div className = "column2Section2 col-md-5">
+            <div className = "newGradDisplay col-md-5">
 
             {visibleInput &&  
 
-             <div className = "cols">
-
-             
-                  {NewGrad()}
-              
-
-              </div>
+             <div>
+     
+              {NewGrad()}
+            
+            </div>
 
               } 
 
