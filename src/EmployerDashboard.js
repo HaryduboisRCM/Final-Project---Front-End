@@ -105,7 +105,7 @@ const section1 = () => {
 
         <h1><strong>Graduate Search For Employers</strong></h1>
 
-        <input type="checkbox" name="Clear Filters" className = "Boxsize" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label>
+        {/* <input type="checkbox" name="Clear Filters" className = "Boxsize" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label> */}
 
         {/* <div className = "EmployerForm"> */}
         <form>
@@ -139,6 +139,8 @@ const section1 = () => {
             <input type="checkbox" className = "Boxsize" name="Project Management" onChange={() => filters("Project Management")}/><label for="Project Management">Project Management</label>
             </div>
         </form>
+
+         <br /> <input type="checkbox" name="Clear Filters" className = "Boxsize" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label>
 
         </div>
 
