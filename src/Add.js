@@ -202,25 +202,27 @@ function Add(props) {
               Employed: Yes/No:&nbsp;&nbsp;
                 <textarea className = "inputForm" type="text" cols="10" rows="1" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
-              <br /> 
-              <br /> 
-
-              Skills:&nbsp;&nbsp;        
+              <br />
+              <br />
+  
+              Skills:     
                   <MultiSelect
+                    // maxMenuHeight={100}  
                     className="multi-select"
                     onChange={handleOnchange}
-                    options={options}                 
+                    options={options}
+                                                            
                   />
-               <br />   
-              Skills Selected:  
-              <br></br>
+               <br />
+     
+              Skills Selected:             
               <textarea type="text" className = "inputFormlrgB" cols="45" rows="10" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />    
 
               Image: 
               <div className="fileUploadI">
-                <PickerDropPane 
+                <PickerDropPane  className="frontback"
                   apikey={'AmYEocDZSRbOwoISVx42lz'}
                   onSuccess={(res) => setImg(res.filesUploaded[0].url)}
                   onUploadDone={(res) => console.log(res)}
