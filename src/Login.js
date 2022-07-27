@@ -47,7 +47,7 @@ function Login(props) {
       <div className = "col-md-4"></div>
       <br /><br /><br />
       <div className="loginpage-header">
-       the <br />Developer <br /> Academy <br /> Employment Portal
+      {/* the <br />Developer <br /> Academy <br /> */}Employment Portal
       </div>
         <br />
         <br />
