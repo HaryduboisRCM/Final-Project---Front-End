@@ -199,7 +199,7 @@ function Add(props) {
               <br />  
               <br /> 
 
-              Employed: Yes/No:&nbsp;&nbsp;
+              Employed: True/False:&nbsp;&nbsp;
                 <textarea className = "inputForm" type="text" cols="10" rows="1" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />
