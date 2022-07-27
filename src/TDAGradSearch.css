@@ -20,18 +20,25 @@
   border-radius: 10px;
   width: 30%;
   min-width: min-content;
-  word-break: break-word;
+  /* word-break: break-word; */
+  display: flex;
+  justify-content: center;
 }
 
 .innerLeftPannel {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* display: block; */
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
   margin: 20px;
+ 
 }
 .tda {
-  align-content: center;
+  /* align-content: center; */
   margin: 20px;
+}
+
+.buttonDiv {
+ /* align-content: center; */
 }
 
 .createNewButton {
@@ -60,7 +67,7 @@
   font-family: poppins;
   transition-duration: 0.4s;
   cursor: pointer;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .gradProfile {
