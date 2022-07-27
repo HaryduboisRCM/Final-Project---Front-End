@@ -47,8 +47,8 @@ const section1 = () => {
       return (
         <Table> 
         <div key={current._id}>
-        <div className = "gradCard1">
-                  
+        
+        <div className = "gradCard1">                  
           <tb className = "fieldSpace"><strong>Full Name:  </strong>   {current.fullName}</tb>  <br />
           <tb className = "fieldSpace"><strong>Course Title:  </strong>   {current.courseTitle}</tb>    <br /> 
           <tb className = "fieldSpace"><strong>Email:  </strong> {current.email}</tb> <br />
@@ -56,7 +56,7 @@ const section1 = () => {
           <tb className = "fieldSpace"><strong>City:</strong>   {current.city}</tb>
           <br /><tb className = "fieldSpace"><strong>Full Bio:</strong> {current.bio}</tb><br />
           <tb className = "fieldSpace"><strong>List of Skills:</strong> {current.skills}</tb>   <br />       
-          <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb> 
+          {/* <tb className = "fieldSpace"><strong>Hired?:</strong> {current.employed}</tb>  */}
                
           <a href={current.linkedIn} target="_blank" rel="noopener noreferrer"><strong>LinkedIn:</strong> {current.linkedIn} </a> <br />          
           <a href={current.gitHub} target="_blank" rel="noopener noreferrer"><strong>GitHub:</strong> {current.gitHub} </a>   <br />           
@@ -65,7 +65,7 @@ const section1 = () => {
           <br></br>         
           <br></br>
         </div>
-        </div>
+        </div>  
         </Table>
       );
     });
@@ -101,48 +101,56 @@ const section1 = () => {
 <Container fluid className = " row mainContainer col-md-12">
     
       <div className = " row  col-md-8">
+      <div className = "EmployerForm">
 
-        <h1>Graduate Search</h1>
+        <h1><strong>Graduate Search For Employers</strong></h1>
 
-        <input type="checkbox" name="Clear Filters" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label>
+        <input type="checkbox" name="Clear Filters" className = "Boxsize" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label>
 
+        {/* <div className = "EmployerForm"> */}
         <form>
-            <p>Please slecet the skills you are looking for:</p>
+            <p><strong>Please select the skills you are looking for:</strong></p>
 
             {/* <input type="checkbox" name="Teamwork" onChange={() => filters("Teamwork")}/> */}
+             
+            <div className = "row">
 
-            <input type="checkbox" name="Teamwork" onChange={() => filters("Teamwork")}/><label for="Teamwork">Teamwork</label>
-            <input type="checkbox" name="GitHub" onChange={() => filters("GitHub")}/><label for="GitHub">GitHub</label>
-            <input type="checkbox" name="HTML" onChange={() => filters("HTML")}/><label for="HTML">HTML</label>
-            <input type="checkbox" name="Javascript" onChange={() => filters("Javascript")}/><label for="Javascript">Javascript</label>
-            <input type="checkbox" name="CSS" onChange={() => filters("CSS")}/><label for="CSS">CSS</label>
-            <input type="checkbox" name="Bootstrap" onChange={() => filters("Bootstrap")}/><label for="Bootstrap">Bootstrap</label>
-            <input type="checkbox" name="PHP" onChange={() => filters("PHP")}/><label for="PHP">PHP</label>
-            <input type="checkbox" name="Flexbox" onChange={() => filters("Flexbox")}/><label for="Flexbox">Flexbox</label>
-            <input type="checkbox" name="OOP" onChange={() => filters("OOP")}/><label for="OOP">OOP</label>
-            <input type="checkbox" name="Paired_Programming" onChange={() => filters("Paired Programming")}/><label for="Paired Programming">Paired Programming</label>
-            <input type="checkbox" name="TDD" onChange={() => filters("TDD")}/><label for="TDD">TDD</label><br></br>
-            <input type="checkbox" name="MongoDB" onChange={() => filters("MongoDB")}/><label for="MongoDB">MongoDB</label>
-            <input type="checkbox" name="SASS" onChange={() => filters("SASS")}/><label for="SASS">SASS</label>
-            <input type="checkbox" name="Agile" onChange={() => filters("Agile")}/><label for="Agile">Agile</label>
-            <input type="checkbox" name="REST_API" onChange={() => filters("REST API")}/><label for="REST API">REST API</label>
-            <input type="checkbox" name="Express" onChange={() => filters("Express")}/><label for="Express">Express</label>
-            <input type="checkbox" name="Regular_Expressions" onChange={() => filters("Regular Expressions")}/><label for="Regular Expressions">Regular Expressions</label>
-            <input type="checkbox" name="Node.JS" onChange={() => filters("Node.JS")}/><label for="Node.JS">Node.JS</label>
-            <input type="checkbox" name="Debugging" onChange={() => filters("Debugging")}/><label for="Debugging">Debugging</label>
-            <input type="checkbox" name="Project Management" onChange={() => filters("Project Management")}/><label for="Project Management">Project Management</label>
-           
+            <input type="checkbox" className = "Boxsize" name="Teamwork" onChange={() => filters("Teamwork")}/><label for="Teamwork">Teamwork</label>
+            <input type="checkbox" className = "Boxsize" name="GitHub" onChange={() => filters("GitHub")}/><label for="GitHub">GitHub</label>
+            <input type="checkbox" className = "Boxsize" name="HTML" onChange={() => filters("HTML")}/><label for="HTML">HTML</label>
+            <input type="checkbox" className = "Boxsize" name="Javascript" onChange={() => filters("Javascript")}/><label for="Javascript">Javascript</label> 
+            <input type="checkbox" className = "Boxsize" name="CSS" onChange={() => filters("CSS")}/><label for="CSS">CSS</label>
+            <input type="checkbox" className = "Boxsize" name="Bootstrap" onChange={() => filters("Bootstrap")}/><label for="Bootstrap">Bootstrap</label>
+            <input type="checkbox" className = "Boxsize" name="PHP" onChange={() => filters("PHP")}/><label for="PHP">PHP</label>
+            <input type="checkbox" className = "Boxsize" name="Flexbox" onChange={() => filters("Flexbox")}/><label for="Flexbox">Flexbox</label>
+            <input type="checkbox" className = "Boxsize" name="OOP" onChange={() => filters("OOP")}/><label for="OOP">OOP</label>
+            <input type="checkbox" className = "Boxsize" name="Paired_Programming" onChange={() => filters("Paired Programming")}/><label for="Paired Programming">Paired Programming</label>
+            <input type="checkbox" className = "Boxsize" name="TDD" onChange={() => filters("TDD")}/><label for="TDD">TDD</label>
+            </div>
+            <div className = "row2">
+            <input type="checkbox" className = "Boxsize" name="MongoDB" onChange={() => filters("MongoDB")}/><label for="MongoDB">MongoDB</label>
+            <input type="checkbox" className = "Boxsize" name="SASS" onChange={() => filters("SASS")}/><label for="SASS">SASS</label>
+            <input type="checkbox" className = "Boxsize" name="Agile" onChange={() => filters("Agile")}/><label for="Agile">Agile</label>
+            <input type="checkbox" className = "Boxsize" name="REST_API" onChange={() => filters("REST API")}/><label for="REST API">REST API</label>
+            <input type="checkbox" className = "Boxsize" name="Express" onChange={() => filters("Express")}/><label for="Express">Express</label>
+            <input type="checkbox" className = "Boxsize" name="Regular_Expressions" onChange={() => filters("Regular Expressions")}/><label for="Regular Expressions">Regular Expressions</label>
+            <input type="checkbox" className = "Boxsize" name="Node.JS" onChange={() => filters("Node.JS")}/><label for="Node.JS">Node.JS</label>
+            <input type="checkbox" className = "Boxsize" name="Debugging" onChange={() => filters("Debugging")}/><label for="Debugging">Debugging</label>
+            <input type="checkbox" className = "Boxsize" name="Project Management" onChange={() => filters("Project Management")}/><label for="Project Management">Project Management</label>
+            </div>
         </form>
 
+        </div>
+
         <br></br>
         <br></br>
 
-          <Container className = "row col-md-8">
+          <Container className = "row col-md-12">
             
-            <div className = "column2Section2 col-md-8" id = "outputForm">
+            <div className = "column2Section2 ">
            
                <div className = "cols">
-                <Row className="col1 col-md-2">
+                <Row>
                   <Col>{section1()}</Col>
                 </Row>
               </div>
