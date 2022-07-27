@@ -3,13 +3,12 @@
   position: relative;
   margin: 5px;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
   height: auto;
-  min-width: min-content;
+  min-width:min-content;
   padding:5px;
   font-family: poppins;
- 
+  display: flex;
+  justify-content:flex-start;
 }
 
 
@@ -22,7 +21,7 @@
   min-width: min-content;
   /* word-break: break-word; */
   display: flex;
-  justify-content: center;
+  justify-content:center;
 }
 
 .innerLeftPannel {
@@ -35,10 +34,6 @@
 .tda {
   /* align-content: center; */
   margin: 20px;
-}
-
-.buttonDiv {
- /* align-content: center; */
 }
 
 .createNewButton {
@@ -70,6 +65,10 @@
   /* align-items: center; */
 }
 
+.rightSection {
+  /* background-color: aquamarine; */
+}
+
 .gradProfile {
   /* background-color: rgb(203, 103, 103); */
   border-style: solid;
@@ -80,23 +79,23 @@
 
 .gradCard {
   border-radius:10px;
-  padding:5px;
+  /* padding:5px; */
   margin-bottom: -35px;
   display: flex;
   justify-content:center
 }
 
 .topLeft {
-  background-color: rgb(205, 229, 221);
+  background-color: #ffc885;
   padding: 10px;
   width: 100%;
   border-radius: 10px;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   word-break: break-all;
 }
 
 .topRight {
-  background-color: rgb(170, 170, 170);
+  background-color:  #ffc885;
   padding: 10px;
   width: 100%;
   word-break: break-all;
@@ -107,19 +106,31 @@ h3 {
 }
 
 .bioSpace {
-  background-color: rgb(174, 230, 132);
+  background-color: var(--seventh);
   padding: 10px;
   border-radius: 10px;
-  margin: 10px 5px 5px 5px;
+  margin: 10px 0px 5px 0px;
 }
 
 .bioTitle {
   margin-top: 0px;
 }
 
+.editProfile {
+  background-color:   var(--secondary);
+  display:inline-flex;
+  justify-content: space-around;
+  width:160%;
+  border-radius: 10px;
+  border-width: 2px;
+  margin-right: 5px;
+}
+
 .editRemoveButtons {
   display: flex;
   justify-content: center;
+  /* margin-bottom: -20px; */
+  margin-top: 15px;
   margin-bottom: -20px;
  }
 
