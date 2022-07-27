@@ -88,10 +88,7 @@ function TDAGradSearch(props) {
                 
                 <h3>Full Name:</h3>                       
                 <tb>{current.fullName}</tb>  
- 
-                <h3>Profile Role:</h3>
-                <tb>{current.roles}</tb>
-                 
+                
                 <h3>Course Title:</h3>
                 <tb>{current.courseTitle}</tb>  
  
