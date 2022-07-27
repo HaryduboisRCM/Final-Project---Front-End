@@ -4,6 +4,7 @@ import MultiSelect from "react-multiple-select-dropdown-lite";
 import "react-multiple-select-dropdown-lite/dist/index.css";
 import { PickerDropPane  } from 'filestack-react';
 import './Add.css';
+import Container from 'react-bootstrap/Container';
 
 function Add(props) {
   const [disabled, cDisabled] = useState(false);
@@ -122,6 +123,8 @@ function Add(props) {
           {/* window.location.reload(true) */}
 
           {visible && 
+      
+      <Container className = "Container">
           
       <form onSubmit={(e) => {submitHandler(e); setVisible() }} id="addForm">
 
@@ -129,38 +132,39 @@ function Add(props) {
 
             <div className="form-col-one">
                 Course Title:&nbsp;&nbsp;              
-                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
+                  <textarea className = "inputForm" type="text" cols="35" rows="1" defaultValue={props.currentProfile?.courseTitle} name="cTitle" onChange={(e) => handleChange(e)} disabled={disabled}/>       
                 <br />
                 <br /> 
                 <br />   
 
                 Full Name:&nbsp;&nbsp;
-                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
+                  <textarea className = "inputForm" type="text" rows="1" defaultValue={props.currentProfile?.fullName} name="fName" onChange={(e) => handleChange(e)} disabled={disabled}/>
                 <br />
                 <br />   
                 <br />  
 
                 Email:&nbsp;&nbsp;  
-                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+                  <textarea className = "inputForm" type="text" rows="1" defaultValue={props.currentProfile?.email} name="email" onChange={(e) => handleChange(e)} disabled={disabled}/>     
                 <br />
                 <br />  
                 <br />  
 
                 Contact Number:&nbsp;&nbsp;
-                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
+                  <textarea className = "inputForm" type="text" rows="1" defaultValue={props.currentProfile?.contactNumber} name="cNumber" onChange={(e) => handleChange(e)} disabled={disabled}/>
                 <br /> 
                 <br />  
                 <br />  
 
                 City:&nbsp;&nbsp;      
-                  <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
+                  <textarea className = "inputForm" type="text" rows="1" defaultValue={props.currentProfile?.city} name="city" onChange={(e) => handleChange(e)} disabled={disabled}/>  
                 <br /> 
                 <br />  
                 <br />  
+                  <br />  
 
                 Personal Bio:
                 <br></br>  
-                  <textarea className = "inputForm" type="text" cols="30" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
+                  <textarea className = "inputFormlrg" type="text" rows="10" contenteditable defaultValue={props.currentProfile?.bio} name="bio" onChange={(e) => handleChange(e)} disabled={disabled}/>   
                 <br /> 
                 <br />   
 
@@ -196,7 +200,7 @@ function Add(props) {
               <br /> 
 
               Employed: Yes/No:&nbsp;&nbsp;
-                <textarea className = "inputForm" type="text" cols="30" rows="1" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+                <textarea className = "inputForm" type="text" cols="10" rows="1" defaultValue={props.currentProfile?.employed}  name="employed" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br /> 
               <br /> 
@@ -210,7 +214,7 @@ function Add(props) {
                <br />   
               Skills Selected:  
               <br></br>
-              <textarea type="text" className = "inputForm" cols="45" rows="10" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
+              <textarea type="text" className = "inputFormlrgB" cols="45" rows="10" value={value} name="skills" onChange={(e) => handleChange(e)} disabled={disabled}/>     
               <br />
               <br />    
 
@@ -227,11 +231,12 @@ function Add(props) {
 
             </div>
 
-            <div className = "add-submit">
-              <button className = "login-submit" id="submit" type="submit" disabled={disabled}>{" "}Submit{" "}</button>
+            <div className = "submit2 ">
+              <button className = "updatebutton" type="submit" disabled={disabled}>{" "}Submit{" "}</button>
             </div>
 
  </form>
+ </Container>
 }
       {/* </Card-Body>
       </Card>
