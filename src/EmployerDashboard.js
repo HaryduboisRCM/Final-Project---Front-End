@@ -49,7 +49,8 @@ const section1 = () => {
         <Table> 
         <div key={current._id}>
         
-        <div className = "gradCard1">                  
+        <div className = "gradCard1">
+        <div className = "profilePicture"><img className="profileImage" src={current.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>                  
           <tb className = "fieldSpace"><strong>Full Name:  </strong>   {current.fullName}</tb>  <br />
           <tb className = "fieldSpace"><strong>Course Title:  </strong>   {current.courseTitle}</tb>    <br /> 
           <tb className = "fieldSpace"><strong>Email:  </strong> {current.email}</tb> <br />
