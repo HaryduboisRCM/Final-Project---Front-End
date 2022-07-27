@@ -37,7 +37,8 @@ const filters = (tech) => {
 };
 
 const unfilters = () => {
-  cProfiles (unfilter)
+  cProfiles (unfilter);
+  window.location.reload(true) 
 };
 
 const section1 = () => {

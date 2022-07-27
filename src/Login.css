@@ -42,7 +42,7 @@
     justify-content: center;
     font-family: Poppins, Arial;
     font-size: 28px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: white;
 }
 .logininput {
