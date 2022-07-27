@@ -1,15 +1,19 @@
 
 
 .fileUploadI {
-    width: 300px;
-    margin-top: -2px;
+    width: 362px;
+  
+
+}
+
+.frontback {
+  position:absolute;
+  z-index:-1;
 }
 
 
 .fileUploadC {
-    width: 300px;
-    margin-top: 2px;
-    
+    width: 362px;
 }
 
 #submit {
@@ -28,16 +32,23 @@ margin-bottom: 50px;
 
   font-size: 12px;
   font-family: poppins;
-  width: 77%;
+  width: 92%;
+
 
 }
 
 .inputFormlrgB {
-  margin-top: 10px;
+  margin-top: 11px;
   font-size: 12px;
   font-family: poppins;
-  width: 77%;
+  width: 92%;
 
+
+}
+
+.multi-select {
+  /* height: 25%; */
+  color:black;
 }
 
 .Container {
@@ -62,7 +73,6 @@ margin-bottom: 50px;
   padding-bottom: 50px;
   font-size: 14px;
   border-radius: 10px;
-  border-right: black solid;
 } 
 
 .form-col-two{
@@ -79,9 +89,8 @@ margin-bottom: 50px;
 .submit2 {
   display: flex;
   width: 100%;
-  justify-content: right;
+  justify-content: center;
   padding-bottom: 20px;
-  margin-left: -20px;
 }
 
 .updatebutton {
