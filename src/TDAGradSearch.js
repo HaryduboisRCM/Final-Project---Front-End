@@ -95,7 +95,8 @@ function TDAGradSearch(props) {
                 <h3>List of Skills:</h3>
                 <tb>{current.skills}</tb>   
 
-                <h3>Hired?:</h3>     
+                <h3>Employed?</h3>     
+                
                 <tb>{current.employed}</tb> 
               </div>    
 

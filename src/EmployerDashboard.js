@@ -16,7 +16,7 @@ function EmployerDashboard(props) {
 
   const refreshList = () => {
     // console.log(props.client.getProfiles())
-    props.client.getEmployedProfile(false).then((response) => {
+    props.client.getEmployedProfile('No').then((response) => {
     cProfiles(response.data)
     unfilterProfiles(response.data)
     })
