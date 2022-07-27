@@ -142,7 +142,7 @@ const section1 = () => {
 
          <br /> <input type="checkbox" name="Clear Filters" className = "Boxsize" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label>
 
-        </div>
+         </div>
 
         <br></br>
         <br></br>
