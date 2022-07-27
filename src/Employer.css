@@ -193,4 +193,26 @@
   font-size: 19px;
   font-family: poppins;
   }
+
+  .EmployerForm{
+    font-size: 20px;
+
+  }
+
+  .EmployerForm input{
+    margin:  0px 0px 0px 0px;
+  }
+
+  .EmployerForm label{
+    margin: 0px 20px 0px 3px;
+  }
   
+  .row{
+    justify-content: space-around;
+  }
+
+  .Boxsize{
+   width: 20px;
+   height:20px;
+   cursor: pointer;
+  }
