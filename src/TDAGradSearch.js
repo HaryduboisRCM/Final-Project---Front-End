@@ -240,19 +240,19 @@ function TDAGradSearch(props) {
         
 
         {/* LinkedIn  */}
-       <div className = "socialMedia">
+       {/* <div className = "socialMedia"> */}
 
        
        <Row>
-        <h1 className="td"> the 
-        <br></br>DEVELOPER 
-        <br></br>Academy</h1>
+        <h1 className="tda"> the 
+          <br></br>DEVELOPER 
+          <br></br>Academy
+        </h1>
 
             {/*create a new Gradute */}
             <div className="innerLeftPannel">
               <><p>Create a new Graduate Profile</p></>
-              <br></br>
-
+              
               <button className = "createNewButton"  onClick={() => {updateProfile(current); setVisibleInput(false); setVisibleOutput(true)}}> Create New Profile</button>
               <br></br>
               <br></br>
@@ -261,29 +261,30 @@ function TDAGradSearch(props) {
               
               <><input type="text" id="search" onChange={() => filters(document.getElementById("search").value.toUpperCase())}/></>
               <br></br>
+              
+              {/* <div className="buttonDiv"> */}
+                <button className="clearButton" onClick={() =>  unfilters("Clear Filters")}> 
+                  Clear               
+                </button>
+              {/* </div> */}
+              
               <br></br>
-
-              <button className="clearButton" onClick={() =>  unfilters("Clear Filters")}> 
-                Clear               
-              </button>
               <br></br>
-              <br></br>
-
               <><p>Search for a Profiles by Roles</p></>
 
               <><input type="text" id="searchroles" onChange={() => rolefilters(document.getElementById("searchroles").value.toUpperCase())}/></>             
               <br></br>
-              <br></br>
-
-              <button className="clearButton" onClick={() =>  roleunfilters("Clear Filters")}> 
-                  Clear            
-              </button>
+              {/* <div> */}
+                <button className="clearButton" onClick={() =>  roleunfilters("Clear Filters")}> 
+                    Clear            
+                </button>
+              {/* </div> */}
             </div>
 
        </Row>
         <br></br>
 
-      </div>
+      {/* </div> */}
 
       </div>
 
