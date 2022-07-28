@@ -119,8 +119,11 @@ function Dashboard(props) {
           <Card className = "col-md-2">
             <div>                          
             
-              <div className = "profilePicture"><img className="profileImage" src={profiles.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>                          
-              <div className = "cvSpace"><strong>Download CV Here:</strong> <a href={profiles.cv} target="_blank" rel="noopener noreferrer"> {profiles.cv}  </a></div> 
+              <div className = "profilePicture"><img className="profileImage" src={profiles.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>    
+
+              <div className = "cvSpace"><strong>Download CV Here:</strong>  </div>             
+              <div className = "cvSpace"><a href={profiles.cv} target="_blank" rel="noopener noreferrer"> {profiles.cv}  </a></div> 
+
               <div className = "smediaIcon"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> </div>   
               <div className= "smediaLink">{linkedIn()}</div>           
               <div className = "smediaIcon"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong></div>
@@ -224,7 +227,7 @@ function Dashboard(props) {
           
 
           {/* /****Column 2 - User Input form***************************************************************************************************************/}  
-         <Container className = "column2Section1 col-md-8">
+         <Container className = "column2Section11 col-md-8">
 
             {visibleOutput && 
 
@@ -250,7 +253,7 @@ function Dashboard(props) {
 
 
           {/* /****Column 2 - Profile Display table***************************************************************************************************************/}   
-          <Container className = "column2Section2 col-md-8"> 
+          <Container className = "column2Section22 col-md-8"> 
 
             {visibleInput &&  
 

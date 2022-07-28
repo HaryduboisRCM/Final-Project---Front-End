@@ -1,3 +1,17 @@
+:root {
+  --primary:#29395a;
+  --secondary:#405780;
+  --third:#9ab6ff;
+  --forth:#ffc885;
+  --fith:#f85800;
+
+  --sixth:#30405c;
+  --seventh:#4495aa;
+  --eighth:#96a4c9;
+  --ninth:#f3b546;
+  --tenth:#f27659;
+}
+
 .mainFrame {
   background-color: white;
   position: relative;
@@ -86,7 +100,7 @@
 }
 
 .topLeft {
-  background-color: #ffc885;
+  background-color: var(--ninth);
   padding: 10px;
   width: 100%;
   border-top-left-radius: 10px;
@@ -94,12 +108,13 @@
 }
 
 .topRight {
-  background-color:  #ffc885;
+  background-color: var(--ninth);
   padding: 10px;
   width: 100%;
   word-break: break-all;
   border-top-right-radius: 10px;
 }
+
 h3 {
   margin-bottom: 0px;
 }

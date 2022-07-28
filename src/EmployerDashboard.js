@@ -50,7 +50,7 @@ const section1 = () => {
         <div key={current._id}>
         
         <div className = "gradCard1">
-        <div className = "profilePicture"><img className="profileImage" src={current.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>                  
+          <div><img className="profileImage" src={current.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>                  
           <tb className = "fieldSpace"><strong>Full Name:  </strong>   {current.fullName}</tb>  <br />
           <tb className = "fieldSpace"><strong>Course Title:  </strong>   {current.courseTitle}</tb>    <br /> 
           <tb className = "fieldSpace"><strong>Email:  </strong> {current.email}</tb> <br />
@@ -129,7 +129,9 @@ const section1 = () => {
             <input type="checkbox" className = "Boxsize" name="Paired_Programming" onChange={() => filters("Paired Programming")}/><label for="Paired Programming">Paired Programming</label>
             <input type="checkbox" className = "Boxsize" name="TDD" onChange={() => filters("TDD")}/><label for="TDD">TDD</label>
             </div>
+
             <div className = "row2">
+            <br></br>
             <input type="checkbox" className = "Boxsize" name="MongoDB" onChange={() => filters("MongoDB")}/><label for="MongoDB">MongoDB</label>
             <input type="checkbox" className = "Boxsize" name="SASS" onChange={() => filters("SASS")}/><label for="SASS">SASS</label>
             <input type="checkbox" className = "Boxsize" name="Agile" onChange={() => filters("Agile")}/><label for="Agile">Agile</label>
@@ -141,7 +143,7 @@ const section1 = () => {
             <input type="checkbox" className = "Boxsize" name="Project Management" onChange={() => filters("Project Management")}/><label for="Project Management">Project Management</label>
             </div>
         </form>
-
+<br></br>
          <br /> <input type="checkbox" name="Clear Filters" className = "Boxsize" onChange={() => unfilters("Clear Filters")}/><label for="Clear Filters">Clear Filters</label>
 
          </div>
@@ -151,7 +153,7 @@ const section1 = () => {
 
           <Container className = "row col-md-12">
             
-            <div className = "column2Section2 ">
+            <div className = "column2Section23 ">
            
                <div className = "cols">
                 <Row>

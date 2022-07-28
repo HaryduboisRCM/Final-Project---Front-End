@@ -57,7 +57,7 @@
   /* flex-wrap: wrap; */
   justify-content: center;
   background-color: var(--seventh);
-  border: var(--primary) solid;
+  border: var(--ninth) solid;
   border-width: 2px;
   border-radius: 10px;
   width: 30%;
@@ -98,7 +98,7 @@
   /* display: inline-block; */
   width: 66%;
   margin-left: 5px;
-  border: var(--primary) solid;
+  border: var(--ninth) solid;
   border-width: 2px;
   border-radius: 10px;
   padding: 5px;
@@ -131,7 +131,7 @@
 
 /* /*************Column 2 Section 1 - User input data information form*****************************************************************************************************************/
 
-.column2Section1 {
+.column2Section11 {
   background-color:   var(--secondary);
   display:inline-flex;
   justify-content: space-around;
@@ -150,7 +150,7 @@
 
 
 /* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
-.column2Section2 {
+.column2Section22 {
   background-color: var(--ninth);
   padding-top: 10px;
   padding-bottom: 10px;
