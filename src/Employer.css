@@ -123,12 +123,9 @@
     padding-left: 15px;
   }
   
-  
-  
-  
-  
+ 
   /* /*************Column 2 Section 2 - View of users input data*****************************************************************************************************************/
-  .column2Section23 {
+  /* .column2Section23 { */
     /* background-color: var(--primary); */
     /* padding-left: 20px; */
     /* display: block;  */
@@ -137,7 +134,7 @@
     width: 100%; */
     /* padding-bottom: 20px; */
   
-  }
+  /* } */
   @media screen and (max-width: 600px){
     .col1, .col2 {
       flex-direction: column;
