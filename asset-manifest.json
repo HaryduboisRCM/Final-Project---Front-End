@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Final-Project---Front-End/static/css/main.09b51a81.chunk.css",
+    "main.js": "/Final-Project---Front-End/static/js/main.37ec1fd1.chunk.js",
+    "main.js.map": "/Final-Project---Front-End/static/js/main.37ec1fd1.chunk.js.map",
+    "runtime-main.js": "/Final-Project---Front-End/static/js/runtime-main.7471dbd3.js",
+    "runtime-main.js.map": "/Final-Project---Front-End/static/js/runtime-main.7471dbd3.js.map",
+    "static/css/2.e5cecc0c.chunk.css": "/Final-Project---Front-End/static/css/2.e5cecc0c.chunk.css",
+    "static/js/2.3e71b667.chunk.js": "/Final-Project---Front-End/static/js/2.3e71b667.chunk.js",
+    "static/js/2.3e71b667.chunk.js.map": "/Final-Project---Front-End/static/js/2.3e71b667.chunk.js.map",
+    "index.html": "/Final-Project---Front-End/index.html",
+    "precache-manifest.ea07ef1466f68af63590bf6883615a51.js": "/Final-Project---Front-End/precache-manifest.ea07ef1466f68af63590bf6883615a51.js",
+    "service-worker.js": "/Final-Project---Front-End/service-worker.js",
+    "static/css/2.e5cecc0c.chunk.css.map": "/Final-Project---Front-End/static/css/2.e5cecc0c.chunk.css.map",
+    "static/css/main.09b51a81.chunk.css.map": "/Final-Project---Front-End/static/css/main.09b51a81.chunk.css.map",
+    "static/js/2.3e71b667.chunk.js.LICENSE.txt": "/Final-Project---Front-End/static/js/2.3e71b667.chunk.js.LICENSE.txt",
+    "static/media/LinkedInLogo.png": "/Final-Project---Front-End/static/media/LinkedInLogo.f42257c1.png",
+    "static/media/Portfolio.png": "/Final-Project---Front-End/static/media/Portfolio.ce374ec4.png",
+    "static/media/TDA Logo.jpg": "/Final-Project---Front-End/static/media/TDA Logo.6d737825.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7471dbd3.js",
+    "static/css/2.e5cecc0c.chunk.css",
+    "static/js/2.3e71b667.chunk.js",
+    "static/css/main.09b51a81.chunk.css",
+    "static/js/main.37ec1fd1.chunk.js"
+  ]
+}
