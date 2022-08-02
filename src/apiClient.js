@@ -40,9 +40,6 @@ export class ApiClient {
     });
   }
 
-
-
-
   login(userName,password) {
     console.log(userName, password);
     return this.apiCall("post", `${url}auth`, {"userName": userName, "password": password});
@@ -59,20 +56,23 @@ export class ApiClient {
     return this.authenticatedCall("get", `${url}id/${id}`);
   }
 
-
+  // only pulls available graduates for viewing
   getEmployedProfile(employed) {
     console.log(employed)
     return this.authenticatedCall("get", `${url}employed/${employed}`);
   }
 
+  // allows the user to add a new profile
   addProfile(courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
     return this.authenticatedCall("post", url, {courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
   }
 
+  // allows the user the remove a profile
   removeProfile(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
+  //allows the user the update a profile
   updateProfile(id, courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv) {
     return this.authenticatedCall("put", `${url}${id}`, {courseTitle, fullName, email, contactNumber, city, bio, skills, linkedIn, gitHub, portfolio, employed, image, cv});
   }

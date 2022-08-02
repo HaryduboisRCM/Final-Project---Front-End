@@ -1,37 +1,29 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-// import {Link } from "react";
 import './App.css';
 import './Login.css';
 import './Navigation.css';
 import './Buttons.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar'
-// import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Add from './Add';
-// import Login from './Login';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 import logo from "./TDA Logo.jpg";
 import LinkedIn from "./LinkedInLogo.png";
-// import CV from "./CV Logo3.png";
 import GitHub from "./GitHub Logo.png";
-// import WebPort from "./webport.png";
 import Portfolio from "./Portfolio.png";
 
 function Dashboard(props) {
   const [profiles, cProfiles] = useState({});
   const [current, cCurrent] = useState(undefined);
+  const [visibleOutput, setVisibleOutput] = useState(false);
+  const [visibleInput, setVisibleInput] = useState(true);
     
   const refreshList = () => {
     props.client.getGradProfile(props.token).then((response) => cProfiles(response.data));
   };
-
-  // const removeProfile = (id) => {
-  //   props.client.removeProfile(id).then(() => refreshList());
-  // };
 
   const updateProfile = (profile) => {
     cCurrent(profile);
@@ -41,7 +33,6 @@ function Dashboard(props) {
     refreshList();
     console.log(props)
   }, []);
-
 
   const linkedIn = () => {
       return (
@@ -67,23 +58,12 @@ function Dashboard(props) {
        );
    };
 
-  //  const email = () => {
-  //     return (
-  //       <div>
-  //           <a href={profiles.email} target="_blank"> {profiles.email} </a>
-  //      </div>
-  //      );
-
-  //  };
-
-
   const section = () => {
       return (
         <div>
           <Card className = "col-md-8">
             <div>
 
-              {/* <div className = "fieldSpace"><strong>Username:</strong>  {profiles.userName}</div> */}
               <div className = "fieldSpace"><strong>Full Name:</strong>   {profiles.fullName}</div>      
               <div className = "fieldSpace"><strong>Course Title:</strong>   {profiles.courseTitle}</div>
               
@@ -120,10 +100,8 @@ function Dashboard(props) {
             <div>                          
             
               <div className = "profilePicture"><img className="profileImage" src={profiles.image} alt ="Grad Profile" width="100px" height="100px"/> <br></br><strong></strong></div>    
-
               <div className = "cvSpace"><strong>Download CV Here:</strong>  </div>             
               <div className = "cvSpace"><a href={profiles.cv} target="_blank" rel="noopener noreferrer"> {profiles.cv}  </a></div> 
-
               <div className = "smediaIcon"><img src={LinkedIn} width="50" height="50" alt="LinkedIn Logo"/><strong></strong> </div>   
               <div className= "smediaLink">{linkedIn()}</div>           
               <div className = "smediaIcon"> <img src={GitHub} width="50" height="50" alt="TDA logo"/><strong></strong></div>
@@ -136,24 +114,6 @@ function Dashboard(props) {
         </div>
       );
   };
-
-
-  // const section2 = () => {
-  //     return (
-  //       <div>
-  //         <Card >
-  //           <div>
-                 
-
-  //           </div>
-  //          </Card>
-  //       </div>
-  //     );
-  // };
-
-  const [visibleOutput, setVisibleOutput] = useState(false);
-  const [visibleInput, setVisibleInput] = useState(true);
-
 
   const section3 = () => {
       return (
@@ -174,60 +134,55 @@ function Dashboard(props) {
   return (
     <Container>
 
-
-{/* /****Navigation Bar****************************************************************************************************************************/}
-    
-
-<Navbar  className = "header col-md-12">
-  <Container >
-    <Navbar.Brand href="#home">
-      <img
-        src={logo}
-        width="140"
-        height="140"
-        // className="d-inline-block align-top"
-        alt="TDA logo"
-      />
-    </Navbar.Brand>
-  </Container>
-</Navbar>
-
-
-
-
-{/* /****Main Container*********************************************************************************************************************************/}
-
-<Container fluid className = "mainContainer col-md-12">
-
-      <Container fluid className ="column1 col-md-4">
-      {/* /****Column 1 - Image and links***************************************************************************************************************/}
-    
-        <div>
-        
-          <div className = "socialSpacing">        
-          </div>  
+      {/* /****Navigation Bar****************************************************************************************************************************/}
           
-          <div className = "socialMedia">
-            {Media()}
+      <Navbar  className = "header col-md-12">
+        <Container >
+          <Navbar.Brand href="#home">
+            <img
+              src={logo}
+              width="140"
+              height="140"
+              alt="TDA logo"
+            />
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+
+
+      {/* /****Main Container*********************************************************************************************************************************/}
+
+      <Container fluid className = "mainContainer col-md-12">
+
+        <Container fluid className ="column1 col-md-4">
+        {/* /****Column 1 - Image and links***************************************************************************************************************/}
+      
+          <div>
+          
+            <div className = "socialSpacing">        
+            </div>  
+            
+            <div className = "socialMedia">
+              {Media()}
+            </div>
+
           </div>
 
-        </div>
+        </Container>
 
-      </Container>
+        {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
+      
+        <Container className = "column2 col-md-8">
 
-      {/* /****Column 2 - Name, details and 2 tabs***************************************************************************************************************/}      
-    
-      <Container className = "column2 col-md-8">
+            <div className="userField">
+              <Col>{section()}</Col>
+              <Col>{section3()}</Col>
+            </div>
 
-          <div className="userField">
-            <Col>{section()}</Col>
-            <Col>{section3()}</Col>
-          </div>
+            
 
-          
-
-          {/* /****Column 2 - User Input form***************************************************************************************************************/}  
-         <Container className = "column2Section11 col-md-8">
+        {/* /****Column 2 - User Input form***************************************************************************************************************/}  
+        <Container className = "column2Section11 col-md-8">
 
             {visibleOutput && 
 
@@ -241,10 +196,9 @@ function Dashboard(props) {
                         cCurrent(undefined);
                         window.location.reload(true) 
                       }}
-                      currentProfile={profiles}
-                     
-                    />
+                      currentProfile={profiles} />
                   </Col>
+
               </Row> 
               
             }
@@ -252,46 +206,28 @@ function Dashboard(props) {
           </Container>
 
 
-          {/* /****Column 2 - Profile Display table***************************************************************************************************************/}   
-          <Container className = "column2Section22 col-md-8"> 
+            {/* /****Column 2 - Profile Display table***************************************************************************************************************/}   
+            <Container className = "column2Section22 col-md-8"> 
 
-            {visibleInput &&  
+              {visibleInput &&  
 
-              <div className = "col1">
+                <div className = "col1">
 
-              
-                  <Row className="col-md-4">
-                    <Col>{section1()}</Col> <br></br>
-                    {/* <Col>{section2()}</Col> */}
-                  </Row>
-          
-                  {/* <Row className="col2 col-md-4">
-                    <Col>{section2()}</Col>
-                  </Row> */}
+                    <Row className="col-md-4">
+                      <Col>{section1()}</Col> <br></br>
+                    </Row>
+
+                </div>
+
+              }
+
+            </Container> 
 
 
-                  {/* <Col>{section1()}</Col>
-                  <Col>{section2()}</Col> */}
-
-              </div>
-
-                }
+        </Container>
     
-
-                {/* <Row className="col-md-4">
-                  <div>{section3()}</div>
-                </Row>  */}
-            
-
-
-
-          </Container> 
-
-
-  </Container>
-  
-{/* /********************************************************************************************************************************/}      
-    </Container>
+  {/* /********************************************************************************************************************************/}      
+      </Container>
       
 {/* /**********************************************************************************************************************/}
     </Container>
